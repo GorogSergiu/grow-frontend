@@ -1,0 +1,287 @@
+{
+  "nav": {
+    "features": "Features",
+    "how": "How it works",
+    "login": "Login",
+    "start": "Start now"
+  },
+
+  "hero": {
+    "badge": "AI strategy for content creators",
+    "title_line_1": "Clarity, consistency",
+    "title_line_2": "and a strategy you can follow.",
+    "subtitle": "Connect your socials and get a personalized 6–12 month plan, built around your niche, content style and goals.",
+    "cta_primary": "Get started",
+    "cta_secondary": "Learn more"
+  },
+
+  "auth": {
+    "login_title": "Welcome back",
+    "login_subtitle": "Log in to continue.",
+    "signup_title": "Create your account",
+    "signup_subtitle": "Start building your strategy in minutes.",
+    "email": "Email",
+    "password": "Password",
+    "login": "Log in",
+    "signup": "Sign up",
+    "loading": "Please wait...",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "go_signup": "Sign up",
+    "go_login": "Log in",
+    "google": "Continue with Google",
+    "or": "or",
+    "confirm_password": "Confirm password",
+    "password_requirements": "Password must contain:",
+    "password_min_length": "At least 8 characters",
+    "password_uppercase": "One uppercase letter",
+    "password_lowercase": "One lowercase letter",
+    "password_number": "One number",
+    "passwords_match": "Passwords match",
+    "passwords_not_match": "Passwords do not match",
+    "password_invalid": "Password does not meet requirements",
+    "password_not_match_error": "Passwords do not match"
+  },
+
+  "app": {
+    "nav": {
+      "overview": "Overview",
+      "calendar": "Calendar",
+      "strategy": "Strategy",
+      "settings": "Settings",
+      "logout": "Logout",
+      "account": "Account"
+    }
+  },
+  "platform": {
+    "tiktok": "TikTok",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+  "dashboard": {
+    "overview": { "title": "Overview" },
+
+    "calendar": {
+      "form": {
+        "title": "Title",
+        "titlePlaceholder": "e.g. 5 outfit ideas for...",
+        "platform": "Platform",
+        "status": "Status",
+        "pillar": "Content pillar",
+        "pillarPlaceholder": "e.g. Tips & How-Tos",
+        "scheduledDate": "Scheduled date"
+      },
+      "status": {
+        "idea": "Idea",
+        "scheduled": "Scheduled",
+        "posted": "Posted"
+      },
+
+      "title": "Calendar",
+      "subtitle": "Plan ideas, schedule posts, and generate content with AI.",
+
+      "all": "All",
+      "month": "Month",
+      "week": "Week",
+      "weekView": "This week",
+
+      "add": "Add",
+      "generateAi": "Generate with AI",
+
+      "items": "Items",
+      "search": "Search ideas…",
+
+      "addIdea": "Add idea",
+      "schedule": "Schedule",
+
+      "scheduled": "Scheduled",
+      "emptyScheduled": "Nothing scheduled yet.",
+
+      "ideas": "Ideas",
+      "emptyIdeas": "No ideas yet.",
+
+      "create": "Create item",
+      "edit": "Edit item",
+
+      "more": "+{{n}} more"
+    },
+
+    "analytics": {
+      "totalViews": "Total Views",
+      "avgViews": "Avg. Views",
+      "engagementRate": "Engagement Rate",
+      "avgEngagement": "Avg. Engagement",
+
+      "totalLikes": "Total Likes",
+      "totalComments": "Total Comments",
+      "totalEngagement": "Total Engagement",
+
+      "sample": "Based on last {{n}} videos",
+      "sampleInstagram": "Based on last {{n}} posts"
+    },
+
+    "topContent": {
+      "title": "Top Performing Content",
+
+      "empty": "No content yet. Sync YouTube to populate this list.",
+      "emptyInstagram": "No content yet. Sync Instagram to populate this list.",
+
+      "untitled": "Untitled"
+    },
+
+    "calendarPreview": {
+      "title": "Upcoming schedule",
+      "viewCalendar": "View calendar",
+      "empty": "No upcoming items yet."
+    },
+
+    "platforms": {
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "instagram": "Instagram"
+    },
+
+    "youtube": {
+      "title": "YouTube",
+      "connected": "Connected",
+      "notConnectedHint": "Connect YouTube to populate analytics and top content.",
+      "connect": "Connect YouTube",
+      "syncNow": "Sync now",
+      "syncing": "Syncing…",
+      "lastSync": "Last sync {{when}}"
+    },
+
+    "instagram": {
+      "title": "Instagram",
+      "connected": "Connected",
+      "notConnectedHint": "Connect Instagram to populate analytics and top content.",
+      "connect": "Connect Instagram",
+      "syncNow": "Sync now",
+      "syncing": "Syncing…",
+      "lastSync": "Last sync {{when}}"
+    },
+
+    "tiktok": {
+      "title": "TikTok",
+      "connected": "Connected",
+      "connectedHint": "TikTok is connected. You can sync your latest posts.",
+      "notConnectedHint": "Connect TikTok to populate analytics and top content.",
+      "lastSync": "Last sync {{when}}",
+      "connect": "Connect TikTok",
+      "syncNow": "Sync now",
+      "syncing": "Syncing…"
+    }
+  },
+
+  "onboarding": {
+    "title": "Quick setup",
+    "subtitle": "Answer a few questions so we can personalize your strategy.",
+    "step": "Step {{current}} of {{total}}",
+    "back": "Back",
+    "continue": "Continue",
+    "finish": "Finish",
+    "saving": "Saving…",
+
+    "step1": {
+      "title": "About you",
+      "creatorType": "What kind of creator are you?",
+      "experience": "Experience level",
+      "style": "Your content style (pick up to 2)"
+    },
+
+    "step2": {
+      "title": "Your goal",
+      "goal": "Main goal for the next 6–12 months",
+      "intensity": "How aggressive should the strategy be?",
+      "time": "How much time can you spend per week?"
+    },
+
+    "step3": {
+      "title": "Preferences",
+      "constraints": "What do you NOT want to do?",
+      "platforms": "Preferred platforms",
+      "audience": "Optional: describe your audience in one sentence",
+      "audiencePlaceholder": "e.g. young women interested in routines and self-improvement"
+    },
+
+    "options": {
+      "creatorType": {
+        "lifestyle": "Lifestyle creator",
+        "educational": "Educational creator",
+        "entertainment": "Entertainer",
+        "business": "Business / personal brand",
+        "other": "Other"
+      },
+      "experience": {
+        "beginner": "Beginner (0–10k)",
+        "growing": "Growing (10k–100k)",
+        "established": "Established (100k+)"
+      },
+      "style": {
+        "day_in_life": "Day in my life",
+        "tutorials": "Tutorials / how-tos",
+        "stories": "Personal stories",
+        "bts": "Behind the scenes",
+        "opinions": "Opinion-based"
+      },
+      "goal": {
+        "grow": "Grow audience",
+        "consistent": "Become more consistent",
+        "monetize": "Monetize content",
+        "clarify": "Clarify niche"
+      },
+      "intensity": {
+        "chill": "Chill (low pressure)",
+        "balanced": "Balanced",
+        "aggressive": "Aggressive growth"
+      },
+      "time": {
+        "2_3": "2–3 hours",
+        "5_7": "5–7 hours",
+        "10_plus": "10+ hours"
+      },
+      "constraints": {
+        "no_face": "Show my face",
+        "no_talk": "Talk on camera",
+        "no_daily": "Daily posting",
+        "no_trends": "Trend hopping",
+        "no_long": "Long-form content"
+      },
+      "platforms": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+      }
+    }
+  },
+
+  "settings": {
+    "integrations": {
+      "title": "Integrations",
+      "connectYoutube": "Connect YouTube",
+      "syncYoutube": "Sync YouTube",
+      "syncing": "Syncing…",
+      "connected": "Connected",
+      "notConnected": "Not connected",
+      "youtubeConnectedHint": "Your YouTube channel is connected and ready to sync.",
+      "youtubeNotConnectedHint": "Connect your YouTube channel to analyze your content.",
+      "connectInstagram": "Connect Instagram",
+      "syncInstagram": "Sync Instagram",
+      "instagramConnectedHint": "Instagram is connected. You can sync your latest posts.",
+      "instagramNotConnectedHint": "Connect Instagram to fetch your posts and insights.",
+      "connectTiktok": "Connect TikTok",
+      "syncTiktok": "Sync TikTok",
+      "tiktokConnectedHint": "TikTok is connected. You can sync your latest posts.",
+      "tiktokNotConnectedHint": "Connect TikTok to populate analytics and top content."
+    }
+  },
+
+  "common": {
+    "loading": "Loading…",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "save": "Save",
+    "prev": "Prev",
+    "next": "Next"
+  }
+}
