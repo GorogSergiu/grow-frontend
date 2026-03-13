@@ -131,13 +131,10 @@ export default function StrategyPage() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-lg font-semibold">
-            {t("dashboard.strategy.title", { defaultValue: "Strategy" })}
+            {t("dashboard.strategy.title")}
           </h2>
           <p className="text-sm text-muted-foreground">
-            {t("dashboard.strategy.subtitle", {
-              defaultValue:
-                "Your AI-generated social media strategy based on onboarding and connected platform insights.",
-            })}
+            {t("dashboard.strategy.subtitle")}
           </p>
         </div>
 
@@ -147,12 +144,8 @@ export default function StrategyPage() {
           disabled={generating}
         >
           {generating
-            ? t("dashboard.strategy.generating", {
-                defaultValue: "Generating…",
-              })
-            : t("dashboard.strategy.generate", {
-                defaultValue: "Generate strategy",
-              })}
+            ? t("dashboard.strategy.generating")
+            : t("dashboard.strategy.generate")}
         </Button>
       </div>
 
@@ -173,10 +166,7 @@ export default function StrategyPage() {
       {!loading && !strategyJson ? (
         <Card className="border-0 surface-solid">
           <CardContent className="py-10 text-sm text-muted-foreground">
-            {t("dashboard.strategy.empty", {
-              defaultValue:
-                "You don’t have a generated strategy yet. Connect your socials and generate one.",
-            })}
+            {t("dashboard.strategy.empty")}
           </CardContent>
         </Card>
       ) : null}
@@ -186,15 +176,13 @@ export default function StrategyPage() {
           <Card className="border-0 surface-solid">
             <CardHeader>
               <CardTitle>
-                {t("dashboard.strategy.summary", { defaultValue: "Summary" })}
+                {t("dashboard.strategy.summary")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <div className="text-sm font-medium">
-                  {t("dashboard.strategy.positioning", {
-                    defaultValue: "Positioning",
-                  })}
+                  {t("dashboard.strategy.positioning")}
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {strategyJson.positioning}
@@ -203,9 +191,7 @@ export default function StrategyPage() {
 
               <div>
                 <div className="text-sm font-medium">
-                  {t("dashboard.strategy.overview", {
-                    defaultValue: "Overview",
-                  })}
+                  {t("dashboard.strategy.overview")}
                 </div>
                 <p className="mt-1 text-sm text-muted-foreground">
                   {strategyJson.summary}
@@ -217,9 +203,7 @@ export default function StrategyPage() {
           <Card className="border-0 surface-solid">
             <CardHeader>
               <CardTitle>
-                {t("dashboard.strategy.objectives", {
-                  defaultValue: "Core objectives",
-                })}
+                {t("dashboard.strategy.objectives")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
@@ -237,9 +221,7 @@ export default function StrategyPage() {
           <Card className="border-0 surface-solid">
             <CardHeader>
               <CardTitle>
-                {t("dashboard.strategy.pillars", {
-                  defaultValue: "Content pillars",
-                })}
+                {t("dashboard.strategy.pillars")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -254,9 +236,7 @@ export default function StrategyPage() {
                   </div>
                   <div className="mt-3 text-sm">
                     <span className="font-medium">
-                      {t("dashboard.strategy.whyItMatters", {
-                        defaultValue: "Why it matters:",
-                      })}
+                      {t("dashboard.strategy.whyItMatters")}
                     </span>{" "}
                     <span className="text-muted-foreground">
                       {pillar.why_it_matters}
@@ -280,9 +260,7 @@ export default function StrategyPage() {
           <Card className="border-0 surface-solid">
             <CardHeader>
               <CardTitle>
-                {t("dashboard.strategy.platformStrategy", {
-                  defaultValue: "Platform strategy",
-                })}
+                {t("dashboard.strategy.platformStrategy")}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -297,9 +275,7 @@ export default function StrategyPage() {
                   </div>
                   <div className="mt-3 text-sm">
                     <span className="font-medium">
-                      {t("dashboard.strategy.frequency", {
-                        defaultValue: "Posting frequency:",
-                      })}
+                      {t("dashboard.strategy.frequency")}
                     </span>{" "}
                     <span className="text-muted-foreground">
                       {item.posting_frequency}
@@ -324,9 +300,7 @@ export default function StrategyPage() {
             <Card className="border-0 surface-solid">
               <CardHeader>
                 <CardTitle>
-                  {t("dashboard.strategy.growthMoves", {
-                    defaultValue: "Growth moves",
-                  })}
+                  {t("dashboard.strategy.growthMoves")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
@@ -344,9 +318,7 @@ export default function StrategyPage() {
             <Card className="border-0 surface-solid">
               <CardHeader>
                 <CardTitle>
-                  {t("dashboard.strategy.next30Days", {
-                    defaultValue: "Next 30 days focus",
-                  })}
+                  {t("dashboard.strategy.next30Days")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">

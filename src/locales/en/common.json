@@ -50,14 +50,23 @@
       "strategy": "Strategy",
       "settings": "Settings",
       "logout": "Logout",
-      "account": "Account"
+      "account": "Account",
+      "workspace": "Your workspace"
     }
   },
+
+  "logout": {
+    "title": "Logout",
+    "subtitle": "Sign out from your account",
+    "loading": "Logging out…"
+  },
+
   "platform": {
     "tiktok": "TikTok",
     "instagram": "Instagram",
     "youtube": "YouTube"
   },
+
   "dashboard": {
     "overview": { "title": "Overview" },
 
@@ -84,6 +93,7 @@
       "month": "Month",
       "week": "Week",
       "weekView": "This week",
+      "weekViewPlaceholder": "Week view coming soon.",
 
       "add": "Add",
       "generateAi": "Generate with AI",
@@ -104,6 +114,24 @@
       "edit": "Edit item",
 
       "more": "+{{n}} more"
+    },
+
+    "strategy": {
+      "title": "Strategy",
+      "subtitle": "Your AI-generated social media strategy based on onboarding and connected platform insights.",
+      "generate": "Generate strategy",
+      "generating": "Generating…",
+      "empty": "You don't have a generated strategy yet. Connect your socials and generate one.",
+      "summary": "Summary",
+      "positioning": "Positioning",
+      "overview": "Overview",
+      "objectives": "Core objectives",
+      "pillars": "Content pillars",
+      "whyItMatters": "Why it matters:",
+      "platformStrategy": "Platform strategy",
+      "frequency": "Posting frequency:",
+      "growthMoves": "Growth moves",
+      "next30Days": "Next 30 days focus"
     },
 
     "analytics": {
@@ -182,6 +210,12 @@
     "finish": "Finish",
     "saving": "Saving…",
 
+    "entityType": {
+      "title": "Choose your profile type",
+      "creator": "Content Creator",
+      "business": "Business Owner"
+    },
+
     "step1": {
       "title": "About you",
       "creatorType": "What kind of creator are you?",
@@ -251,6 +285,99 @@
         "tiktok": "TikTok",
         "instagram": "Instagram",
         "youtube": "YouTube"
+      }
+    },
+
+    "creator": {
+      "title": "Content Creator",
+      "goals": "Your main goals (upcoming period)",
+      "goalsPlaceholder": "e.g. grow +20% followers, brand deals, monetization…",
+      "outcomes": "Concrete results in 3–6 months",
+      "outcomesPlaceholder": "e.g. 500k views/month, 6% ER, 2 deals/month…",
+      "challenges": "Current challenges",
+      "challengesPlaceholder": "e.g. lack of ideas, limited time, low performance…",
+      "audience": "Ideal audience",
+      "audiencePlaceholder": "Age, gender, location, interests, problems…",
+      "voice": "Your unique voice",
+      "voicePlaceholder": "e.g. educational, fun, raw/authentic…",
+      "contentTypes": "Content types that represent you",
+      "values": "Recurring themes / core values",
+      "valuesPlaceholder": "e.g. sustainability, self growth, minimalism…",
+      "weeklyHours": "How many hours per week?",
+      "teamBudget": "Team / budget?",
+      "platforms": "Platforms",
+      "primaryPlatform": "Primary platform",
+      "postingFrequency": "Preferred posting frequency (per platform)",
+      "postingFrequencyPlaceholder": "e.g. TikTok daily, Instagram 3x/week, YouTube 1x/week…",
+      "avoidContent": "What content do you want to avoid?",
+      "avoidContentPlaceholder": "e.g. politics, very long content, trends…",
+      "selectPlatform": "Select at least one platform.",
+      "choosePrimary": "Choose a primary platform.",
+      "contentTypeOptions": {
+        "vlog": "Vlog / day in my life",
+        "tutorial": "Tutorials / how-to",
+        "challenge": "Challenges",
+        "stories": "Personal stories",
+        "bts": "Behind the scenes",
+        "reviews": "Reviews / recommendations"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 hours",
+        "3_5": "3–5 hours",
+        "6_10": "6–10 hours",
+        "10_plus": "10+ hours"
+      },
+      "teamBudgetOptions": {
+        "no": "No",
+        "some": "A bit (tools / occasional editor)",
+        "yes": "Yes (team / consistent budget)"
+      }
+    },
+
+    "business": {
+      "title": "Business Owner",
+      "industry": "Industry",
+      "industryPlaceholder": "e.g. beauty, fitness, e-commerce, local services…",
+      "productsServices": "Products / services",
+      "productsServicesPlaceholder": "What you sell, briefly + what differentiates you.",
+      "socialGoals": "Social media goals",
+      "kpiTargets": "KPI targets",
+      "kpiTargetsPlaceholder": "e.g. 50 leads/month, 10 sales from IG, 3% CTR…",
+      "idealCustomer": "Ideal customer",
+      "idealCustomerPlaceholder": "Age, location, job, needs, online habits…",
+      "weeklyHours": "How many hours per week?",
+      "adsBudget": "Ads / tools budget?",
+      "platforms": "Platforms",
+      "primaryPlatform": "Primary platform",
+      "preferredContentTypes": "Preferred content types",
+      "avoidContent": "What content do you avoid?",
+      "avoidContentPlaceholder": "e.g. long videos, trends, something that doesn't fit the brand…",
+      "selectPlatform": "Select at least one platform.",
+      "choosePrimary": "Choose a primary platform.",
+      "socialGoalOptions": {
+        "leads": "Leads",
+        "sales": "Direct sales",
+        "traffic": "Website traffic",
+        "awareness": "Awareness"
+      },
+      "adsBudgetOptions": {
+        "no": "No",
+        "some": "A bit (occasional)",
+        "yes": "Yes (consistent)"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 hours",
+        "3_5": "3–5 hours",
+        "6_10": "6–10 hours",
+        "10_plus": "10+ hours"
+      },
+      "contentTypeOptions": {
+        "educational": "Educational",
+        "behind_the_scenes": "Behind the scenes",
+        "testimonials": "Testimonials",
+        "product_showcase": "Product showcase",
+        "offers_promos": "Offers / promotions",
+        "authority_content": "Authority / expertise"
       }
     }
   },

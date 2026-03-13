@@ -7,10 +7,10 @@
   },
 
   "hero": {
-    "badge": "Strategie AI pentru creatori de conținut",
+    "badge": "Strategie AI pentru creatorii de conținut",
     "title_line_1": "Claritate, consecvență",
     "title_line_2": "și o strategie pe care o poți urma.",
-    "subtitle": "Conectează-ți rețelele sociale și primește un plan personalizat pe 6–12 luni, adaptat nișei și obiectivelor tale.",
+    "subtitle": "Conectează-ți rețelele sociale și primești un plan personalizat pe 6–12 luni, construit în jurul nișei tale, stilului tău de conținut și obiectivelor tale.",
     "cta_primary": "Începe",
     "cta_secondary": "Află mai multe"
   },
@@ -18,17 +18,17 @@
   "auth": {
     "login_title": "Bine ai revenit",
     "login_subtitle": "Autentifică-te pentru a continua.",
-    "signup_title": "Creează contul",
-    "signup_subtitle": "Începe să-ți construiești strategia în câteva minute.",
+    "signup_title": "Creează-ți contul",
+    "signup_subtitle": "Începe să-ți construiești strategia în doar câteva minute.",
     "email": "Email",
     "password": "Parolă",
     "login": "Autentificare",
-    "signup": "Creează cont",
-    "loading": "Te rog așteaptă...",
-    "no_account": "Nu ai cont?",
-    "have_account": "Ai deja cont?",
-    "go_signup": "Creează cont",
-    "go_login": "Autentificare",
+    "signup": "Înregistrare",
+    "loading": "Te rugăm să aștepți...",
+    "no_account": "Nu ai un cont?",
+    "have_account": "Ai deja un cont?",
+    "go_signup": "Înregistrează-te",
+    "go_login": "Autentifică-te",
     "google": "Continuă cu Google",
     "or": "sau",
     "confirm_password": "Confirmă parola",
@@ -37,39 +37,48 @@
     "password_uppercase": "O literă mare",
     "password_lowercase": "O literă mică",
     "password_number": "Un număr",
-    "passwords_match": "Parolele coincid",
-    "passwords_not_match": "Parolele nu coincid",
-    "password_invalid": "Parola nu respectă cerințele",
-    "password_not_match_error": "Parolele nu coincid"
+    "passwords_match": "Parolele se potrivesc",
+    "passwords_not_match": "Parolele nu se potrivesc",
+    "password_invalid": "Parola nu îndeplinește cerințele",
+    "password_not_match_error": "Parolele nu se potrivesc"
   },
 
   "app": {
     "nav": {
-      "overview": "Overview",
+      "overview": "Prezentare generală",
       "calendar": "Calendar",
       "strategy": "Strategie",
       "settings": "Setări",
-      "logout": "Logout",
-      "account": "Cont"
+      "logout": "Deconectare",
+      "account": "Cont",
+      "workspace": "Spațiul tău de lucru"
     }
   },
+
+  "logout": {
+    "title": "Deconectare",
+    "subtitle": "Ieși din contul tău",
+    "loading": "Se efectuează deconectarea…"
+  },
+
   "platform": {
     "tiktok": "TikTok",
     "instagram": "Instagram",
     "youtube": "YouTube"
   },
+
   "dashboard": {
     "overview": { "title": "Prezentare generală" },
 
     "calendar": {
       "form": {
         "title": "Titlu",
-        "titlePlaceholder": "ex: 5 idei de outfit pentru...",
+        "titlePlaceholder": "ex. 5 idei de ținute pentru...",
         "platform": "Platformă",
         "status": "Status",
-        "pillar": "Pilon",
-        "pillarPlaceholder": "ex: Tips & How-Tos",
-        "scheduledDate": "Data programării"
+        "pillar": "Pilon de conținut",
+        "pillarPlaceholder": "ex. Sfaturi & ghiduri",
+        "scheduledDate": "Data programată"
       },
       "status": {
         "idea": "Idee",
@@ -84,6 +93,7 @@
       "month": "Lună",
       "week": "Săptămână",
       "weekView": "Săptămâna aceasta",
+      "weekViewPlaceholder": "Vizualizarea pe săptămână va fi disponibilă în curând.",
 
       "add": "Adaugă",
       "generateAi": "Generează cu AI",
@@ -95,15 +105,33 @@
       "schedule": "Programează",
 
       "scheduled": "Programate",
-      "emptyScheduled": "Încă nu ai nimic programat.",
+      "emptyScheduled": "Nu ai nimic programat încă.",
 
       "ideas": "Idei",
-      "emptyIdeas": "Încă nu există idei.",
+      "emptyIdeas": "Nu ai idei încă.",
 
       "create": "Creează element",
       "edit": "Editează element",
 
       "more": "+{{n}} în plus"
+    },
+
+    "strategy": {
+      "title": "Strategie",
+      "subtitle": "Strategia ta de social media generată de AI pe baza onboardingului și a informațiilor din platformele conectate.",
+      "generate": "Generează strategia",
+      "generating": "Se generează…",
+      "empty": "Nu ai încă o strategie generată. Conectează-ți rețelele sociale și generează una.",
+      "summary": "Rezumat",
+      "positioning": "Poziționare",
+      "overview": "Prezentare generală",
+      "objectives": "Obiective principale",
+      "pillars": "Piloni de conținut",
+      "whyItMatters": "De ce contează:",
+      "platformStrategy": "Strategie pe platforme",
+      "frequency": "Frecvența postărilor:",
+      "growthMoves": "Acțiuni pentru creștere",
+      "next30Days": "Focus pentru următoarele 30 de zile"
     },
 
     "analytics": {
@@ -121,18 +149,18 @@
     },
 
     "topContent": {
-      "title": "Conținut cu cele mai bune performanțe",
+      "title": "Conținut cu cea mai bună performanță",
 
-      "empty": "Încă nu există conținut. Sincronizează YouTube ca să apară aici.",
-      "emptyInstagram": "Încă nu există conținut. Sincronizează Instagram ca să apară aici.",
+      "empty": "Nu există conținut încă. Sincronizează YouTube pentru a popula această listă.",
+      "emptyInstagram": "Nu există conținut încă. Sincronizează Instagram pentru a popula această listă.",
 
       "untitled": "Fără titlu"
     },
 
     "calendarPreview": {
-      "title": "Următoarele postări",
+      "title": "Programări viitoare",
       "viewCalendar": "Vezi calendarul",
-      "empty": "Nu există postări programate încă."
+      "empty": "Nu ai încă elemente viitoare."
     },
 
     "platforms": {
@@ -144,7 +172,7 @@
     "youtube": {
       "title": "YouTube",
       "connected": "Conectat",
-      "notConnectedHint": "Conectează YouTube ca să apară analytics și top content.",
+      "notConnectedHint": "Conectează YouTube pentru a vedea analizele și conținutul de top.",
       "connect": "Conectează YouTube",
       "syncNow": "Sincronizează acum",
       "syncing": "Se sincronizează…",
@@ -154,7 +182,7 @@
     "instagram": {
       "title": "Instagram",
       "connected": "Conectat",
-      "notConnectedHint": "Conectează Instagram ca să apară analytics și top content.",
+      "notConnectedHint": "Conectează Instagram pentru a vedea analizele și conținutul de top.",
       "connect": "Conectează Instagram",
       "syncNow": "Sincronizează acum",
       "syncing": "Se sincronizează…",
@@ -164,8 +192,8 @@
     "tiktok": {
       "title": "TikTok",
       "connected": "Conectat",
-      "connectedHint": "TikTok este conectat. Poți sincroniza ultimele postări.",
-      "notConnectedHint": "Conectează TikTok ca să apară analytics și top content.",
+      "connectedHint": "TikTok este conectat. Îți poți sincroniza cele mai recente postări.",
+      "notConnectedHint": "Conectează TikTok pentru a vedea analizele și conținutul de top.",
       "lastSync": "Ultima sincronizare {{when}}",
       "connect": "Conectează TikTok",
       "syncNow": "Sincronizează acum",
@@ -174,25 +202,31 @@
   },
 
   "onboarding": {
-    "title": "Setare rapidă",
-    "subtitle": "Răspunde la câteva întrebări ca să personalizăm strategia.",
+    "title": "Configurare rapidă",
+    "subtitle": "Răspunde la câteva întrebări ca să-ți putem personaliza strategia.",
     "step": "Pasul {{current}} din {{total}}",
     "back": "Înapoi",
     "continue": "Continuă",
     "finish": "Finalizează",
     "saving": "Se salvează…",
 
+    "entityType": {
+      "title": "Alege tipul profilului tău",
+      "creator": "Creator de conținut",
+      "business": "Proprietar de afacere"
+    },
+
     "step1": {
       "title": "Despre tine",
       "creatorType": "Ce tip de creator ești?",
       "experience": "Nivel de experiență",
-      "style": "Stilul tău de conținut (maxim 2)"
+      "style": "Stilul tău de conținut (alege până la 2)"
     },
 
     "step2": {
       "title": "Obiectivul tău",
-      "goal": "Obiectiv principal pentru următoarele 6–12 luni",
-      "intensity": "Cât de intensă să fie strategia?",
+      "goal": "Obiectivul principal pentru următoarele 6–12 luni",
+      "intensity": "Cât de ambițioasă să fie strategia?",
       "time": "Cât timp poți aloca pe săptămână?"
     },
 
@@ -200,17 +234,17 @@
       "title": "Preferințe",
       "constraints": "Ce NU vrei să faci?",
       "platforms": "Platforme preferate",
-      "audience": "Opțional: descrie audiența într-o propoziție",
-      "audiencePlaceholder": "ex: femei tinere interesate de rutine și self-improvement"
+      "audience": "Opțional: descrie publicul tău într-o singură propoziție",
+      "audiencePlaceholder": "ex. femei tinere interesate de rutine și dezvoltare personală"
     },
 
     "options": {
       "creatorType": {
-        "lifestyle": "Lifestyle",
-        "educational": "Educațional",
-        "entertainment": "Entertainment",
-        "business": "Business / personal brand",
-        "other": "Altceva"
+        "lifestyle": "Creator de lifestyle",
+        "educational": "Creator educațional",
+        "entertainment": "Creator de entertainment",
+        "business": "Business / brand personal",
+        "other": "Altul"
       },
       "experience": {
         "beginner": "Începător (0–10k)",
@@ -218,21 +252,21 @@
         "established": "Consolidat (100k+)"
       },
       "style": {
-        "day_in_life": "Day in my life",
-        "tutorials": "Tutoriale / how-to",
+        "day_in_life": "O zi din viața mea",
+        "tutorials": "Tutoriale / ghiduri",
         "stories": "Povești personale",
-        "bts": "Behind the scenes",
-        "opinions": "Opinii"
+        "bts": "Din culise",
+        "opinions": "Bazat pe opinii"
       },
       "goal": {
-        "grow": "Creștere audiență",
-        "consistent": "Mai multă consecvență",
-        "monetize": "Monetizare",
-        "clarify": "Clarificare nișă"
+        "grow": "Creșterea audienței",
+        "consistent": "Să devin mai consecvent(ă)",
+        "monetize": "Monetizarea conținutului",
+        "clarify": "Clarificarea nișei"
       },
       "intensity": {
-        "chill": "Chill (fără presiune)",
-        "balanced": "Echilibrat",
+        "chill": "Relaxată (presiune redusă)",
+        "balanced": "Echilibrată",
         "aggressive": "Creștere agresivă"
       },
       "time": {
@@ -241,19 +275,113 @@
         "10_plus": "10+ ore"
       },
       "constraints": {
-        "no_face": "Să îmi arăt fața",
-        "no_talk": "Să vorbesc on-camera",
+        "no_face": "Să-mi arăt fața",
+        "no_talk": "Să vorbesc în cameră",
         "no_daily": "Postare zilnică",
-        "no_trends": "Trend hopping",
-        "no_long": "Conținut long-form"
+        "no_trends": "Să urmăresc trenduri",
+        "no_long": "Conținut de lungă durată"
       },
       "platforms": {
         "tiktok": "TikTok",
         "instagram": "Instagram",
         "youtube": "YouTube"
       }
+    },
+
+    "creator": {
+      "title": "Creator de conținut",
+      "goals": "Obiectivele tale principale (în perioada următoare)",
+      "goalsPlaceholder": "ex. creștere +20% followers, colaborări de brand, monetizare…",
+      "outcomes": "Rezultate concrete în 3–6 luni",
+      "outcomesPlaceholder": "ex. 500k vizualizări/lună, 6% ER, 2 colaborări/lună…",
+      "challenges": "Provocări actuale",
+      "challengesPlaceholder": "ex. lipsă de idei, timp limitat, performanță scăzută…",
+      "audience": "Public ideal",
+      "audiencePlaceholder": "Vârstă, gen, locație, interese, probleme…",
+      "voice": "Vocea ta unică",
+      "voicePlaceholder": "ex. educațională, amuzantă, raw/autentică…",
+      "contentTypes": "Tipuri de conținut care te reprezintă",
+      "values": "Teme recurente / valori de bază",
+      "valuesPlaceholder": "ex. sustenabilitate, dezvoltare personală, minimalism…",
+      "weeklyHours": "Câte ore pe săptămână?",
+      "teamBudget": "Echipă / buget?",
+      "platforms": "Platforme",
+      "primaryPlatform": "Platformă principală",
+      "postingFrequency": "Frecvența preferată de postare (per platformă)",
+      "postingFrequencyPlaceholder": "ex. TikTok zilnic, Instagram de 3 ori/săptămână, YouTube 1 dată/săptămână…",
+      "avoidContent": "Ce tip de conținut vrei să eviți?",
+      "avoidContentPlaceholder": "ex. politică, conținut foarte lung, trenduri…",
+      "selectPlatform": "Selectează cel puțin o platformă.",
+      "choosePrimary": "Alege o platformă principală.",
+      "contentTypeOptions": {
+        "vlog": "Vlog / o zi din viața mea",
+        "tutorial": "Tutoriale / ghiduri",
+        "challenge": "Provocări",
+        "stories": "Povești personale",
+        "bts": "Din culise",
+        "reviews": "Recenzii / recomandări"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 ore",
+        "3_5": "3–5 ore",
+        "6_10": "6–10 ore",
+        "10_plus": "10+ ore"
+      },
+      "teamBudgetOptions": {
+        "no": "Nu",
+        "some": "Puțin (tool-uri / editor ocazional)",
+        "yes": "Da (echipă / buget constant)"
+      }
+    },
+
+    "business": {
+      "title": "Proprietar de afacere",
+      "industry": "Industrie",
+      "industryPlaceholder": "ex. beauty, fitness, e-commerce, servicii locale…",
+      "productsServices": "Produse / servicii",
+      "productsServicesPlaceholder": "Ce vinzi, pe scurt + ce te diferențiază.",
+      "socialGoals": "Obiective pe social media",
+      "kpiTargets": "Obiective KPI",
+      "kpiTargetsPlaceholder": "ex. 50 lead-uri/lună, 10 vânzări din IG, 3% CTR…",
+      "idealCustomer": "Client ideal",
+      "idealCustomerPlaceholder": "Vârstă, locație, job, nevoi, obiceiuri online…",
+      "weeklyHours": "Câte ore pe săptămână?",
+      "adsBudget": "Buget pentru reclame / tool-uri?",
+      "platforms": "Platforme",
+      "primaryPlatform": "Platformă principală",
+      "preferredContentTypes": "Tipuri de conținut preferate",
+      "avoidContent": "Ce tip de conținut eviți?",
+      "avoidContentPlaceholder": "ex. videoclipuri lungi, trenduri, ceva ce nu se potrivește brandului…",
+      "selectPlatform": "Selectează cel puțin o platformă.",
+      "choosePrimary": "Alege o platformă principală.",
+      "socialGoalOptions": {
+        "leads": "Lead-uri",
+        "sales": "Vânzări directe",
+        "traffic": "Trafic către website",
+        "awareness": "Awareness"
+      },
+      "adsBudgetOptions": {
+        "no": "Nu",
+        "some": "Puțin (ocazional)",
+        "yes": "Da (constant)"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 ore",
+        "3_5": "3–5 ore",
+        "6_10": "6–10 ore",
+        "10_plus": "10+ ore"
+      },
+      "contentTypeOptions": {
+        "educational": "Educațional",
+        "behind_the_scenes": "Din culise",
+        "testimonials": "Testimoniale",
+        "product_showcase": "Prezentare produse",
+        "offers_promos": "Oferte / promoții",
+        "authority_content": "Autoritate / expertiză"
+      }
     }
   },
+
   "settings": {
     "integrations": {
       "title": "Integrări",
@@ -262,16 +390,16 @@
       "syncing": "Se sincronizează…",
       "connected": "Conectat",
       "notConnected": "Neconectat",
-      "youtubeConnectedHint": "Canalul tău YouTube este conectat și pregătit pentru sincronizare.",
-      "youtubeNotConnectedHint": "Conectează canalul tău YouTube pentru a-ți analiza conținutul.",
+      "youtubeConnectedHint": "Canalul tău de YouTube este conectat și pregătit pentru sincronizare.",
+      "youtubeNotConnectedHint": "Conectează canalul tău de YouTube pentru a-ți analiza conținutul.",
       "connectInstagram": "Conectează Instagram",
       "syncInstagram": "Sincronizează Instagram",
-      "instagramConnectedHint": "Instagram este conectat. Poți sincroniza ultimele postări.",
-      "instagramNotConnectedHint": "Conectează Instagram ca să preluăm postările și insight-urile.",
+      "instagramConnectedHint": "Instagram este conectat. Îți poți sincroniza cele mai recente postări.",
+      "instagramNotConnectedHint": "Conectează Instagram pentru a prelua postările și statisticile tale.",
       "connectTiktok": "Conectează TikTok",
       "syncTiktok": "Sincronizează TikTok",
-      "tiktokConnectedHint": "TikTok este conectat. Poți sincroniza ultimele postări.",
-      "tiktokNotConnectedHint": "Conectează TikTok ca să apară analytics și top content."
+      "tiktokConnectedHint": "TikTok este conectat. Îți poți sincroniza cele mai recente postări.",
+      "tiktokNotConnectedHint": "Conectează TikTok pentru a vedea analizele și conținutul de top."
     }
   },
 
@@ -280,7 +408,7 @@
     "cancel": "Anulează",
     "delete": "Șterge",
     "save": "Salvează",
-    "prev": "Înapoi",
-    "next": "Înainte"
+    "prev": "Anterior",
+    "next": "Următor"
   }
 }

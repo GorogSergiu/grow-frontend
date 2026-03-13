@@ -10,10 +10,15 @@ import {
 const languages = [
   { code: "en", label: "EN" },
   { code: "ro", label: "RO" },
+  { code: "es", label: "ES" },
 ];
 
 export function LanguageToggle() {
-  const currentLang = i18n.language.startsWith("ro") ? "RO" : "EN";
+  const currentLang = i18n.language.startsWith("ro")
+    ? "RO"
+    : i18n.language.startsWith("es")
+      ? "ES"
+      : "EN";
 
   return (
     <DropdownMenu>

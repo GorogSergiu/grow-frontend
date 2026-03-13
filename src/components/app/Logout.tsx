@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export function LogoutSection() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
@@ -18,9 +20,9 @@ export function LogoutSection() {
   return (
     <div className="flex items-center justify-between rounded-2xl border border-border bg-background p-6">
       <div>
-        <div className="font-medium">Logout</div>
+        <div className="font-medium">{t("logout.title")}</div>
         <div className="text-sm text-muted-foreground">
-          Sign out from your account
+          {t("logout.subtitle")}
         </div>
       </div>
 
@@ -30,7 +32,7 @@ export function LogoutSection() {
         onClick={logout}
         disabled={loading}
       >
-        {loading ? "Logging out…" : "Logout"}
+        {loading ? t("logout.loading") : t("logout.title")}
       </Button>
     </div>
   );

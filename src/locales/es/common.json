@@ -1,0 +1,414 @@
+{
+  "nav": {
+    "features": "Funciones",
+    "how": "Cómo funciona",
+    "login": "Iniciar sesión",
+    "start": "Empieza ahora"
+  },
+
+  "hero": {
+    "badge": "Estrategia con IA para creadores de contenido",
+    "title_line_1": "Claridad, constancia",
+    "title_line_2": "y una estrategia que puedas seguir.",
+    "subtitle": "Conecta tus redes sociales y obtén un plan personalizado de 6 a 12 meses, creado en torno a tu nicho, estilo de contenido y objetivos.",
+    "cta_primary": "Empezar",
+    "cta_secondary": "Saber más"
+  },
+
+  "auth": {
+    "login_title": "Bienvenido de nuevo",
+    "login_subtitle": "Inicia sesión para continuar.",
+    "signup_title": "Crea tu cuenta",
+    "signup_subtitle": "Empieza a construir tu estrategia en minutos.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "login": "Iniciar sesión",
+    "signup": "Registrarse",
+    "loading": "Por favor, espera...",
+    "no_account": "¿No tienes una cuenta?",
+    "have_account": "¿Ya tienes una cuenta?",
+    "go_signup": "Regístrate",
+    "go_login": "Inicia sesión",
+    "google": "Continuar con Google",
+    "or": "o",
+    "confirm_password": "Confirmar contraseña",
+    "password_requirements": "La contraseña debe contener:",
+    "password_min_length": "Al menos 8 caracteres",
+    "password_uppercase": "Una letra mayúscula",
+    "password_lowercase": "Una letra minúscula",
+    "password_number": "Un número",
+    "passwords_match": "Las contraseñas coinciden",
+    "passwords_not_match": "Las contraseñas no coinciden",
+    "password_invalid": "La contraseña no cumple los requisitos",
+    "password_not_match_error": "Las contraseñas no coinciden"
+  },
+
+  "app": {
+    "nav": {
+      "overview": "Resumen",
+      "calendar": "Calendario",
+      "strategy": "Estrategia",
+      "settings": "Configuración",
+      "logout": "Cerrar sesión",
+      "account": "Cuenta",
+      "workspace": "Tu espacio de trabajo"
+    }
+  },
+
+  "logout": {
+    "title": "Cerrar sesión",
+    "subtitle": "Salir de tu cuenta",
+    "loading": "Cerrando sesión…"
+  },
+
+  "platform": {
+    "tiktok": "TikTok",
+    "instagram": "Instagram",
+    "youtube": "YouTube"
+  },
+
+  "dashboard": {
+    "overview": { "title": "Resumen" },
+
+    "calendar": {
+      "form": {
+        "title": "Título",
+        "titlePlaceholder": "p. ej. 5 ideas de outfits para...",
+        "platform": "Plataforma",
+        "status": "Estado",
+        "pillar": "Pilar de contenido",
+        "pillarPlaceholder": "p. ej. Consejos y guías",
+        "scheduledDate": "Fecha programada"
+      },
+      "status": {
+        "idea": "Idea",
+        "scheduled": "Programado",
+        "posted": "Publicado"
+      },
+
+      "title": "Calendario",
+      "subtitle": "Planifica ideas, programa publicaciones y genera contenido con IA.",
+
+      "all": "Todo",
+      "month": "Mes",
+      "week": "Semana",
+      "weekView": "Esta semana",
+      "weekViewPlaceholder": "La vista semanal estará disponible pronto.",
+
+      "add": "Añadir",
+      "generateAi": "Generar con IA",
+
+      "items": "Elementos",
+      "search": "Buscar ideas…",
+
+      "addIdea": "Añadir idea",
+      "schedule": "Programar",
+
+      "scheduled": "Programado",
+      "emptyScheduled": "Aún no hay nada programado.",
+
+      "ideas": "Ideas",
+      "emptyIdeas": "Aún no hay ideas.",
+
+      "create": "Crear elemento",
+      "edit": "Editar elemento",
+
+      "more": "+{{n}} más"
+    },
+
+    "strategy": {
+      "title": "Estrategia",
+      "subtitle": "Tu estrategia de redes sociales generada con IA, basada en el onboarding y en la información de las plataformas conectadas.",
+      "generate": "Generar estrategia",
+      "generating": "Generando…",
+      "empty": "Aún no tienes una estrategia generada. Conecta tus redes sociales y genera una.",
+      "summary": "Resumen",
+      "positioning": "Posicionamiento",
+      "overview": "Resumen general",
+      "objectives": "Objetivos principales",
+      "pillars": "Pilares de contenido",
+      "whyItMatters": "Por qué importa:",
+      "platformStrategy": "Estrategia por plataforma",
+      "frequency": "Frecuencia de publicación:",
+      "growthMoves": "Acciones de crecimiento",
+      "next30Days": "Enfoque para los próximos 30 días"
+    },
+
+    "analytics": {
+      "totalViews": "Visualizaciones totales",
+      "avgViews": "Visualizaciones medias",
+      "engagementRate": "Tasa de interacción",
+      "avgEngagement": "Interacción media",
+
+      "totalLikes": "Me gusta totales",
+      "totalComments": "Comentarios totales",
+      "totalEngagement": "Interacción total",
+
+      "sample": "Basado en los últimos {{n}} videos",
+      "sampleInstagram": "Basado en las últimas {{n}} publicaciones"
+    },
+
+    "topContent": {
+      "title": "Contenido con mejor rendimiento",
+
+      "empty": "Aún no hay contenido. Sincroniza YouTube para completar esta lista.",
+      "emptyInstagram": "Aún no hay contenido. Sincroniza Instagram para completar esta lista.",
+
+      "untitled": "Sin título"
+    },
+
+    "calendarPreview": {
+      "title": "Próximas publicaciones programadas",
+      "viewCalendar": "Ver calendario",
+      "empty": "Aún no hay elementos próximos."
+    },
+
+    "platforms": {
+      "youtube": "YouTube",
+      "tiktok": "TikTok",
+      "instagram": "Instagram"
+    },
+
+    "youtube": {
+      "title": "YouTube",
+      "connected": "Conectado",
+      "notConnectedHint": "Conecta YouTube para ver analíticas y contenido destacado.",
+      "connect": "Conectar YouTube",
+      "syncNow": "Sincronizar ahora",
+      "syncing": "Sincronizando…",
+      "lastSync": "Última sincronización {{when}}"
+    },
+
+    "instagram": {
+      "title": "Instagram",
+      "connected": "Conectado",
+      "notConnectedHint": "Conecta Instagram para ver analíticas y contenido destacado.",
+      "connect": "Conectar Instagram",
+      "syncNow": "Sincronizar ahora",
+      "syncing": "Sincronizando…",
+      "lastSync": "Última sincronización {{when}}"
+    },
+
+    "tiktok": {
+      "title": "TikTok",
+      "connected": "Conectado",
+      "connectedHint": "TikTok está conectado. Puedes sincronizar tus publicaciones más recientes.",
+      "notConnectedHint": "Conecta TikTok para ver analíticas y contenido destacado.",
+      "lastSync": "Última sincronización {{when}}",
+      "connect": "Conectar TikTok",
+      "syncNow": "Sincronizar ahora",
+      "syncing": "Sincronizando…"
+    }
+  },
+
+  "onboarding": {
+    "title": "Configuración rápida",
+    "subtitle": "Responde algunas preguntas para que podamos personalizar tu estrategia.",
+    "step": "Paso {{current}} de {{total}}",
+    "back": "Atrás",
+    "continue": "Continuar",
+    "finish": "Finalizar",
+    "saving": "Guardando…",
+
+    "entityType": {
+      "title": "Elige el tipo de perfil",
+      "creator": "Creador de contenido",
+      "business": "Propietario de negocio"
+    },
+
+    "step1": {
+      "title": "Sobre ti",
+      "creatorType": "¿Qué tipo de creador eres?",
+      "experience": "Nivel de experiencia",
+      "style": "Tu estilo de contenido (elige hasta 2)"
+    },
+
+    "step2": {
+      "title": "Tu objetivo",
+      "goal": "Objetivo principal para los próximos 6 a 12 meses",
+      "intensity": "¿Qué tan agresiva debe ser la estrategia?",
+      "time": "¿Cuánto tiempo puedes dedicar por semana?"
+    },
+
+    "step3": {
+      "title": "Preferencias",
+      "constraints": "¿Qué NO quieres hacer?",
+      "platforms": "Plataformas preferidas",
+      "audience": "Opcional: describe tu audiencia en una frase",
+      "audiencePlaceholder": "p. ej. mujeres jóvenes interesadas en rutinas y desarrollo personal"
+    },
+
+    "options": {
+      "creatorType": {
+        "lifestyle": "Creador de lifestyle",
+        "educational": "Creador educativo",
+        "entertainment": "Entretenimiento",
+        "business": "Negocio / marca personal",
+        "other": "Otro"
+      },
+      "experience": {
+        "beginner": "Principiante (0–10k)",
+        "growing": "En crecimiento (10k–100k)",
+        "established": "Consolidado (100k+)"
+      },
+      "style": {
+        "day_in_life": "Un día en mi vida",
+        "tutorials": "Tutoriales / guías",
+        "stories": "Historias personales",
+        "bts": "Detrás de cámaras",
+        "opinions": "Basado en opiniones"
+      },
+      "goal": {
+        "grow": "Hacer crecer la audiencia",
+        "consistent": "Ser más constante",
+        "monetize": "Monetizar el contenido",
+        "clarify": "Definir mejor el nicho"
+      },
+      "intensity": {
+        "chill": "Relajada (baja presión)",
+        "balanced": "Equilibrada",
+        "aggressive": "Crecimiento agresivo"
+      },
+      "time": {
+        "2_3": "2–3 horas",
+        "5_7": "5–7 horas",
+        "10_plus": "Más de 10 horas"
+      },
+      "constraints": {
+        "no_face": "Mostrar mi cara",
+        "no_talk": "Hablar a cámara",
+        "no_daily": "Publicar a diario",
+        "no_trends": "Seguir tendencias",
+        "no_long": "Contenido de formato largo"
+      },
+      "platforms": {
+        "tiktok": "TikTok",
+        "instagram": "Instagram",
+        "youtube": "YouTube"
+      }
+    },
+
+    "creator": {
+      "title": "Creador de contenido",
+      "goals": "Tus objetivos principales (próximo período)",
+      "goalsPlaceholder": "p. ej. crecer +20% en seguidores, colaboraciones con marcas, monetización…",
+      "outcomes": "Resultados concretos en 3–6 meses",
+      "outcomesPlaceholder": "p. ej. 500k visualizaciones/mes, 6% ER, 2 colaboraciones/mes…",
+      "challenges": "Retos actuales",
+      "challengesPlaceholder": "p. ej. falta de ideas, poco tiempo, bajo rendimiento…",
+      "audience": "Audiencia ideal",
+      "audiencePlaceholder": "Edad, género, ubicación, intereses, problemas…",
+      "voice": "Tu voz única",
+      "voicePlaceholder": "p. ej. educativa, divertida, cruda/auténtica…",
+      "contentTypes": "Tipos de contenido que te representan",
+      "values": "Temas recurrentes / valores principales",
+      "valuesPlaceholder": "p. ej. sostenibilidad, crecimiento personal, minimalismo…",
+      "weeklyHours": "¿Cuántas horas por semana?",
+      "teamBudget": "¿Equipo / presupuesto?",
+      "platforms": "Plataformas",
+      "primaryPlatform": "Plataforma principal",
+      "postingFrequency": "Frecuencia de publicación preferida (por plataforma)",
+      "postingFrequencyPlaceholder": "p. ej. TikTok diario, Instagram 3 veces/semana, YouTube 1 vez/semana…",
+      "avoidContent": "¿Qué contenido quieres evitar?",
+      "avoidContentPlaceholder": "p. ej. política, contenido muy largo, tendencias…",
+      "selectPlatform": "Selecciona al menos una plataforma.",
+      "choosePrimary": "Elige una plataforma principal.",
+      "contentTypeOptions": {
+        "vlog": "Vlog / un día en mi vida",
+        "tutorial": "Tutoriales / guías",
+        "challenge": "Retos",
+        "stories": "Historias personales",
+        "bts": "Detrás de cámaras",
+        "reviews": "Reseñas / recomendaciones"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 horas",
+        "3_5": "3–5 horas",
+        "6_10": "6–10 horas",
+        "10_plus": "Más de 10 horas"
+      },
+      "teamBudgetOptions": {
+        "no": "No",
+        "some": "Un poco (herramientas / editor ocasional)",
+        "yes": "Sí (equipo / presupuesto constante)"
+      }
+    },
+
+    "business": {
+      "title": "Propietario de negocio",
+      "industry": "Industria",
+      "industryPlaceholder": "p. ej. belleza, fitness, e-commerce, servicios locales…",
+      "productsServices": "Productos / servicios",
+      "productsServicesPlaceholder": "Qué vendes, brevemente, y qué te diferencia.",
+      "socialGoals": "Objetivos en redes sociales",
+      "kpiTargets": "Objetivos KPI",
+      "kpiTargetsPlaceholder": "p. ej. 50 leads/mes, 10 ventas desde IG, 3% CTR…",
+      "idealCustomer": "Cliente ideal",
+      "idealCustomerPlaceholder": "Edad, ubicación, trabajo, necesidades, hábitos online…",
+      "weeklyHours": "¿Cuántas horas por semana?",
+      "adsBudget": "¿Presupuesto para anuncios / herramientas?",
+      "platforms": "Plataformas",
+      "primaryPlatform": "Plataforma principal",
+      "preferredContentTypes": "Tipos de contenido preferidos",
+      "avoidContent": "¿Qué contenido evitas?",
+      "avoidContentPlaceholder": "p. ej. videos largos, tendencias, algo que no encaje con la marca…",
+      "selectPlatform": "Selecciona al menos una plataforma.",
+      "choosePrimary": "Elige una plataforma principal.",
+      "socialGoalOptions": {
+        "leads": "Leads",
+        "sales": "Ventas directas",
+        "traffic": "Tráfico al sitio web",
+        "awareness": "Reconocimiento de marca"
+      },
+      "adsBudgetOptions": {
+        "no": "No",
+        "some": "Un poco (ocasional)",
+        "yes": "Sí (constante)"
+      },
+      "weeklyHoursOptions": {
+        "0_2": "0–2 horas",
+        "3_5": "3–5 horas",
+        "6_10": "6–10 horas",
+        "10_plus": "Más de 10 horas"
+      },
+      "contentTypeOptions": {
+        "educational": "Educativo",
+        "behind_the_scenes": "Detrás de cámaras",
+        "testimonials": "Testimonios",
+        "product_showcase": "Presentación de productos",
+        "offers_promos": "Ofertas / promociones",
+        "authority_content": "Autoridad / experiencia"
+      }
+    }
+  },
+
+  "settings": {
+    "integrations": {
+      "title": "Integraciones",
+      "connectYoutube": "Conectar YouTube",
+      "syncYoutube": "Sincronizar YouTube",
+      "syncing": "Sincronizando…",
+      "connected": "Conectado",
+      "notConnected": "No conectado",
+      "youtubeConnectedHint": "Tu canal de YouTube está conectado y listo para sincronizarse.",
+      "youtubeNotConnectedHint": "Conecta tu canal de YouTube para analizar tu contenido.",
+      "connectInstagram": "Conectar Instagram",
+      "syncInstagram": "Sincronizar Instagram",
+      "instagramConnectedHint": "Instagram está conectado. Puedes sincronizar tus publicaciones más recientes.",
+      "instagramNotConnectedHint": "Conecta Instagram para obtener tus publicaciones y estadísticas.",
+      "connectTiktok": "Conectar TikTok",
+      "syncTiktok": "Sincronizar TikTok",
+      "tiktokConnectedHint": "TikTok está conectado. Puedes sincronizar tus publicaciones más recientes.",
+      "tiktokNotConnectedHint": "Conecta TikTok para ver analíticas y contenido destacado."
+    }
+  },
+
+  "common": {
+    "loading": "Cargando…",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "prev": "Anterior",
+    "next": "Siguiente"
+  }
+}

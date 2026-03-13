@@ -16,12 +16,12 @@ function toggleInArray<T extends string>(arr: T[], value: T) {
 }
 
 const contentTypeOptions = [
-  { id: "educational", label: "Educațional" },
-  { id: "behind_the_scenes", label: "Behind the scenes" },
-  { id: "testimonials", label: "Testimoniale" },
-  { id: "product_showcase", label: "Prezentare produs" },
-  { id: "offers_promos", label: "Oferte / promoții" },
-  { id: "authority_content", label: "Authority / expertiză" },
+  { id: "educational", labelKey: "onboarding.business.contentTypeOptions.educational" },
+  { id: "behind_the_scenes", labelKey: "onboarding.business.contentTypeOptions.behind_the_scenes" },
+  { id: "testimonials", labelKey: "onboarding.business.contentTypeOptions.testimonials" },
+  { id: "product_showcase", labelKey: "onboarding.business.contentTypeOptions.product_showcase" },
+  { id: "offers_promos", labelKey: "onboarding.business.contentTypeOptions.offers_promos" },
+  { id: "authority_content", labelKey: "onboarding.business.contentTypeOptions.authority_content" },
 ] as const;
 
 const platforms = ["tiktok", "instagram", "youtube"] as Platform[];
@@ -41,11 +41,43 @@ export default function BusinessOnboarding({
   // Business flow = 7 steps, starting from global step 2
   const localStep = useMemo(() => Math.max(1, step - 1), [step]);
 
+  const weeklyHoursOptions = useMemo(
+    () =>
+      [
+        ["0_2", "onboarding.business.weeklyHoursOptions.0_2"],
+        ["3_5", "onboarding.business.weeklyHoursOptions.3_5"],
+        ["6_10", "onboarding.business.weeklyHoursOptions.6_10"],
+        ["10_plus", "onboarding.business.weeklyHoursOptions.10_plus"],
+      ] as const,
+    [],
+  );
+
+  const adsBudgetOptions = useMemo(
+    () =>
+      [
+        ["no", "onboarding.business.adsBudgetOptions.no"],
+        ["some", "onboarding.business.adsBudgetOptions.some"],
+        ["yes", "onboarding.business.adsBudgetOptions.yes"],
+      ] as const,
+    [],
+  );
+
+  const socialGoalOptions = useMemo(
+    () =>
+      [
+        ["leads", "onboarding.business.socialGoalOptions.leads"],
+        ["sales", "onboarding.business.socialGoalOptions.sales"],
+        ["traffic", "onboarding.business.socialGoalOptions.traffic"],
+        ["awareness", "onboarding.business.socialGoalOptions.awareness"],
+      ] as const,
+    [],
+  );
+
   return (
     <div className="space-y-6">
       <div className="rounded-2xl border border-border/60 bg-background/40 p-4">
         <div className="text-sm font-semibold">
-          {t("onboarding.business.title", { defaultValue: "Business Owner" })}
+          {t("onboarding.business.title")}
         </div>
       </div>
 
@@ -53,22 +85,26 @@ export default function BusinessOnboarding({
       {localStep === 1 ? (
         <div className="space-y-4">
           <div className="space-y-2">
-            <div className="text-sm font-semibold">Domeniu</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.industry")}
+            </div>
             <Textarea
               value={value.industry}
               onChange={(e) => onChange({ ...value, industry: e.target.value })}
-              placeholder="Ex: beauty, fitness, e-commerce, servicii locale…"
+              placeholder={t("onboarding.business.industryPlaceholder")}
             />
           </div>
 
           <div className="space-y-2">
-            <div className="text-sm font-semibold">Produse / servicii</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.productsServices")}
+            </div>
             <Textarea
               value={value.products_services}
               onChange={(e) =>
                 onChange({ ...value, products_services: e.target.value })
               }
-              placeholder="Ce vinzi, pe scurt + ce te diferențiază."
+              placeholder={t("onboarding.business.productsServicesPlaceholder")}
             />
           </div>
         </div>
@@ -78,16 +114,11 @@ export default function BusinessOnboarding({
       {localStep === 2 ? (
         <div className="space-y-5">
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Scopuri social media</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.socialGoals")}
+            </div>
             <div className="grid gap-3 md:grid-cols-2">
-              {(
-                [
-                  ["leads", "Lead-uri"],
-                  ["sales", "Vânzări directe"],
-                  ["traffic", "Trafic website"],
-                  ["awareness", "Awareness"],
-                ] as const
-              ).map(([id, label]) => {
+              {socialGoalOptions.map(([id, labelKey]) => {
                 const checked = value.social_goals.includes(id);
                 return (
                   <button
@@ -101,7 +132,7 @@ export default function BusinessOnboarding({
                     }
                     className="flex items-center justify-between rounded-2xl border border-border bg-background p-4 text-left hover:bg-accent"
                   >
-                    <span className="text-sm">{label}</span>
+                    <span className="text-sm">{t(labelKey)}</span>
                     <Checkbox checked={checked} />
                   </button>
                 );
@@ -110,13 +141,15 @@ export default function BusinessOnboarding({
           </div>
 
           <div className="space-y-2">
-            <div className="text-sm font-semibold">KPI targets</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.kpiTargets")}
+            </div>
             <Textarea
               value={value.kpi_targets}
               onChange={(e) =>
                 onChange({ ...value, kpi_targets: e.target.value })
               }
-              placeholder="Ex: 50 lead-uri/lună, 10 vânzări din IG, 3% CTR…"
+              placeholder={t("onboarding.business.kpiTargetsPlaceholder")}
             />
           </div>
         </div>
@@ -125,13 +158,15 @@ export default function BusinessOnboarding({
       {/* Step 3: ideal customer */}
       {localStep === 3 ? (
         <div className="space-y-2">
-          <div className="text-sm font-semibold">Clientul ideal</div>
+          <div className="text-sm font-semibold">
+            {t("onboarding.business.idealCustomer")}
+          </div>
           <Textarea
             value={value.ideal_customer}
             onChange={(e) =>
               onChange({ ...value, ideal_customer: e.target.value })
             }
-            placeholder="Vârstă, locație, job, nevoi, obiceiuri online…"
+            placeholder={t("onboarding.business.idealCustomerPlaceholder")}
           />
         </div>
       ) : null}
@@ -140,7 +175,9 @@ export default function BusinessOnboarding({
       {localStep === 4 ? (
         <div className="space-y-5">
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Câte ore / săptămână?</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.weeklyHours")}
+            </div>
             <RadioGroup
               value={value.weekly_hours}
               onValueChange={(v) =>
@@ -150,27 +187,22 @@ export default function BusinessOnboarding({
                 })
               }
             >
-              {(
-                [
-                  ["0_2", "0–2 ore"],
-                  ["3_5", "3–5 ore"],
-                  ["6_10", "6–10 ore"],
-                  ["10_plus", "10+ ore"],
-                ] as const
-              ).map(([id, label]) => (
+              {weeklyHoursOptions.map(([id, labelKey]) => (
                 <div
                   key={id}
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={id} id={`bh-${id}`} />
-                  <Label htmlFor={`bh-${id}`}>{label}</Label>
+                  <Label htmlFor={`bh-${id}`}>{t(labelKey)}</Label>
                 </div>
               ))}
             </RadioGroup>
           </div>
 
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Buget ads / tool-uri?</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.adsBudget")}
+            </div>
             <RadioGroup
               value={value.has_ads_budget}
               onValueChange={(v) =>
@@ -181,19 +213,13 @@ export default function BusinessOnboarding({
                 })
               }
             >
-              {(
-                [
-                  ["no", "Nu"],
-                  ["some", "Un pic (ocazional)"],
-                  ["yes", "Da (constant)"],
-                ] as const
-              ).map(([id, label]) => (
+              {adsBudgetOptions.map(([id, labelKey]) => (
                 <div
                   key={id}
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={id} id={`ab-${id}`} />
-                  <Label htmlFor={`ab-${id}`}>{label}</Label>
+                  <Label htmlFor={`ab-${id}`}>{t(labelKey)}</Label>
                 </div>
               ))}
             </RadioGroup>
@@ -205,7 +231,9 @@ export default function BusinessOnboarding({
       {localStep === 5 ? (
         <div className="space-y-5">
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Platforme</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.platforms")}
+            </div>
             <div className="grid gap-3 md:grid-cols-3">
               {platforms.map((p) => {
                 const checked = value.platforms.includes(p);
@@ -229,7 +257,7 @@ export default function BusinessOnboarding({
                     }}
                     className="flex items-center justify-between rounded-2xl border border-border bg-background p-4 text-left hover:bg-accent"
                   >
-                    <span className="text-sm">{p}</span>
+                    <span className="text-sm">{t(`dashboard.platforms.${p}`)}</span>
                     <Checkbox checked={checked} />
                   </button>
                 );
@@ -237,13 +265,15 @@ export default function BusinessOnboarding({
             </div>
             {value.platforms.length === 0 ? (
               <div className="text-xs text-destructive">
-                Selectează cel puțin o platformă.
+                {t("onboarding.business.selectPlatform")}
               </div>
             ) : null}
           </div>
 
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Platforma principală</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.business.primaryPlatform")}
+            </div>
             <RadioGroup
               value={value.primary_platform}
               onValueChange={(v) =>
@@ -256,14 +286,14 @@ export default function BusinessOnboarding({
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={p} id={`bp-${p}`} />
-                  <Label htmlFor={`bp-${p}`}>{p}</Label>
+                  <Label htmlFor={`bp-${p}`}>{t(`dashboard.platforms.${p}`)}</Label>
                 </div>
               ))}
             </RadioGroup>
 
             {value.platforms.length > 0 && !value.primary_platform ? (
               <div className="text-xs text-destructive">
-                Alege o platformă principală.
+                {t("onboarding.business.choosePrimary")}
               </div>
             ) : null}
           </div>
@@ -274,7 +304,7 @@ export default function BusinessOnboarding({
       {localStep === 6 ? (
         <div className="space-y-3">
           <div className="text-sm font-semibold">
-            Tipuri de conținut preferate
+            {t("onboarding.business.preferredContentTypes")}
           </div>
           <div className="grid gap-3 md:grid-cols-2">
             {contentTypeOptions.map((opt) => {
@@ -294,7 +324,7 @@ export default function BusinessOnboarding({
                   }
                   className="flex items-center justify-between rounded-2xl border border-border bg-background p-4 text-left hover:bg-accent"
                 >
-                  <span className="text-sm">{opt.label}</span>
+                  <span className="text-sm">{t(opt.labelKey)}</span>
                   <Checkbox checked={checked} />
                 </button>
               );
@@ -306,13 +336,15 @@ export default function BusinessOnboarding({
       {/* Step 7: avoid content */}
       {localStep === 7 ? (
         <div className="space-y-2">
-          <div className="text-sm font-semibold">Ce conținut eviți?</div>
+          <div className="text-sm font-semibold">
+            {t("onboarding.business.avoidContent")}
+          </div>
           <Textarea
             value={value.avoid_content}
             onChange={(e) =>
               onChange({ ...value, avoid_content: e.target.value })
             }
-            placeholder="Ex: video lung, trenduri, ceva ce nu se potrivește brandului…"
+            placeholder={t("onboarding.business.avoidContentPlaceholder")}
           />
         </div>
       ) : null}

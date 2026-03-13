@@ -47,12 +47,33 @@ export default function CreatorOnboarding({
   const contentTypeOptions = useMemo(
     () =>
       [
-        { id: "vlog", label: "Vlog / day in my life" },
-        { id: "tutorial", label: "Tutoriale / how-to" },
-        { id: "challenge", label: "Challenge-uri" },
-        { id: "stories", label: "Stories personale" },
-        { id: "bts", label: "Behind the scenes" },
-        { id: "reviews", label: "Reviews / recomandări" },
+        { id: "vlog", labelKey: "onboarding.creator.contentTypeOptions.vlog" },
+        { id: "tutorial", labelKey: "onboarding.creator.contentTypeOptions.tutorial" },
+        { id: "challenge", labelKey: "onboarding.creator.contentTypeOptions.challenge" },
+        { id: "stories", labelKey: "onboarding.creator.contentTypeOptions.stories" },
+        { id: "bts", labelKey: "onboarding.creator.contentTypeOptions.bts" },
+        { id: "reviews", labelKey: "onboarding.creator.contentTypeOptions.reviews" },
+      ] as const,
+    [],
+  );
+
+  const weeklyHoursOptions = useMemo(
+    () =>
+      [
+        ["0_2", "onboarding.creator.weeklyHoursOptions.0_2"],
+        ["3_5", "onboarding.creator.weeklyHoursOptions.3_5"],
+        ["6_10", "onboarding.creator.weeklyHoursOptions.6_10"],
+        ["10_plus", "onboarding.creator.weeklyHoursOptions.10_plus"],
+      ] as const,
+    [],
+  );
+
+  const teamBudgetOptions = useMemo(
+    () =>
+      [
+        ["no", "onboarding.creator.teamBudgetOptions.no"],
+        ["some", "onboarding.creator.teamBudgetOptions.some"],
+        ["yes", "onboarding.creator.teamBudgetOptions.yes"],
       ] as const,
     [],
   );
@@ -63,7 +84,7 @@ export default function CreatorOnboarding({
     <div className="space-y-6">
       <div className="rounded-2xl border border-border/60 bg-background/40 p-4">
         <div className="text-sm font-semibold">
-          {t("onboarding.creator.title", { defaultValue: "Content Creator" })}
+          {t("onboarding.creator.title")}
         </div>
       </div>
 
@@ -72,25 +93,25 @@ export default function CreatorOnboarding({
         <div className="space-y-4">
           <div className="space-y-2">
             <div className="text-sm font-semibold">
-              Obiectivele tale principale (următoarea perioadă)
+              {t("onboarding.creator.goals")}
             </div>
             <Textarea
               value={value.goals}
               onChange={(e) => onChange({ ...value, goals: e.target.value })}
-              placeholder="Ex: creștere +20% urmăritori, colaborări cu branduri, monetizare…"
+              placeholder={t("onboarding.creator.goalsPlaceholder")}
             />
           </div>
 
           <div className="space-y-2">
             <div className="text-sm font-semibold">
-              Rezultate concrete în 3–6 luni
+              {t("onboarding.creator.outcomes")}
             </div>
             <Textarea
               value={value.outcomes_3_6_months}
               onChange={(e) =>
                 onChange({ ...value, outcomes_3_6_months: e.target.value })
               }
-              placeholder="Ex: 500k views/lună, ER 6%, 2 colaborări/lună…"
+              placeholder={t("onboarding.creator.outcomesPlaceholder")}
             />
           </div>
         </div>
@@ -99,11 +120,13 @@ export default function CreatorOnboarding({
       {/* Local Step 2: challenges */}
       {localStep === 2 ? (
         <div className="space-y-2">
-          <div className="text-sm font-semibold">Provocări acum</div>
+          <div className="text-sm font-semibold">
+            {t("onboarding.creator.challenges")}
+          </div>
           <Textarea
             value={value.challenges}
             onChange={(e) => onChange({ ...value, challenges: e.target.value })}
-            placeholder="Ex: lipsă idei, timp limitat, performanță slabă…"
+            placeholder={t("onboarding.creator.challengesPlaceholder")}
           />
         </div>
       ) : null}
@@ -111,13 +134,15 @@ export default function CreatorOnboarding({
       {/* Local Step 3: audience */}
       {localStep === 3 ? (
         <div className="space-y-2">
-          <div className="text-sm font-semibold">Publicul ideal</div>
+          <div className="text-sm font-semibold">
+            {t("onboarding.creator.audience")}
+          </div>
           <Textarea
             value={value.audience_ideal}
             onChange={(e) =>
               onChange({ ...value, audience_ideal: e.target.value })
             }
-            placeholder="Vârstă, gen, locație, interese, probleme…"
+            placeholder={t("onboarding.creator.audiencePlaceholder")}
           />
         </div>
       ) : null}
@@ -126,19 +151,21 @@ export default function CreatorOnboarding({
       {localStep === 4 ? (
         <div className="space-y-5">
           <div className="space-y-2">
-            <div className="text-sm font-semibold">Vocea ta unică</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.creator.voice")}
+            </div>
             <Textarea
               value={value.voice_unique}
               onChange={(e) =>
                 onChange({ ...value, voice_unique: e.target.value })
               }
-              placeholder="Ex: educativă, fun, raw/authentică…"
+              placeholder={t("onboarding.creator.voicePlaceholder")}
             />
           </div>
 
           <div className="space-y-3">
             <div className="text-sm font-semibold">
-              Tipuri de conținut care te reprezintă
+              {t("onboarding.creator.contentTypes")}
             </div>
             <div className="grid gap-3 md:grid-cols-2">
               {contentTypeOptions.map((opt) => {
@@ -158,7 +185,7 @@ export default function CreatorOnboarding({
                     }
                     className="flex items-center justify-between rounded-2xl border border-border bg-background p-4 text-left hover:bg-accent"
                   >
-                    <span className="text-sm">{opt.label}</span>
+                    <span className="text-sm">{t(opt.labelKey)}</span>
                     <Checkbox checked={checked} />
                   </button>
                 );
@@ -168,14 +195,14 @@ export default function CreatorOnboarding({
 
           <div className="space-y-2">
             <div className="text-sm font-semibold">
-              Teme recurente / valori de bază
+              {t("onboarding.creator.values")}
             </div>
             <Textarea
               value={value.values_themes}
               onChange={(e) =>
                 onChange({ ...value, values_themes: e.target.value })
               }
-              placeholder="Ex: sustenabilitate, self growth, minimalism…"
+              placeholder={t("onboarding.creator.valuesPlaceholder")}
             />
           </div>
         </div>
@@ -185,7 +212,9 @@ export default function CreatorOnboarding({
       {localStep === 5 ? (
         <div className="space-y-5">
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Câte ore / săptămână?</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.creator.weeklyHours")}
+            </div>
             <RadioGroup
               value={value.weekly_hours}
               onValueChange={(v) =>
@@ -195,27 +224,22 @@ export default function CreatorOnboarding({
                 })
               }
             >
-              {(
-                [
-                  ["0_2", "0–2 ore"],
-                  ["3_5", "3–5 ore"],
-                  ["6_10", "6–10 ore"],
-                  ["10_plus", "10+ ore"],
-                ] as const
-              ).map(([id, label]) => (
+              {weeklyHoursOptions.map(([id, labelKey]) => (
                 <div
                   key={id}
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={id} id={`wh-${id}`} />
-                  <Label htmlFor={`wh-${id}`}>{label}</Label>
+                  <Label htmlFor={`wh-${id}`}>{t(labelKey)}</Label>
                 </div>
               ))}
             </RadioGroup>
           </div>
 
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Echipă / buget?</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.creator.teamBudget")}
+            </div>
             <RadioGroup
               value={value.has_team_or_budget}
               onValueChange={(v) =>
@@ -226,19 +250,13 @@ export default function CreatorOnboarding({
                 })
               }
             >
-              {(
-                [
-                  ["no", "Nu"],
-                  ["some", "Un pic (tool-uri / editor ocazional)"],
-                  ["yes", "Da (echipă / buget constant)"],
-                ] as const
-              ).map(([id, label]) => (
+              {teamBudgetOptions.map(([id, labelKey]) => (
                 <div
                   key={id}
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={id} id={`tb-${id}`} />
-                  <Label htmlFor={`tb-${id}`}>{label}</Label>
+                  <Label htmlFor={`tb-${id}`}>{t(labelKey)}</Label>
                 </div>
               ))}
             </RadioGroup>
@@ -250,7 +268,9 @@ export default function CreatorOnboarding({
       {localStep === 6 ? (
         <div className="space-y-5">
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Platforme</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.creator.platforms")}
+            </div>
 
             <div className="grid gap-3 md:grid-cols-3">
               {platforms.map((p) => {
@@ -263,8 +283,6 @@ export default function CreatorOnboarding({
                     onClick={() => {
                       const nextPlatforms = toggleInArray(value.platforms, p);
 
-                      // Dacă user a debifat platforma care era primary -> mutăm primary pe prima rămasă.
-                      // Dacă user a bifat prima platformă și primary e gol -> o setăm primary.
                       let nextPrimary: CreatorOnboardingProfile["primary_platform"] =
                         value.primary_platform;
 
@@ -300,7 +318,7 @@ export default function CreatorOnboarding({
                     }}
                     className="flex items-center justify-between rounded-2xl border border-border bg-background p-4 text-left hover:bg-accent"
                   >
-                    <span className="text-sm">{p}</span>
+                    <span className="text-sm">{t(`dashboard.platforms.${p}`)}</span>
                     <Checkbox checked={checked} />
                   </button>
                 );
@@ -309,13 +327,15 @@ export default function CreatorOnboarding({
 
             {value.platforms.length === 0 ? (
               <div className="text-xs text-destructive">
-                Selectează cel puțin o platformă.
+                {t("onboarding.creator.selectPlatform")}
               </div>
             ) : null}
           </div>
 
           <div className="space-y-3">
-            <div className="text-sm font-semibold">Platforma principală</div>
+            <div className="text-sm font-semibold">
+              {t("onboarding.creator.primaryPlatform")}
+            </div>
             <RadioGroup
               value={value.primary_platform}
               onValueChange={(v) =>
@@ -332,40 +352,40 @@ export default function CreatorOnboarding({
                   className="flex items-center gap-3 rounded-2xl bg-background/60 p-4 hover:bg-accent transition-colors"
                 >
                   <RadioGroupItem value={p} id={`pp-${p}`} />
-                  <Label htmlFor={`pp-${p}`}>{p}</Label>
+                  <Label htmlFor={`pp-${p}`}>{t(`dashboard.platforms.${p}`)}</Label>
                 </div>
               ))}
             </RadioGroup>
             {value.platforms.length > 0 && !value.primary_platform ? (
               <div className="text-xs text-destructive">
-                Alege o platformă principală.
+                {t("onboarding.creator.choosePrimary")}
               </div>
             ) : null}
           </div>
 
           <div className="space-y-2">
             <div className="text-sm font-semibold">
-              Frecvență de postare preferată (pe platforme)
+              {t("onboarding.creator.postingFrequency")}
             </div>
             <Textarea
               value={value.posting_frequency}
               onChange={(e) =>
                 onChange({ ...value, posting_frequency: e.target.value })
               }
-              placeholder="Ex: TikTok zilnic, Instagram 3x/săpt, YouTube 1x/săpt…"
+              placeholder={t("onboarding.creator.postingFrequencyPlaceholder")}
             />
           </div>
 
           <div className="space-y-2">
             <div className="text-sm font-semibold">
-              Ce conținut vrei să eviți?
+              {t("onboarding.creator.avoidContent")}
             </div>
             <Textarea
               value={value.avoid_content}
               onChange={(e) =>
                 onChange({ ...value, avoid_content: e.target.value })
               }
-              placeholder="Ex: politică, content foarte lung, trenduri…"
+              placeholder={t("onboarding.creator.avoidContentPlaceholder")}
             />
           </div>
         </div>

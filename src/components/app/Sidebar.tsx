@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Separator } from "@/components/ui/separator";
 
 export function Sidebar() {
+  const { t } = useTranslation();
+
   const base =
     "flex items-center rounded-xl px-3 py-2 text-sm transition-colors";
   const inactive =
@@ -14,7 +17,9 @@ export function Sidebar() {
         <div className="text-sm font-semibold tracking-wide">
           CreatorStrategy
         </div>
-        <div className="mt-1 text-xs text-muted-foreground">Your workspace</div>
+        <div className="mt-1 text-xs text-muted-foreground">
+          {t("app.nav.workspace")}
+        </div>
 
         <Separator className="my-4" />
 
@@ -26,7 +31,7 @@ export function Sidebar() {
             }
             end
           >
-            Overview
+            {t("app.nav.overview")}
           </NavLink>
 
           <NavLink
@@ -35,7 +40,7 @@ export function Sidebar() {
               [base, isActive ? active : inactive].join(" ")
             }
           >
-            Strategy
+            {t("app.nav.strategy")}
           </NavLink>
 
           <NavLink
@@ -44,7 +49,7 @@ export function Sidebar() {
               [base, isActive ? active : inactive].join(" ")
             }
           >
-            Settings
+            {t("app.nav.settings")}
           </NavLink>
         </nav>
       </div>

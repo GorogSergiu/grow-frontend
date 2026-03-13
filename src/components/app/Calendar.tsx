@@ -425,10 +425,7 @@ export default function CalendarPage() {
             {t("dashboard.calendar.title", { defaultValue: "Calendar" })}
           </div>
           <div className="text-sm text-muted-foreground">
-            {t("dashboard.calendar.subtitle", {
-              defaultValue:
-                "Planifică idei, programează postări și generează conținut cu AI.",
-            })}
+            {t("dashboard.calendar.subtitle")}
           </div>
         </div>
 
@@ -475,12 +472,8 @@ export default function CalendarPage() {
             disabled={generating}
           >
             {generating
-              ? t("dashboard.strategy.generating", {
-                  defaultValue: "Generating…",
-                })
-              : t("dashboard.calendar.generateAi", {
-                  defaultValue: "Generate with AI",
-                })}
+              ? t("dashboard.strategy.generating")
+              : t("dashboard.calendar.generateAi")}
           </Button>
         </div>
       </div>
@@ -650,8 +643,7 @@ export default function CalendarPage() {
               </div>
             ) : (
               <div className="text-sm text-muted-foreground">
-                Week view UI îl facem imediat după (poate fi coloană/zi cu
-                sloturi).
+                {t("dashboard.calendar.weekViewPlaceholder")}
               </div>
             )}
           </CardContent>

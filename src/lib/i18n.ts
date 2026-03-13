@@ -4,6 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 
 import en from "@/locales/en/common.json";
 import ro from "@/locales/ro/common.json";
+import es from "@/locales/es/common.json";
 
 i18n
   .use(LanguageDetector)
@@ -18,6 +19,9 @@ i18n
       },
       ro: {
         common: ro,
+      },
+      es: {
+        common: es,
       },
     },
 

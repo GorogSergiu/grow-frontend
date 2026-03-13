@@ -304,7 +304,9 @@ export default function OnboardingPage() {
 
   if (checking) {
     return (
-      <div className="py-20 text-center text-muted-foreground">Loading…</div>
+      <div className="py-20 text-center text-muted-foreground">
+        {t("common.loading")}
+      </div>
     );
   }
 
@@ -340,9 +342,7 @@ export default function OnboardingPage() {
           {safeStep === 1 ? (
             <div className="space-y-3">
               <div className="text-sm font-semibold">
-                {t("onboarding.entityType.title", {
-                  defaultValue: "Choose your profile type",
-                })}
+                {t("onboarding.entityType.title")}
               </div>
 
               <RadioGroup
@@ -380,12 +380,8 @@ export default function OnboardingPage() {
                       <RadioGroupItem value={v} id={`entity-${v}`} />
                       <Label htmlFor={`entity-${v}`}>
                         {v === "creator"
-                          ? t("onboarding.entityType.creator", {
-                              defaultValue: "Content Creator",
-                            })
-                          : t("onboarding.entityType.business", {
-                              defaultValue: "Business Owner",
-                            })}
+                          ? t("onboarding.entityType.creator")
+                          : t("onboarding.entityType.business")}
                       </Label>
                     </div>
                   );
