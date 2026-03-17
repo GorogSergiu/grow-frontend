@@ -14,9 +14,11 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between rounded-full border border-border bg-card px-4 py-3">
         {/* LEFT */}
         <div className="flex items-center gap-10">
-          <div className="text-sm font-semibold tracking-wide">
-            CreatorStrategy
-          </div>
+          <Button variant="ghost" asChild>
+            <Link className="text-sm font-semibold tracking-wide" to="/">
+              GROW
+            </Link>
+          </Button>
 
           <nav className="hidden items-center gap-6 text-sm text-muted-foreground md:flex">
             <span className="cursor-pointer hover:text-foreground">

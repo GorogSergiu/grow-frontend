@@ -12,7 +12,172 @@
     "title_line_2": "and a strategy you can follow.",
     "subtitle": "Connect your socials and get a personalized 6–12 month plan, built around your niche, content style and goals.",
     "cta_primary": "Get started",
-    "cta_secondary": "Learn more"
+    "cta_secondary": "Learn more",
+    "tags": {
+      "aiStrategy": "AI strategy",
+      "socialInsights": "Social insights",
+      "contentCalendar": "Content calendar",
+      "inspoBoard": "Inspo board"
+    },
+    "preview": {
+      "title": "Your content system",
+      "subtitle": "Strategy, insights, calendar, inspo",
+      "badge": "All-in-one workflow",
+      "cards": {
+        "insights": {
+          "title": "Connected insights",
+          "description": "Sync Instagram, TikTok, and YouTube performance into one dashboard."
+        },
+        "strategy": {
+          "title": "AI-generated strategy",
+          "description": "Get positioning, content pillars, platform focus, and practical growth moves."
+        },
+        "calendar": {
+          "title": "Calendar + inspo",
+          "description": "Save links, images, and references next to every post idea."
+        }
+      }
+    }
+  },
+
+  "features": {
+    "title": "Everything you need to go from random posting to a real system",
+    "subtitle": "The app helps you understand your content, generate a strategy, and actually plan what to publish next.",
+
+    "aiStrategy_title": "AI strategy built around your profile",
+    "aiStrategy_desc": "Complete onboarding as a creator or business owner and get a tailored social media strategy based on your goals, audience, time, and content direction.",
+
+    "insights_title": "See your social media insights in one place",
+    "insights_desc": "Connect Instagram, TikTok, and YouTube and understand your performance from one dashboard instead of switching between multiple apps.",
+
+    "calendar_title": "Turn strategy into a real content calendar",
+    "calendar_desc": "Generate ideas directly into your calendar, see what should be posted next, and keep your workflow structured and consistent.",
+
+    "inspo_title": "Save inspiration for every post",
+    "inspo_desc": "Attach links and images to each calendar item so every post has its own moodboard, references, and creative direction.",
+
+    "creatorBusiness_title": "Built for creators and business owners",
+    "creatorBusiness_desc": "Whether you want more followers, better consistency, more leads, or stronger positioning, the app adapts to your profile type.",
+
+    "workflow_title": "From insights to execution",
+    "workflow_desc": "Go from raw platform data to strategic decisions, and from strategy to scheduled content, all inside one workflow."
+  },
+
+  "howItWorks": {
+    "title": "From onboarding to a structured content workflow",
+
+    "step1_title": "Complete onboarding",
+    "step1_desc": "Tell the app who you are, what you want to achieve, who your audience is, and what type of content fits your profile.",
+
+    "step2_title": "Connect your platforms",
+    "step2_desc": "Link Instagram, TikTok, and YouTube so the app can pull insights and understand what already works for you.",
+
+    "step3_title": "Generate your strategy",
+    "step3_desc": "Get a clear strategy with positioning, content pillars, platform-specific direction, growth moves, and next steps.",
+
+    "step4_title": "Plan your content",
+    "step4_desc": "Your ideas and scheduled posts are added into the calendar so you can review, edit, and execute faster."
+  },
+
+  "tags": {
+    "aiStrategy": "AI strategy",
+    "socialInsights": "Social insights",
+    "contentCalendar": "Content calendar",
+    "inspoBoard": "Inspo board"
+  },
+
+  "preview": {
+    "title": "Your content system",
+    "subtitle": "Strategy, insights, calendar, inspo",
+    "badge": "All-in-one workflow",
+    "cards": {
+      "insights": {
+        "title": "Connected insights",
+        "description": "Sync Instagram, TikTok, and YouTube performance into one dashboard."
+      },
+      "strategy": {
+        "title": "AI-generated strategy",
+        "description": "Get positioning, content pillars, platform focus, and practical growth moves."
+      },
+      "calendar": {
+        "title": "Calendar + inspo",
+        "description": "Save links, images, and references next to every post idea."
+      }
+    }
+  },
+
+  "benefits": {
+    "heading": "What you can do",
+    "title": "Use real platform data to make better content decisions",
+    "subtitle": "Instead of creating in the dark, you can connect your platforms, see what performs, and turn that into a better strategy and calendar.",
+
+    "list": {
+      "1": "See content insights from connected social media platforms",
+      "2": "Generate an AI strategy based on onboarding and real social data",
+      "3": "Identify what works best on Instagram, TikTok, and YouTube",
+      "4": "Plan content directly into a usable calendar",
+      "5": "Save references, links, and images for every post",
+      "6": "Use one system for strategy, planning, and execution"
+    }
+  },
+
+  "plans": {
+    "heading": "Plans",
+    "title": "Choose the plan that fits your workflow",
+    "subtitle": "Pricing is not finalized yet, but this is the structure we are building toward.",
+
+    "simple": {
+      "title": "Simple",
+      "description": "For users who want a focused system for strategy, planning, and content organization.",
+      "cta": "Join waitlist"
+    },
+
+    "pro": {
+      "title": "Pro",
+      "description": "For creators and businesses who want the full workflow powered by platform insights and AI.",
+      "cta": "Get early access",
+      "badge": "Most complete"
+    },
+
+    "features": {
+      "strategy": "AI-generated strategy",
+      "calendar": "Content calendar planning",
+      "inspo": "Inspo links and images for posts",
+      "onboarding": "Creator or business onboarding",
+      "organization": "Manual content organization",
+
+      "insights": "Connected social media insights",
+      "topContent": "Top-performing content overview",
+      "dataStrategy": "Strategy based on real platform data",
+      "aiCalendar": "AI-generated calendar suggestions",
+      "workflow": "Faster workflow from insight to execution"
+    }
+  },
+
+  "faq": {
+    "title": "Frequently asked questions",
+
+    "q1": "Who is this app for?",
+    "a1": "The app is built for creators and business owners who want a clearer system for strategy, insights, and content planning.",
+
+    "q2": "Do I need experience in social media strategy?",
+    "a2": "No. The onboarding and AI strategy are designed to guide you even if you're just starting out.",
+
+    "q3": "Which platforms can I connect?",
+    "a3": "Currently Instagram, TikTok, and YouTube. More integrations will be added later.",
+
+    "q4": "Can I still use it if I don't connect accounts?",
+    "a4": "Yes. You can still generate strategies and plan content manually, but insights improve when platforms are connected.",
+
+    "q5": "Is this a scheduling tool?",
+    "a5": "Not primarily. It focuses on strategy, planning, and workflow clarity rather than just scheduling posts."
+  },
+
+  "cta": {
+    "title": "Build your strategy, connect your platforms, and plan content with more clarity",
+    "subtitle": "Whether you are growing a personal brand or trying to get more leads and sales for your business, the app gives you a clearer system for content.",
+    "primary": "Create account",
+    "secondary": "Sign in"
   },
 
   "auth": {

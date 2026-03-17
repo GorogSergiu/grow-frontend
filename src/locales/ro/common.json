@@ -7,12 +7,150 @@
   },
 
   "hero": {
-    "badge": "Strategie AI pentru creatorii de conținut",
-    "title_line_1": "Claritate, consecvență",
+    "badge": "Strategie AI pentru creatori de conținut",
+    "title_line_1": "Claritate, consistență",
     "title_line_2": "și o strategie pe care o poți urma.",
-    "subtitle": "Conectează-ți rețelele sociale și primești un plan personalizat pe 6–12 luni, construit în jurul nișei tale, stilului tău de conținut și obiectivelor tale.",
-    "cta_primary": "Începe",
-    "cta_secondary": "Află mai multe"
+    "subtitle": "Conectează-ți rețelele sociale și obține un plan personalizat pe 6–12 luni, construit în jurul nișei, stilului de conținut și obiectivelor tale.",
+    "cta_primary": "Începe acum",
+    "cta_secondary": "Află mai mult",
+    "tags": {
+      "aiStrategy": "Strategie AI",
+      "socialInsights": "Insight-uri social media",
+      "contentCalendar": "Calendar de conținut",
+      "inspoBoard": "Panou de inspirație"
+    },
+    "preview": {
+      "title": "Sistemul tău de conținut",
+      "subtitle": "Strategie, insight-uri, calendar, inspirație",
+      "badge": "Workflow all-in-one",
+      "cards": {
+        "insights": {
+          "title": "Insight-uri conectate",
+          "description": "Sincronizează performanța Instagram, TikTok și YouTube într-un singur dashboard."
+        },
+        "strategy": {
+          "title": "Strategie generată de AI",
+          "description": "Primești poziționare, piloni de conținut, direcție pentru fiecare platformă și acțiuni clare de creștere."
+        },
+        "calendar": {
+          "title": "Calendar + inspirație",
+          "description": "Salvează linkuri, imagini și referințe lângă fiecare idee de postare."
+        }
+      }
+    }
+  },
+
+  "features": {
+    "title": "Tot ce ai nevoie pentru a trece de la postări aleatorii la un sistem real",
+    "subtitle": "Aplicația te ajută să înțelegi conținutul tău, să generezi o strategie și să planifici concret ce urmează să publici.",
+
+    "aiStrategy_title": "Strategie AI construită pentru profilul tău",
+    "aiStrategy_desc": "Completează onboarding-ul ca creator sau business și primește o strategie personalizată bazată pe obiective, audiență, timp disponibil și direcția conținutului.",
+
+    "insights_title": "Vezi insight-urile social media într-un singur loc",
+    "insights_desc": "Conectează Instagram, TikTok și YouTube și înțelege performanța conținutului tău dintr-un singur dashboard.",
+
+    "calendar_title": "Transformă strategia într-un calendar real de conținut",
+    "calendar_desc": "Generează idei direct în calendar, vezi ce ar trebui postat în continuare și păstrează workflow-ul organizat.",
+
+    "inspo_title": "Salvează inspirație pentru fiecare postare",
+    "inspo_desc": "Atașează linkuri și imagini fiecărui element din calendar pentru a crea moodboard-ul fiecărei postări.",
+
+    "creatorBusiness_title": "Construit pentru creatori și business-uri",
+    "creatorBusiness_desc": "Fie că vrei mai mulți followers, mai multă consistență, mai multe lead-uri sau o poziționare mai clară, aplicația se adaptează profilului tău.",
+
+    "workflow_title": "De la insight-uri la execuție",
+    "workflow_desc": "Treci de la date brute din platforme la decizii strategice și apoi la conținut planificat într-un singur workflow."
+  },
+
+  "howItWorks": {
+    "title": "De la onboarding la un workflow clar de conținut",
+
+    "step1_title": "Completează onboarding-ul",
+    "step1_desc": "Spune aplicației cine ești, ce vrei să obții, cine este audiența ta și ce tip de conținut te reprezintă.",
+
+    "step2_title": "Conectează platformele",
+    "step2_desc": "Leagă Instagram, TikTok și YouTube pentru ca aplicația să înțeleagă ce funcționează deja pentru tine.",
+
+    "step3_title": "Generează strategia",
+    "step3_desc": "Primești o strategie clară cu poziționare, piloni de conținut, direcții pentru platforme și acțiuni de creștere.",
+
+    "step4_title": "Planifică conținutul",
+    "step4_desc": "Ideile și postările programate apar în calendar pentru a le putea edita și executa mai rapid."
+  },
+
+  "benefits": {
+    "heading": "Ce poți face",
+    "title": "Folosește date reale pentru decizii mai bune de conținut",
+    "subtitle": "În loc să creezi la întâmplare, poți conecta platformele, vedea ce performează și transforma asta într-o strategie mai bună.",
+
+    "list": {
+      "1": "Vezi insight-uri din platformele social conectate",
+      "2": "Generează o strategie AI bazată pe onboarding și date reale",
+      "3": "Identifică ce funcționează pe Instagram, TikTok și YouTube",
+      "4": "Planifică conținutul direct într-un calendar utilizabil",
+      "5": "Salvează linkuri, imagini și referințe pentru fiecare postare",
+      "6": "Folosește un singur sistem pentru strategie și planificare"
+    }
+  },
+
+  "plans": {
+    "heading": "Planuri",
+    "title": "Alege planul potrivit pentru workflow-ul tău",
+    "subtitle": "Prețurile nu sunt finalizate încă, dar aceasta este structura spre care ne îndreptăm.",
+
+    "simple": {
+      "title": "Simple",
+      "description": "Pentru utilizatori care vor un sistem simplu pentru strategie și organizarea conținutului.",
+      "cta": "Intră pe lista de așteptare"
+    },
+
+    "pro": {
+      "title": "Pro",
+      "description": "Pentru creatori și business-uri care vor workflow complet bazat pe insight-uri și AI.",
+      "cta": "Acces timpuriu",
+      "badge": "Cel mai complet"
+    },
+
+    "features": {
+      "strategy": "Strategie generată de AI",
+      "calendar": "Planificare calendar de conținut",
+      "inspo": "Linkuri și imagini de inspirație",
+      "onboarding": "Onboarding creator sau business",
+      "organization": "Organizare manuală a conținutului",
+
+      "insights": "Insight-uri social media conectate",
+      "topContent": "Conținut cu performanță maximă",
+      "dataStrategy": "Strategie bazată pe date reale",
+      "aiCalendar": "Sugestii de calendar generate de AI",
+      "workflow": "Workflow mai rapid de la insight la execuție"
+    }
+  },
+
+  "faq": {
+    "title": "Întrebări frecvente",
+
+    "q1": "Pentru cine este aplicația?",
+    "a1": "Aplicația este construită pentru creatori și business-uri care vor un sistem mai clar pentru strategie și planificare.",
+
+    "q2": "Am nevoie de experiență în social media?",
+    "a2": "Nu. Onboarding-ul și strategia AI sunt gândite să te ghideze chiar dacă ești la început.",
+
+    "q3": "Ce platforme pot conecta?",
+    "a3": "Momentan Instagram, TikTok și YouTube. Vor fi adăugate și altele.",
+
+    "q4": "Pot folosi aplicația fără să conectez conturi?",
+    "a4": "Da. Poți genera strategii și planifica conținut manual, dar insight-urile sunt mai bune dacă platformele sunt conectate.",
+
+    "q5": "Este o aplicație de programare a postărilor?",
+    "a5": "Nu în primul rând. Se concentrează pe strategie, planificare și workflow."
+  },
+
+  "cta": {
+    "title": "Construiește strategia, conectează platformele și planifică mai clar",
+    "subtitle": "Fie că vrei să crești un brand personal sau să obții mai multe lead-uri pentru business-ul tău, aplicația îți oferă un sistem clar pentru conținut.",
+    "primary": "Creează cont",
+    "secondary": "Autentificare"
   },
 
   "auth": {

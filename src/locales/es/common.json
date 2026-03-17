@@ -8,11 +8,176 @@
 
   "hero": {
     "badge": "Estrategia con IA para creadores de contenido",
-    "title_line_1": "Claridad, constancia",
+    "title_line_1": "Claridad, consistencia",
     "title_line_2": "y una estrategia que puedas seguir.",
-    "subtitle": "Conecta tus redes sociales y obtén un plan personalizado de 6 a 12 meses, creado en torno a tu nicho, estilo de contenido y objetivos.",
+    "subtitle": "Conecta tus redes sociales y obtén un plan personalizado de 6–12 meses basado en tu nicho, estilo de contenido y objetivos.",
     "cta_primary": "Empezar",
-    "cta_secondary": "Saber más"
+    "cta_secondary": "Saber más",
+    "tags": {
+      "aiStrategy": "Estrategia con IA",
+      "socialInsights": "Insights de redes sociales",
+      "contentCalendar": "Calendario de contenido",
+      "inspoBoard": "Tablero de inspiración"
+    },
+    "preview": {
+      "title": "Tu sistema de contenido",
+      "subtitle": "Estrategia, insights, calendario, inspiración",
+      "badge": "Flujo de trabajo todo-en-uno",
+      "cards": {
+        "insights": {
+          "title": "Insights conectados",
+          "description": "Sincroniza el rendimiento de Instagram, TikTok y YouTube en un solo panel."
+        },
+        "strategy": {
+          "title": "Estrategia generada con IA",
+          "description": "Obtén posicionamiento, pilares de contenido, enfoque por plataforma y acciones claras de crecimiento."
+        },
+        "calendar": {
+          "title": "Calendario + inspiración",
+          "description": "Guarda enlaces, imágenes y referencias junto a cada idea de publicación."
+        }
+      }
+    }
+  },
+
+  "features": {
+    "title": "Todo lo que necesitas para pasar de publicar al azar a tener un sistema real",
+    "subtitle": "La app te ayuda a entender tu contenido, generar una estrategia y planificar qué publicar después.",
+
+    "aiStrategy_title": "Estrategia con IA basada en tu perfil",
+    "aiStrategy_desc": "Completa el onboarding como creador o negocio y obtén una estrategia personalizada basada en tus objetivos, audiencia, tiempo disponible y dirección de contenido.",
+
+    "insights_title": "Ve tus insights de redes sociales en un solo lugar",
+    "insights_desc": "Conecta Instagram, TikTok y YouTube y entiende tu rendimiento desde un único panel.",
+
+    "calendar_title": "Convierte la estrategia en un calendario real",
+    "calendar_desc": "Genera ideas directamente en tu calendario, ve qué deberías publicar después y mantén tu flujo de trabajo organizado.",
+
+    "inspo_title": "Guarda inspiración para cada publicación",
+    "inspo_desc": "Añade enlaces e imágenes a cada elemento del calendario para que cada post tenga su propio moodboard.",
+
+    "creatorBusiness_title": "Creado para creadores y negocios",
+    "creatorBusiness_desc": "Ya sea que quieras más seguidores, más consistencia, más leads o una mejor posición en tu nicho, la app se adapta a tu perfil.",
+
+    "workflow_title": "De los insights a la ejecución",
+    "workflow_desc": "Pasa de datos de plataformas a decisiones estratégicas y luego a contenido planificado dentro de un solo flujo de trabajo."
+  },
+
+  "howItWorks": {
+    "title": "Del onboarding a un flujo de contenido estructurado",
+
+    "step1_title": "Completa el onboarding",
+    "step1_desc": "Dile a la app quién eres, qué quieres lograr, quién es tu audiencia y qué tipo de contenido encaja con tu perfil.",
+
+    "step2_title": "Conecta tus plataformas",
+    "step2_desc": "Vincula Instagram, TikTok y YouTube para que la app pueda analizar qué contenido ya funciona para ti.",
+
+    "step3_title": "Genera tu estrategia",
+    "step3_desc": "Obtén una estrategia clara con posicionamiento, pilares de contenido, dirección por plataforma y próximos pasos.",
+
+    "step4_title": "Planifica tu contenido",
+    "step4_desc": "Tus ideas y publicaciones programadas se añaden al calendario para que puedas revisarlas, editarlas y ejecutarlas más rápido."
+  },
+
+  "tags": {
+    "aiStrategy": "Estrategia con IA",
+    "socialInsights": "Insights de redes sociales",
+    "contentCalendar": "Calendario de contenido",
+    "inspoBoard": "Tablero de inspiración"
+  },
+
+  "preview": {
+    "title": "Tu sistema de contenido",
+    "subtitle": "Estrategia, insights, calendario, inspiración",
+    "badge": "Flujo de trabajo todo-en-uno",
+    "cards": {
+      "insights": {
+        "title": "Insights conectados",
+        "description": "Sincroniza el rendimiento de Instagram, TikTok y YouTube en un solo panel."
+      },
+      "strategy": {
+        "title": "Estrategia generada con IA",
+        "description": "Obtén posicionamiento, pilares de contenido, enfoque por plataforma y acciones claras de crecimiento."
+      },
+      "calendar": {
+        "title": "Calendario + inspiración",
+        "description": "Guarda enlaces, imágenes y referencias junto a cada idea de publicación."
+      }
+    }
+  },
+
+  "benefits": {
+    "heading": "Qué puedes hacer",
+    "title": "Usa datos reales para tomar mejores decisiones de contenido",
+    "subtitle": "En lugar de crear a ciegas, puedes conectar tus plataformas, ver qué funciona y convertirlo en una mejor estrategia y calendario.",
+
+    "list": {
+      "1": "Ver insights de contenido desde plataformas conectadas",
+      "2": "Generar una estrategia con IA basada en onboarding y datos reales",
+      "3": "Identificar qué funciona mejor en Instagram, TikTok y YouTube",
+      "4": "Planificar contenido directamente en un calendario utilizable",
+      "5": "Guardar referencias, enlaces e imágenes para cada publicación",
+      "6": "Usar un solo sistema para estrategia, planificación y ejecución"
+    }
+  },
+
+  "plans": {
+    "heading": "Planes",
+    "title": "Elige el plan que se adapte a tu flujo de trabajo",
+    "subtitle": "El precio aún no está finalizado, pero esta es la estructura hacia la que estamos avanzando.",
+
+    "simple": {
+      "title": "Simple",
+      "description": "Para usuarios que quieren un sistema claro para estrategia, planificación y organización del contenido.",
+      "cta": "Unirse a la lista de espera"
+    },
+
+    "pro": {
+      "title": "Pro",
+      "description": "Para creadores y negocios que quieren un flujo completo impulsado por insights y IA.",
+      "cta": "Acceso anticipado",
+      "badge": "El más completo"
+    },
+
+    "features": {
+      "strategy": "Estrategia generada con IA",
+      "calendar": "Planificación de calendario de contenido",
+      "inspo": "Enlaces e imágenes de inspiración",
+      "onboarding": "Onboarding para creadores o negocios",
+      "organization": "Organización manual del contenido",
+
+      "insights": "Insights de redes sociales conectadas",
+      "topContent": "Contenido con mejor rendimiento",
+      "dataStrategy": "Estrategia basada en datos reales",
+      "aiCalendar": "Sugerencias de calendario generadas con IA",
+      "workflow": "Flujo de trabajo más rápido de insight a ejecución"
+    }
+  },
+
+  "faq": {
+    "title": "Preguntas frecuentes",
+
+    "q1": "¿Para quién es esta aplicación?",
+    "a1": "La app está diseñada para creadores y negocios que quieren un sistema más claro para estrategia, insights y planificación de contenido.",
+
+    "q2": "¿Necesito experiencia en estrategia de redes sociales?",
+    "a2": "No. El onboarding y la estrategia con IA están diseñados para guiarte incluso si estás empezando.",
+
+    "q3": "¿Qué plataformas puedo conectar?",
+    "a3": "Actualmente Instagram, TikTok y YouTube. Se añadirán más integraciones más adelante.",
+
+    "q4": "¿Puedo usarla sin conectar cuentas?",
+    "a4": "Sí. Puedes generar estrategias y planificar contenido manualmente, aunque los insights mejoran cuando conectas las plataformas.",
+
+    "q5": "¿Es una herramienta de programación de posts?",
+    "a5": "No principalmente. Se enfoca más en estrategia, planificación y claridad de workflow."
+  },
+
+  "cta": {
+    "title": "Construye tu estrategia, conecta tus plataformas y planifica con más claridad",
+    "subtitle": "Tanto si estás construyendo una marca personal como si buscas más leads y ventas para tu negocio, la app te da un sistema claro para tu contenido.",
+    "primary": "Crear cuenta",
+    "secondary": "Iniciar sesión"
   },
 
   "auth": {
