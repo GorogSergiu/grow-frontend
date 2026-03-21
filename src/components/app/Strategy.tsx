@@ -1,9 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { supabase } from "@/lib/supabase";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import type { DateRange } from "react-day-picker";
+import { Calendar } from "@/components/ui/calendar";
 import Loader from "@/components/Loader";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -36,6 +46,16 @@ type StrategyResponse = {
   } | null;
 };
 
+type StrategyPeriodPreset = "1_month" | "3_months" | "6_months";
+type StrategyPeriodType = "preset" | "custom";
+
+function toIsoDateOnly(date: Date) {
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, "0");
+  const day = `${date.getDate()}`.padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 export default function StrategyPage() {
   const { t } = useTranslation();
 
@@ -43,6 +63,27 @@ export default function StrategyPage() {
   const [generating, setGenerating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [strategy, setStrategy] = useState<StrategyResponse["strategy"]>(null);
+  const [generateDialogOpen, setGenerateDialogOpen] = useState(false);
+  const [periodType, setPeriodType] = useState<StrategyPeriodType>("preset");
+  const [preset, setPreset] = useState<StrategyPeriodPreset>("3_months");
+  const [customRange, setCustomRange] = useState<DateRange | undefined>();
+  const [overlapDialogOpen, setOverlapDialogOpen] = useState(false);
+  const [pendingGeneratePayload, setPendingGeneratePayload] = useState<{
+    periodType: "preset" | "custom";
+    preset: "1_month" | "3_months" | "6_months" | null;
+    startDate: string | null;
+    endDate: string | null;
+  } | null>(null);
+
+  const [overlapInfo, setOverlapInfo] = useState<{
+    overlapStart: string | null;
+    overlapEnd: string | null;
+  } | null>(null);
+
+  const canContinueGenerate = useMemo(() => {
+    if (periodType === "preset") return true;
+    return Boolean(customRange?.from && customRange?.to);
+  }, [periodType, customRange]);
 
   const getAccessToken = async () => {
     const { data } = await supabase.auth.getSession();
@@ -83,7 +124,12 @@ export default function StrategyPage() {
     }
   };
 
-  const generateStrategy = async () => {
+  const generateStrategy = async (payloadArg?: {
+    periodType: "preset" | "custom";
+    preset: "1_month" | "3_months" | "6_months" | null;
+    startDate: string | null;
+    endDate: string | null;
+  }) => {
     setGenerating(true);
     setError(null);
 
@@ -91,9 +137,15 @@ export default function StrategyPage() {
       const token = await getAccessToken();
       if (!token) return;
 
+      const payload = payloadArg ?? buildStrategyPayload();
+
       const res = await fetch(`${API_URL}/api/strategy/generate`, {
         method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       const body: {
@@ -104,6 +156,8 @@ export default function StrategyPage() {
       if (!res.ok) {
         throw new Error(body.error ?? "Failed to generate strategy");
       }
+
+      setGenerateDialogOpen(false);
 
       await loadStrategy();
     } catch (e: unknown) {
@@ -124,6 +178,73 @@ export default function StrategyPage() {
 
   const strategyJson = strategy?.strategy_json;
 
+  function buildStrategyPayload() {
+    return periodType === "preset"
+      ? {
+          periodType: "preset" as const,
+          preset,
+          startDate: null,
+          endDate: null,
+        }
+      : {
+          periodType: "custom" as const,
+          preset: null,
+          startDate: customRange?.from ? toIsoDateOnly(customRange.from) : null,
+          endDate: customRange?.to ? toIsoDateOnly(customRange.to) : null,
+        };
+  }
+
+  const checkOverlapBeforeGenerate = async () => {
+    if (!canContinueGenerate) return;
+
+    setError(null);
+
+    try {
+      const token = await getAccessToken();
+      if (!token) return;
+
+      const payload = buildStrategyPayload();
+
+      const res = await fetch(`${API_URL}/api/strategy/check-overlap`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const body: {
+        hasOverlap?: boolean;
+        overlapStart?: string | null;
+        overlapEnd?: string | null;
+        error?: string;
+      } = await res.json();
+
+      if (!res.ok) {
+        throw new Error(body.error ?? "Failed to check overlap");
+      }
+
+      if (body.hasOverlap) {
+        setPendingGeneratePayload(payload);
+        setOverlapInfo({
+          overlapStart: body.overlapStart ?? null,
+          overlapEnd: body.overlapEnd ?? null,
+        });
+        setOverlapDialogOpen(true);
+        return;
+      }
+
+      await generateStrategy(payload);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      } else {
+        setError("Failed to check overlap");
+      }
+    }
+  };
+
   if (generating) return <Loader />;
 
   return (
@@ -140,7 +261,7 @@ export default function StrategyPage() {
 
         <Button
           className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
-          onClick={generateStrategy}
+          onClick={() => setGenerateDialogOpen(true)}
           disabled={generating}
         >
           {generating
@@ -175,9 +296,7 @@ export default function StrategyPage() {
         <>
           <Card className="border-0 surface-solid">
             <CardHeader>
-              <CardTitle>
-                {t("dashboard.strategy.summary")}
-              </CardTitle>
+              <CardTitle>{t("dashboard.strategy.summary")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
@@ -202,9 +321,7 @@ export default function StrategyPage() {
 
           <Card className="border-0 surface-solid">
             <CardHeader>
-              <CardTitle>
-                {t("dashboard.strategy.objectives")}
-              </CardTitle>
+              <CardTitle>{t("dashboard.strategy.objectives")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {strategyJson.core_objectives.map((item, index) => (
@@ -220,9 +337,7 @@ export default function StrategyPage() {
 
           <Card className="border-0 surface-solid">
             <CardHeader>
-              <CardTitle>
-                {t("dashboard.strategy.pillars")}
-              </CardTitle>
+              <CardTitle>{t("dashboard.strategy.pillars")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {strategyJson.content_pillars.map((pillar, index) => (
@@ -259,9 +374,7 @@ export default function StrategyPage() {
 
           <Card className="border-0 surface-solid">
             <CardHeader>
-              <CardTitle>
-                {t("dashboard.strategy.platformStrategy")}
-              </CardTitle>
+              <CardTitle>{t("dashboard.strategy.platformStrategy")}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               {strategyJson.platform_strategy.map((item, index) => (
@@ -299,9 +412,7 @@ export default function StrategyPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="border-0 surface-solid">
               <CardHeader>
-                <CardTitle>
-                  {t("dashboard.strategy.growthMoves")}
-                </CardTitle>
+                <CardTitle>{t("dashboard.strategy.growthMoves")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 {strategyJson.growth_moves.map((item, index) => (
@@ -317,9 +428,7 @@ export default function StrategyPage() {
 
             <Card className="border-0 surface-solid">
               <CardHeader>
-                <CardTitle>
-                  {t("dashboard.strategy.next30Days")}
-                </CardTitle>
+                <CardTitle>{t("dashboard.strategy.next30Days")}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-2">
                 {strategyJson.next_30_days_focus.map((item, index) => (
@@ -335,6 +444,178 @@ export default function StrategyPage() {
           </div>
         </>
       ) : null}
+      <Dialog open={generateDialogOpen} onOpenChange={setGenerateDialogOpen}>
+        <DialogContent className="surface-solid border-0 sm:max-w-xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Select strategy period</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <p className="text-sm text-muted-foreground">
+                Choose how long you want your strategy to be.
+              </p>
+
+              <RadioGroup
+                value={periodType === "preset" ? preset : "custom"}
+                onValueChange={(value) => {
+                  if (value === "custom") {
+                    setPeriodType("custom");
+                    return;
+                  }
+
+                  setPeriodType("preset");
+                  setPreset(value as StrategyPeriodPreset);
+                }}
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="1_month" id="period-1m" />
+                    <Label htmlFor="period-1m">1 month</Label>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="3_months" id="period-3m" />
+                    <Label htmlFor="period-3m">3 months</Label>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="6_months" id="period-6m" />
+                    <Label htmlFor="period-6m">6 months</Label>
+                  </div>
+
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="custom" id="period-custom" />
+                    <Label htmlFor="period-custom">Custom range</Label>
+                  </div>
+                </div>
+              </RadioGroup>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">
+              {periodType === "preset" ? (
+                <>
+                  Selected period:{" "}
+                  <span className="font-medium text-foreground">
+                    {preset === "1_month"
+                      ? "1 month"
+                      : preset === "3_months"
+                        ? "3 months"
+                        : "6 months"}
+                  </span>
+                </>
+              ) : (
+                <>
+                  Selected period:{" "}
+                  <span className="font-medium text-foreground">
+                    {customRange?.from && customRange?.to
+                      ? `${customRange.from.toLocaleDateString()} - ${customRange.to.toLocaleDateString()}`
+                      : "Custom range not complete"}
+                  </span>
+                </>
+              )}
+            </div>
+
+            {periodType === "custom" ? (
+              <div className="space-y-3">
+                <div className="text-sm font-medium">Select a custom range</div>
+
+                <div className="rounded-2xl border border-border bg-background/40 p-4">
+                  <Calendar
+                    mode="range"
+                    selected={customRange}
+                    onSelect={setCustomRange}
+                    numberOfMonths={2}
+                    className="rounded-md"
+                  />
+                </div>
+
+                {customRange?.from && customRange?.to ? (
+                  <div className="text-sm text-muted-foreground">
+                    Selected range: {customRange.from.toLocaleDateString()} -{" "}
+                    {customRange.to.toLocaleDateString()}
+                  </div>
+                ) : (
+                  <div className="text-sm text-muted-foreground">
+                    Please select both a start and end date.
+                  </div>
+                )}
+              </div>
+            ) : null}
+
+            <div className="flex items-center justify-between">
+              <Button
+                variant="ghost"
+                onClick={() => setGenerateDialogOpen(false)}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+                disabled={!canContinueGenerate || generating}
+                onClick={checkOverlapBeforeGenerate}
+              >
+                {generating ? "Generating…" : "Continue"}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={overlapDialogOpen} onOpenChange={setOverlapDialogOpen}>
+        <DialogContent className="surface-solid border-0 sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Overlapping strategy period</DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Part of this new strategy overlaps with content that was already
+              generated.
+            </p>
+
+            {overlapInfo?.overlapStart && overlapInfo?.overlapEnd ? (
+              <div className="rounded-2xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">
+                The generated content from{" "}
+                <span className="font-medium text-foreground">
+                  {overlapInfo.overlapStart}
+                </span>{" "}
+                to{" "}
+                <span className="font-medium text-foreground">
+                  {overlapInfo.overlapEnd}
+                </span>{" "}
+                will be replaced.
+              </div>
+            ) : null}
+
+            <div className="flex items-center justify-between gap-2">
+              <Button
+                variant="ghost"
+                onClick={() => setOverlapDialogOpen(false)}
+                disabled={generating}
+              >
+                Cancel
+              </Button>
+
+              <Button
+                className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+                disabled={!pendingGeneratePayload || generating}
+                onClick={async () => {
+                  if (!pendingGeneratePayload) return;
+
+                  setOverlapDialogOpen(false);
+                  setGenerateDialogOpen(false);
+                  await generateStrategy(pendingGeneratePayload);
+                  setPendingGeneratePayload(null);
+                }}
+              >
+                {generating ? "Generating…" : "Continue anyway"}
+              </Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
