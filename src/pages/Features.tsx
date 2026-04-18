@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import {
   Spark,
   StatsReport,
@@ -14,6 +16,7 @@ import { Button } from "@/components/ui/button";
 type FeatureDetail = {
   icon: React.ElementType;
   accent: string;
+  accentBg: string;
   label: string;
   title: string;
   subtitle: string;
@@ -23,11 +26,14 @@ type FeatureDetail = {
 
 export default function FeaturesPage() {
   const { t } = useTranslation();
+  const heroRef = useRef<HTMLElement>(null);
+  const heroInView = useInView(heroRef, { once: true });
 
   const features: FeatureDetail[] = [
     {
       icon: Spark,
       accent: "bg-brand-warm/10 text-brand-warm",
+      accentBg: "bg-brand-warm/5",
       label: t("featuresPage.strategy.label", { defaultValue: "AI Strategy" }),
       title: t("featuresPage.strategy.title", { defaultValue: "A full content strategy built around your profile" }),
       subtitle: t("featuresPage.strategy.subtitle", {
@@ -50,6 +56,7 @@ export default function FeaturesPage() {
     {
       icon: StatsReport,
       accent: "bg-brand-sky/10 text-brand-sky",
+      accentBg: "bg-brand-sky/5",
       label: t("featuresPage.analytics.label", { defaultValue: "Analytics" }),
       title: t("featuresPage.analytics.title", { defaultValue: "Real platform data in one place" }),
       subtitle: t("featuresPage.analytics.subtitle", {
@@ -72,6 +79,7 @@ export default function FeaturesPage() {
     {
       icon: Calendar,
       accent: "bg-purple-500/10 text-purple-500",
+      accentBg: "bg-purple-500/5",
       label: t("featuresPage.calendar.label", { defaultValue: "Content Calendar" }),
       title: t("featuresPage.calendar.title", { defaultValue: "Plan and schedule your content, manually or with AI" }),
       subtitle: t("featuresPage.calendar.subtitle", {
@@ -94,6 +102,7 @@ export default function FeaturesPage() {
     {
       icon: Group,
       accent: "bg-green-500/10 text-green-600",
+      accentBg: "bg-green-500/5",
       label: t("featuresPage.onboarding.label", { defaultValue: "Onboarding" }),
       title: t("featuresPage.onboarding.title", { defaultValue: "Built for creators and businesses — two separate profiles" }),
       subtitle: t("featuresPage.onboarding.subtitle", {
@@ -116,6 +125,7 @@ export default function FeaturesPage() {
     {
       icon: Settings,
       accent: "bg-orange-500/10 text-orange-500",
+      accentBg: "bg-orange-500/5",
       label: t("featuresPage.integrations.label", { defaultValue: "Integrations" }),
       title: t("featuresPage.integrations.title", { defaultValue: "Connect Instagram, TikTok, and YouTube" }),
       subtitle: t("featuresPage.integrations.subtitle", {
@@ -138,36 +148,76 @@ export default function FeaturesPage() {
   ];
 
   return (
-    <div className="space-y-24 py-24 md:space-y-32 md:py-32">
+    <div className="space-y-28 py-24 md:space-y-36 md:py-32">
 
       {/* HERO */}
-      <section className="max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs">
-          <span className="h-2 w-2 rounded-full bg-brand-sky" />
+      <section ref={heroRef} className="relative max-w-3xl overflow-visible">
+        {/* Background glow */}
+        <div className="pointer-events-none absolute -left-40 -top-32 h-[450px] w-[450px] rounded-full bg-brand-sky/8 blur-[120px] animate-[pulse_7s_ease-in-out_infinite]" />
+        <div className="pointer-events-none absolute -right-20 top-0 h-[300px] w-[300px] rounded-full bg-brand-warm/6 blur-[100px] animate-[pulse_8s_ease-in-out_infinite_2s]" />
+
+        {/* Dot grid */}
+        <div
+          className="pointer-events-none absolute -inset-20 -z-10 opacity-[0.03] dark:opacity-[0.06]"
+          style={{
+            backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur px-3 py-1.5 text-xs"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-sky opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-sky" />
+          </span>
           <span className="text-muted-foreground">
             {t("featuresPage.badge", { defaultValue: "Everything Grow can do" })}
           </span>
-        </div>
+        </motion.div>
 
-        <h1 className="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
-          {t("featuresPage.heroTitle", { defaultValue: "Every feature, explained" })}
-        </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl lg:text-[3.5rem]"
+        >
+          <span>{t("featuresPage.heroTitle", { defaultValue: "Every feature," })}</span>{" "}
+          <span className="bg-gradient-to-r from-brand-warm to-brand-sky bg-clip-text text-transparent">
+            {t("featuresPage.heroTitleAccent", { defaultValue: "explained" })}
+          </span>
+        </motion.h1>
 
-        <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg"
+        >
           {t("featuresPage.heroSubtitle", {
             defaultValue:
               "Grow is a strategy and content system for creators and businesses. Here's a detailed look at each feature and what it actually does.",
           })}
-        </p>
+        </motion.p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={heroInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-8 flex flex-wrap items-center gap-3"
+        >
           <Button
             size="lg"
             asChild
-            className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+            className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
           >
-            <Link to="/signup">
+            <Link to="/signup" className="flex items-center gap-2">
               {t("featuresPage.heroCta", { defaultValue: "Get started for free" })}
+              <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="rounded-full" asChild>
@@ -175,100 +225,212 @@ export default function FeaturesPage() {
               {t("featuresPage.heroCtaSecondary", { defaultValue: "Sign in" })}
             </Link>
           </Button>
-        </div>
+        </motion.div>
+
+        {/* Quick nav pills */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={heroInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-10 flex flex-wrap gap-2"
+        >
+          {features.map((feature, i) => {
+            const NavIcon = feature.icon;
+            return (
+              <motion.a
+                key={feature.label}
+                href={`#feature-${i}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={heroInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.35, delay: 0.85 + i * 0.07 }}
+                className="flex items-center gap-1.5 rounded-full border border-border bg-card/80 backdrop-blur px-3 py-1.5 text-xs text-muted-foreground transition-all duration-200 hover:border-border/80 hover:bg-card hover:text-foreground hover:shadow-sm"
+              >
+                <NavIcon width={12} height={12} />
+                {feature.label}
+              </motion.a>
+            );
+          })}
+        </motion.div>
       </section>
 
       {/* FEATURES */}
-      <div className="space-y-20">
+      <div className="space-y-28 md:space-y-36">
         {features.map((feature, i) => {
           const Icon = feature.icon;
           const isEven = i % 2 === 0;
 
           return (
-            <section
+            <motion.section
               key={feature.label}
-              className={`grid items-start gap-12 lg:grid-cols-2 ${!isEven ? "lg:[&>*:first-child]:order-2" : ""}`}
+              id={`feature-${i}`}
+              className="relative scroll-mt-24"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.4 }}
             >
-              {/* Text side */}
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${feature.accent}`}>
-                      <Icon width={20} height={20} />
+              {/* Section glow */}
+              <div
+                className={`pointer-events-none absolute top-0 h-[350px] w-[350px] rounded-full ${feature.accentBg} blur-[100px] ${
+                  isEven ? "-left-32" : "-right-32"
+                }`}
+              />
+
+              <div className={`grid items-start gap-12 lg:grid-cols-2 ${!isEven ? "lg:[&>*:first-child]:order-2" : ""}`}>
+                {/* Text side */}
+                <motion.div
+                  className="space-y-6"
+                  initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <motion.div
+                        className={`flex h-11 w-11 items-center justify-center rounded-xl ${feature.accent} transition-transform duration-300`}
+                        whileHover={{ scale: 1.1 }}
+                      >
+                        <Icon width={20} height={20} />
+                      </motion.div>
+                      <span className="text-sm font-medium text-muted-foreground">
+                        {feature.label}
+                      </span>
                     </div>
-                    <span className="text-sm font-medium text-muted-foreground">
-                      {feature.label}
-                    </span>
+
+                    <h2 className="text-2xl font-bold leading-snug tracking-tight md:text-3xl">
+                      {feature.title}
+                    </h2>
+
+                    <p className="text-base leading-relaxed text-muted-foreground">
+                      {feature.subtitle}
+                    </p>
                   </div>
 
-                  <h2 className="text-2xl font-semibold leading-snug tracking-tight md:text-3xl">
-                    {feature.title}
-                  </h2>
+                  {feature.note ? (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: 0.3 }}
+                      className="rounded-2xl border border-border bg-card/60 backdrop-blur px-4 py-3 text-sm text-muted-foreground leading-relaxed"
+                    >
+                      {feature.note}
+                    </motion.div>
+                  ) : null}
+                </motion.div>
 
-                  <p className="text-base leading-relaxed text-muted-foreground">
-                    {feature.subtitle}
-                  </p>
-                </div>
-
-                {feature.note ? (
-                  <div className="rounded-2xl border border-border bg-card/60 px-4 py-3 text-sm text-muted-foreground leading-relaxed">
-                    {feature.note}
-                  </div>
-                ) : null}
+                {/* Bullets side */}
+                <motion.div
+                  initial={{ opacity: 0, x: isEven ? 30 : -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                  className="group rounded-[28px] border border-border bg-card/80 backdrop-blur p-6 space-y-3 transition-all duration-300 hover:shadow-lg hover:shadow-black/[0.03] dark:hover:shadow-black/20"
+                >
+                  {feature.bullets.map((bullet, bi) => (
+                    <motion.div
+                      key={bi}
+                      initial={{ opacity: 0, x: 12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.35, delay: 0.25 + bi * 0.06 }}
+                      className="flex items-start gap-3"
+                    >
+                      <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${feature.accent} transition-transform duration-200 group-hover:scale-105`}>
+                        <CheckCircle width={13} height={13} />
+                      </div>
+                      <p className="text-sm leading-6 text-muted-foreground">{bullet}</p>
+                    </motion.div>
+                  ))}
+                </motion.div>
               </div>
-
-              {/* Bullets side */}
-              <div className="rounded-[28px] border border-border bg-card p-6 space-y-3">
-                {feature.bullets.map((bullet, bi) => (
-                  <div key={bi} className="flex items-start gap-3">
-                    <div className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${feature.accent}`}>
-                      <CheckCircle width={13} height={13} />
-                    </div>
-                    <p className="text-sm leading-6 text-muted-foreground">{bullet}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            </motion.section>
           );
         })}
       </div>
 
       {/* CTA */}
-      <section>
-        <div className="rounded-[32px] border border-border bg-card px-8 py-12 text-center md:px-12 md:py-16">
-          <div className="text-sm font-medium text-brand-sky">
+      <motion.section
+        className="relative"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className="pointer-events-none absolute inset-0 -z-10">
+          <div className="absolute left-1/4 top-0 h-[300px] w-[300px] rounded-full bg-brand-warm/6 blur-[100px]" />
+          <div className="absolute bottom-0 right-1/4 h-[250px] w-[250px] rounded-full bg-brand-sky/8 blur-[80px]" />
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-[32px] border border-border bg-card/90 backdrop-blur px-8 py-14 text-center md:px-12 md:py-20 shadow-xl shadow-black/[0.02] dark:shadow-black/20"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 rounded-full border border-brand-sky/20 bg-brand-sky/5 px-3 py-1 text-xs font-medium text-brand-sky"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-sky opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand-sky" />
+            </span>
             {t("featuresPage.ctaLabel", { defaultValue: "Ready to start?" })}
-          </div>
+          </motion.div>
 
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-5 text-3xl font-bold tracking-tight md:text-4xl"
+          >
             {t("featuresPage.ctaTitle", { defaultValue: "Build your strategy and start planning content today" })}
-          </h2>
+          </motion.h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.45 }}
+            className="mx-auto mt-5 max-w-xl text-base text-muted-foreground md:text-lg"
+          >
             {t("featuresPage.ctaSubtitle", {
               defaultValue:
                 "It takes a few minutes to complete onboarding and generate your first strategy. No credit card required.",
             })}
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.55 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          >
             <Button
               size="lg"
               asChild
-              className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+              className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
             >
               <Link to="/signup" className="flex items-center gap-2">
                 {t("featuresPage.ctaButton", { defaultValue: "Create your account" })}
-                <ArrowRight width={16} height={16} />
+                <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
               </Link>
             </Button>
 
             <Button size="lg" variant="outline" className="rounded-full" asChild>
               <Link to="/login">{t("cta.secondary")}</Link>
             </Button>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </motion.div>
+      </motion.section>
     </div>
   );
 }

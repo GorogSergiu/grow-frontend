@@ -15,8 +15,8 @@ export function PublicNavbar() {
         {/* LEFT */}
         <div className="flex items-center gap-10">
           <Button variant="ghost" asChild>
-            <Link className="text-sm font-semibold tracking-wide" to="/">
-              GROW
+            <Link className="text-xl font-semibold tracking-wide" to="/">
+              Sporly.ai
             </Link>
           </Button>
 
@@ -24,7 +24,9 @@ export function PublicNavbar() {
             <NavLink
               to="/features"
               className={({ isActive }) =>
-                isActive ? "text-foreground" : "hover:text-foreground transition-colors"
+                isActive
+                  ? "text-foreground"
+                  : "hover:text-foreground transition-colors"
               }
             >
               {t("nav.features")}
@@ -32,7 +34,9 @@ export function PublicNavbar() {
             <NavLink
               to="/plans"
               className={({ isActive }) =>
-                isActive ? "text-foreground" : "hover:text-foreground transition-colors"
+                isActive
+                  ? "text-foreground"
+                  : "hover:text-foreground transition-colors"
               }
             >
               {t("nav.plans", { defaultValue: "Plans" })}
