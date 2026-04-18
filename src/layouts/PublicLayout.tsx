@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "@/components/navbar/Navbar";
+import { PublicNavbar } from "@/features/navigation/PublicNavbar";
 
 export default function PublicLayout() {
   return (
@@ -7,7 +7,7 @@ export default function PublicLayout() {
       {/* Background (tokens only) */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-br from-brand-cream via-background to-background" />
 
-      <Navbar />
+      <PublicNavbar />
 
       <main className="mx-auto max-w-6xl px-4">
         <Outlet />

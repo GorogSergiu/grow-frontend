@@ -3,17 +3,21 @@ import ProtectedRoute from "./ProtectedRoute";
 import OnboardingGuard from "./OnboardingGuard";
 
 import PublicLayout from "@/layouts/PublicLayout";
+import AppLayout from "@/layouts/AppLayout";
 
 import Landing from "@/pages/Landing";
+import FeaturesPage from "@/pages/Features";
+import PlansPage from "@/pages/Plans";
 import Login from "@/pages/Login";
 import Signup from "@/pages/Signup";
-import Dashboard from "@/components/app/Dashboard";
 import AuthCallback from "@/pages/AuthCallback";
-import AppLayout from "@/layouts/AppLayout";
-import Settings from "@/components/app/Settings";
-import Calendar from "@/components/app/Calendar";
-import OnboardingPage from "@/pages/onboarding/Onboarding";
-import StrategyPage from "@/components/app/Strategy";
+
+import Dashboard from "@/features/dashboard/Dashboard";
+import CalendarPage from "@/features/calendar/CalendarPage";
+import StrategyPage from "@/features/strategy/StrategyPage";
+import SettingsPage from "@/features/settings/SettingsPage";
+import OnboardingPage from "@/features/onboarding/Onboarding";
+import HowItWorksPage from "@/features/how-it-works/HowItWorksPage";
 
 export default function AppRouter() {
   return (
@@ -22,6 +26,8 @@ export default function AppRouter() {
         {/* PUBLIC */}
         <Route element={<PublicLayout />}>
           <Route index element={<Landing />} />
+          <Route path="/features" element={<FeaturesPage />} />
+          <Route path="/plans" element={<PlansPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/auth/callback" element={<AuthCallback />} />
@@ -34,10 +40,10 @@ export default function AppRouter() {
           <Route element={<OnboardingGuard />}>
             <Route element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
-              {/* optional placeholders */}
               <Route path="/dashboard/strategy" element={<StrategyPage />} />
-              <Route path="/dashboard/settings" element={<Settings />} />
-              <Route path="/dashboard/calendar" element={<Calendar />} />
+              <Route path="/dashboard/settings" element={<SettingsPage />} />
+              <Route path="/dashboard/calendar" element={<CalendarPage />} />
+              <Route path="/dashboard/how-it-works" element={<HowItWorksPage />} />
             </Route>
           </Route>
         </Route>

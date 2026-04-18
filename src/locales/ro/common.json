@@ -1,6 +1,7 @@
 {
   "nav": {
     "features": "Funcționalități",
+    "plans": "Planuri",
     "how": "Cum funcționează",
     "login": "Autentificare",
     "start": "Începe acum"
@@ -189,7 +190,8 @@
       "settings": "Setări",
       "logout": "Deconectare",
       "account": "Cont",
-      "workspace": "Spațiul tău de lucru"
+      "workspace": "Spațiul tău de lucru",
+      "howItWorks": "Cum funcționează"
     }
   },
 
@@ -436,11 +438,24 @@
       "challengesPlaceholder": "ex. lipsă de idei, timp limitat, performanță scăzută…",
       "audience": "Public ideal",
       "audiencePlaceholder": "Vârstă, gen, locație, interese, probleme…",
-      "voice": "Vocea ta unică",
-      "voicePlaceholder": "ex. educațională, amuzantă, raw/autentică…",
+      "audienceAge": "Interval de vârstă",
+      "audienceAgeHint": "Selectează tot ce se aplică",
+      "audienceGender": "Gen",
+      "audienceGenderHint": "Selectează tot ce se aplică",
+      "audienceLocation": "Locație",
+      "audienceLocationHint": "Unde se află audiența ta?",
+      "audienceInterests": "Interese",
+      "audienceInterestsHint": "Ce subiecte, hobby-uri sau pasiuni are audiența ta?",
+      "audienceInterestsPlaceholder": "ex. fitness, călătorii, finanțe personale…",
+      "audienceProblems": "Probleme și frustrări",
+      "audienceProblemsHint": "Cu ce dificultăți sau frustrări se confruntă audiența ta?",
+      "audienceProblemsPlaceholder": "ex. lipsă de timp, copleșit de informații…",
+      "voice": "Stilul tău de conținut",
+      "voiceHint": "Cum ai descrie modul în care comunici? Alege tot ce ți se potrivește.",
       "contentTypes": "Tipuri de conținut care te reprezintă",
-      "values": "Teme recurente / valori de bază",
-      "valuesPlaceholder": "ex. sustenabilitate, dezvoltare personală, minimalism…",
+      "contentTypesHint": "Ce formate folosești sau vrei să creezi?",
+      "values": "Teme recurente",
+      "valuesHint": "La ce subiecte revii mereu în conținutul tău?",
       "weeklyHours": "Câte ore pe săptămână?",
       "teamBudget": "Echipă / buget?",
       "platforms": "Platforme",
@@ -547,6 +562,213 @@
     "delete": "Șterge",
     "save": "Salvează",
     "prev": "Anterior",
-    "next": "Următor"
+    "next": "Următor",
+    "optional": "opțional"
+  },
+
+  "howItWorksPage": {
+    "title": "Cum funcționează",
+    "subtitle": "Un ghid detaliat pentru fiecare funcționalitate din Grow — de la conectarea platformelor până la citirea analizelor.",
+    "tip": "Sfat:",
+    "connect": {
+      "title": "Conectează platformele tale",
+      "subtitle": "Conectarea conturilor sociale este primul pas. Deblochează analize reale și face strategia mult mai precisă.",
+      "step1": { "title": "Mergi la Setări", "desc": "Apasă pe numele contului tău din colțul dreapta sus și selectează Setări. Acolo vei găsi secțiunea de integrări." },
+      "step2": { "title": "Alege o platformă", "desc": "Selectează Instagram, TikTok sau YouTube și apasă Conectează. Vei fi redirecționat către pagina de autorizare a platformei." },
+      "step3": { "title": "Autorizează accesul", "desc": "Autentifică-te cu contul tău și acordă permisiunile necesare. Grow citește doar conținutul tău public și analizele — nu postează niciodată în numele tău." },
+      "step4": { "title": "Sincronizează datele", "desc": "După conectare, apasă Sincronizează acum pentru a prelua cele mai recente postări și metrici. Poți sincroniza din nou oricând pentru a reîmprospăta datele." },
+      "tip": "Poți conecta toate cele trei platforme simultan. Dashboard-ul îți permite să comuți între ele pentru a compara performanța.",
+      "cta": "Mergi la Setări"
+    },
+    "strategy": {
+      "title": "Generează-ți strategia",
+      "subtitle": "Strategia ta este construită de AI folosind profilul completat în onboarding. Cu cât profilul tău este mai detaliat, cu atât rezultatul este mai personalizat.",
+      "step1": { "title": "Deschide secțiunea Strategie", "desc": "Apasă pe Strategie în bara de navigare. Dacă nu ai generat niciuna încă, pagina va fi goală cu un buton Generează." },
+      "step2": { "title": "Alege o perioadă", "desc": "Selectează 1, 3 sau 6 luni ca preset, sau alege un interval personalizat. Perioada definește cât de departe în viitor va planifica strategia ta." },
+      "step3": { "title": "Gestionează suprapunerile", "desc": "Dacă ai deja o strategie pentru o perioadă care se suprapune, Grow te va avertiza și va întreba dacă vrei să o suprascrii. Poți oricând să o păstrezi pe cea existentă." },
+      "step4": { "title": "Citește-ți strategia", "desc": "Strategia ta include un rezumat, o declarație de poziționare, obiective principale, piloni de conținut cu formate, direcție specifică pentru fiecare platformă, acțiuni de creștere și un plan de focus pentru 30 de zile." },
+      "step5": { "title": "Regenerează când e necesar", "desc": "Obiectivele se schimbă. Regenerează-ți strategia oricând — pentru o nouă perioadă sau pentru a-ți reîmprospăta direcția. Fiecare generare folosește cele mai recente date din profilul tău." },
+      "tip": "Pentru cele mai bune rezultate, asigură-te că profilul tău de onboarding este detaliat și actualizat. Calitatea strategiei este direct legată de calitatea profilului tău.",
+      "cta": "Mergi la Strategie"
+    },
+    "calendar": {
+      "title": "Planifică conținut în Calendar",
+      "subtitle": "Calendarul este nivelul tău de execuție. Aici strategia devine postări reale, programate pe date concrete.",
+      "step1": { "title": "Comută între vizualizări", "desc": "Folosește butonul Lună/Săptămână din partea de sus pentru a comuta între vizualizări. Vizualizarea lunară îți oferă o privire de ansamblu; cea săptămânală arată mai multe detalii." },
+      "step2": { "title": "Adaugă o postare manual", "desc": "Apasă pe orice zi din calendar sau folosește butonul Adaugă. Completează titlul, platforma, statusul (idee, programat, publicat), pilonul de conținut și data." },
+      "step3": { "title": "Generează conținut cu AI", "desc": "Apasă Generează cu AI pentru a crea automat un set de idei de conținut bazate pe strategia ta. Alege perioada, confirmă eventualele suprapuneri și calendarul se populează cu postări planificate." },
+      "step4": { "title": "Gestionează ideile", "desc": "Folosește secțiunea Idei de sub calendar pentru a stoca concepte de postări neprogramate. Caută și filtrează după platformă pentru a găsi rapid ce ai nevoie." },
+      "step5": { "title": "Actualizează statusul postărilor", "desc": "Apasă pe orice element pentru a-l edita. Actualizează statusul la Publicat odată ce postezi — acest lucru menține calendarul precis și ajută la urmărirea execuției." },
+      "tip": "Generează mai întâi strategia, apoi folosește Generează cu AI în Calendar. AI-ul va citi strategia ta pentru a crea conținut care se potrivește pilonilor și abordării tale pe platforme.",
+      "cta": "Mergi la Calendar"
+    },
+    "dashboard": {
+      "title": "Urmărește performanța în Dashboard",
+      "subtitle": "Dashboard-ul îți oferă o vizualizare în timp real a performanței conținutului tău — pentru orice platformă conectată.",
+      "step1": { "title": "Selectează o platformă", "desc": "Folosește dropdown-ul din dreapta sus pentru a comuta între Instagram, TikTok și YouTube. Fiecare platformă arată propriile sale metrici." },
+      "step2": { "title": "Citește analizele", "desc": "Cardurile de analiză arată vizualizările totale, vizualizările medii per postare, rata de engagement și totalul de aprecieri sau comentarii — bazate pe ultimele tale 25 de postări." },
+      "step3": { "title": "Vezi conținutul de top", "desc": "Widget-ul Top Performing Content arată cele 4 postări cu cea mai bună performanță, cu vizualizări, aprecieri și comentarii. Apasă pe orice postare pentru a o deschide direct pe platformă." },
+      "step4": { "title": "Verifică postările viitoare", "desc": "Widget-ul Upcoming Schedule preia următoarele elemente programate din Calendarul tău, astfel încât să știi mereu ce urmează." },
+      "step5": { "title": "Sincronizează pentru reîmprospătare", "desc": "Datele nu se actualizează în timp real. Apasă Sincronizează acum pe cardul de conectare a platformei pentru a prelua cele mai recente postări și metrici de pe acea platformă." },
+      "tip": "Conectează cel puțin o platformă înainte de a vizita Dashboard-ul. Fără un cont conectat, cardurile de analiză și widget-ul de conținut de top vor fi goale.",
+      "cta": "Mergi la Dashboard"
+    }
+  },
+
+  "tutorial": {
+    "title": "Bine ai venit în Grow 👋",
+    "subtitle": "Iată o prezentare rapidă a tot ce poți face.",
+    "cta": "Am înțeles, să începem!",
+    "step0": {
+      "title": "Bine ai venit în Grow!",
+      "desc": "Grow este platforma ta all-in-one pentru strategie de conținut. Te ajută să planifici, să creezi și să urmărești conținut pe Instagram, TikTok și YouTube — alimentat de AI care îți înțelege obiectivele și audiența.\n\nAcest ghid scurt îți va arăta cele 4 lucruri principale pe care le poți face. Durează doar un minut."
+    },
+    "step1": {
+      "title": "Conectează platformele tale",
+      "desc": "Începe prin a merge la Setări și a conecta conturile tale sociale. Grow suportă Instagram, TikTok și YouTube.\n\nOdată conectat, Grow poate prelua analizele tale reale — vizualizări, aprecieri, comentarii și conținutul cu cea mai bună performanță — direct în Dashboard. Poți conecta mai multe platforme și poți comuta între ele oricând."
+    },
+    "step2": {
+      "title": "Generează-ți strategia de conținut",
+      "desc": "Mergi la secțiunea Strategie și apasă Generează. Alegi o perioadă — 1, 3 sau 6 luni sau un interval personalizat — și AI-ul construiește o strategie completă bazată pe profilul tău de onboarding.\n\nStrategia ta include piloni de conținut, formate recomandate, o abordare specifică fiecărei platforme, acțiuni de creștere și un plan de focus pentru 30 de zile. O poți regenera oricând îți schimbi obiectivele."
+    },
+    "step3": {
+      "title": "Planifică-ți conținutul în Calendar",
+      "desc": "Calendarul este locul unde ideile tale devin un program. Poți adăuga manual postări, seta o platformă, status și dată — sau poți folosi butonul Generează cu AI pentru a popula automat calendarul cu idei de conținut extrase din strategia ta.\n\nComută între vizualizarea lunară și săptămânală, filtrează după platformă și caută printre toate ideile tale. Totul rămâne organizat într-un singur loc."
+    },
+    "step4": {
+      "title": "Urmărește-ți performanța",
+      "desc": "Odată ce platformele sunt conectate, Dashboard-ul tău devine centrul de analize. Selectează o platformă din dropdown-ul din dreapta sus pentru a vedea valorile cheie: vizualizări, aprecieri, comentarii și engagement.\n\nWidget-ul Top Content arată cele mai bune postări ale tale, iar widget-ul Calendar Viitor îți oferă o privire rapidă asupra a ceea ce urmează să fie programat. Totul se actualizează automat când îți sincronizezi conturile."
+    }
+  },
+
+  "featuresPage": {
+    "badge": "Tot ce poate face Grow",
+    "heroTitle": "Fiecare funcție, explicată",
+    "heroSubtitle": "Grow este un sistem de strategie și conținut pentru creatori și afaceri. Iată o privire detaliată asupra fiecărei funcții și ce face în mod concret.",
+    "heroCta": "Începe gratuit",
+    "heroCtaSecondary": "Autentifică-te",
+    "ctaLabel": "Gata să începi?",
+    "ctaTitle": "Construiește-ți strategia și începe să planifici conținut azi",
+    "ctaSubtitle": "Durează câteva minute să finalizezi onboardingul și să generezi prima ta strategie. Nu este necesar card de credit.",
+    "ctaButton": "Creează-ți contul",
+    "strategy": {
+      "label": "Strategie AI",
+      "title": "O strategie de conținut completă, construită în jurul profilului tău",
+      "subtitle": "Grow nu îți oferă o strategie generică. Generează una bazată pe obiectivele, audiența, provocările, platformele și stilul tău de conținut — toate colectate în timpul onboardingului.",
+      "b1": "Declarație de poziționare — cum să te prezinți clar online",
+      "b2": "Obiective principale — 3–5 obiective specifice aliniate la perioada ta",
+      "b3": "Piloni de conținut — teme recurente cu formate recomandate per pilon",
+      "b4": "Strategie de platformă — o direcție specifică pentru fiecare platformă pe care o folosești",
+      "b5": "Acțiuni de creștere — pași concreți pentru a-ți extinde reach-ul",
+      "b6": "Plan de focus 30 de zile — o listă imediată de acțiuni pentru a începe",
+      "note": "Poți genera strategii pentru 1, 3 sau 6 luni, sau un interval personalizat. Regenerează oricând obiectivele tale evoluează."
+    },
+    "analytics": {
+      "label": "Analize",
+      "title": "Date reale de platformă într-un singur loc",
+      "subtitle": "Conectează Instagram, TikTok și YouTube pentru a importa datele tale reale de performanță în Grow. Nu mai este nevoie să comuti între aplicații pentru a înțelege ce funcționează.",
+      "b1": "Total și medie de vizualizări per postare",
+      "b2": "Rata de engagement și engagement total pe postări",
+      "b3": "Total aprecieri și comentarii",
+      "b4": "Top 4 postări cu cea mai bună performanță, cu linkuri directe",
+      "b5": "Detaliere per platformă — comută între conturi cu un singur click",
+      "b6": "Sincronizare manuală — actualizează datele oricând ai nevoie de ultimele cifre",
+      "note": "Analizele se bazează pe ultimele tale 25 de postări per platformă. Cu cât sincronizezi mai des, cu atât dashboard-ul tău rămâne mai precis."
+    },
+    "calendar": {
+      "label": "Calendar de Conținut",
+      "title": "Planifică și programează conținut, manual sau cu AI",
+      "subtitle": "Calendarul este locul unde strategia devine execuție. Poți planifica postări manual sau lăsa AI-ul să genereze un set complet de idei de conținut direct din strategia ta.",
+      "b1": "Vizualizări lunare și săptămânale — alege layout-ul care se potrivește fluxului tău",
+      "b2": "Adaugă postări manual — setează titlu, platformă, dată, status și pilon de conținut",
+      "b3": "Conținut generat cu AI — populează calendarul din strategia activă cu un singur click",
+      "b4": "Bancă de idei — stochează concepte neprogramate până ești gata să le planifici",
+      "b5": "Căutare și filtrare — găsește orice idee instant după cuvânt cheie sau platformă",
+      "b6": "Urmărirea statusului — marchează postările ca Idee, Programat sau Postat",
+      "note": "Conținutul de calendar generat cu AI provine direct din pilonii strategiei și direcția de platformă — nu din subiecte aleatorii."
+    },
+    "onboarding": {
+      "label": "Onboarding",
+      "title": "Construit pentru creatori și afaceri — două profiluri separate",
+      "subtitle": "Grow se adaptează la tipul tău de profil. Fie că ești un creator de conținut care își crește audiența sau un proprietar de afacere care generează lead-uri, onboardingul colectează exact ce are nevoie fiecare profil.",
+      "b1": "Profil creator — obiective, provocări, audiență, stil de conținut, voce, platforme și obiceiuri de postare",
+      "b2": "Profil afacere — industrie, produse, obiective sociale, KPI-uri, client ideal și buget",
+      "b3": "Constructor de audiență structurat — interval de vârstă, gen, locație, interese și puncte dureroase",
+      "b4": "Selector de stil de conținut — alege din 10 stiluri de comunicare care te descriu",
+      "b5": "Bibliotecă de teme — 15 subiecte recurente pentru a ancora direcția conținutului tău",
+      "b6": "Configurare platformă — alege platformele tale și setează una principală pentru o strategie focalizată",
+      "note": "Datele tale de onboarding sunt folosite de fiecare dată când generezi o strategie sau conținut de calendar. Un profil detaliat înseamnă un rezultat mai bun."
+    },
+    "integrations": {
+      "label": "Integrări",
+      "title": "Conectează Instagram, TikTok și YouTube",
+      "subtitle": "Grow se conectează la platformele tale sociale prin API-uri oficiale. Autorizarea este sigură, read-only și durează mai puțin de un minut per platformă.",
+      "b1": "Instagram — conectează contul tău de business sau creator prin Meta",
+      "b2": "TikTok — autorizează accesul la conținutul și statisticile tale TikTok",
+      "b3": "YouTube — conectează canalul tău prin Google OAuth",
+      "b4": "Acces read-only — Grow nu postează, nu editează și nu șterge niciodată conținut în numele tău",
+      "b5": "Multi-platformă — toate trei pot fi conectate simultan",
+      "b6": "Sincronizare manuală — tu decizi când să actualizezi datele",
+      "note": "Poți folosi Grow fără a conecta nicio platformă — strategia și calendarul funcționează independent. Dar analizele și conținutul de top necesită cel puțin o conexiune."
+    }
+  },
+
+  "plansPage": {
+    "badge": "Prețuri simple și transparente",
+    "heroTitle": "Alege planul care se potrivește unde ești acum",
+    "heroSubtitle": "Începe cu structură și planificare, sau mergi mai departe cu date de platformă și AI nelimitat. Poți face upgrade sau downgrade oricând.",
+    "perMonth": "/ lună",
+    "included": "Ce include",
+    "notIncluded": "Nu include",
+    "compareTitle": "Comparație funcții",
+    "compareSubtitle": "O vedere detaliată a ce include fiecare plan.",
+    "compareFeature": "Funcție",
+    "ctaLabel": "Începe azi",
+    "ctaTitle": "7 zile Pro gratuit, apoi alegi planul",
+    "ctaSubtitle": "Creează-ți contul și ai acces complet la Pro timp de o săptămână. Nu este necesar card de credit. Faci upgrade, rămâi pe Starter sau anulezi — tu decizi.",
+    "ctaButton": "Creează-ți contul",
+    "trial": {
+      "title": "Începe cu 7 zile Pro — gratuit",
+      "subtitle": "Fiecare cont nou primește acces complet la Pro timp de 7 zile. Nu este necesar card de credit. După trial, treci automat pe Starter.",
+      "cta": "Începe trial gratuit"
+    },
+    "starter": {
+      "label": "Starter",
+      "positioning": "Structurează-ți conținutul",
+      "cta": "Începe",
+      "f1": "1 strategie AI pe lună",
+      "f2": "Calendar de conținut — manual + AI de bază",
+      "f3": "Panou inspo — linkuri și imagini",
+      "f4": "Onboarding creator și afacere",
+      "f5": "Organizare conținut",
+      "l1": "Fără analytics social media",
+      "l2": "Fără analiză top conținut",
+      "l3": "Fără regenerare AI avansată",
+      "l4": "Max ~30 elemente de calendar generate AI / lună"
+    },
+    "pro": {
+      "label": "Pro",
+      "badge": "Cel mai complet",
+      "positioning": "Crești bazat pe date",
+      "cta": "Începe trial gratuit",
+      "f1": "Generare nelimitată de strategii AI",
+      "f2": "Analytics social media — Instagram, TikTok, YouTube",
+      "f3": "Analiză top conținut performant",
+      "f4": "Generare avansată AI de calendar",
+      "f5": "Regenerare strategie cu perioade personalizate",
+      "f6": "Workflow complet — de la strategie la execuție",
+      "fairUsage": "Se aplică fair usage. Fără limite stricte în perioada de early access — vom comunica clar înainte de orice schimbare."
+    },
+    "compare": {
+      "strategy": "Generare strategie AI",
+      "calendar": "Calendar de conținut",
+      "inspo": "Panou inspo",
+      "onboarding": "Onboarding creator & afacere",
+      "insights": "Analytics social media",
+      "topContent": "Analiză top conținut",
+      "advancedAI": "Generare avansată AI calendar",
+      "customPeriods": "Perioade personalizate strategie",
+      "unlimited": "Strategii AI nelimitate"
+    }
   }
 }

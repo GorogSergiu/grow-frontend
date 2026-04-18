@@ -1,6 +1,7 @@
 {
   "nav": {
     "features": "Funciones",
+    "plans": "Planes",
     "how": "Cómo funciona",
     "login": "Iniciar sesión",
     "start": "Empieza ahora"
@@ -216,7 +217,8 @@
       "settings": "Configuración",
       "logout": "Cerrar sesión",
       "account": "Cuenta",
-      "workspace": "Tu espacio de trabajo"
+      "workspace": "Tu espacio de trabajo",
+      "howItWorks": "Cómo funciona"
     }
   },
 
@@ -463,11 +465,24 @@
       "challengesPlaceholder": "p. ej. falta de ideas, poco tiempo, bajo rendimiento…",
       "audience": "Audiencia ideal",
       "audiencePlaceholder": "Edad, género, ubicación, intereses, problemas…",
-      "voice": "Tu voz única",
-      "voicePlaceholder": "p. ej. educativa, divertida, cruda/auténtica…",
+      "audienceAge": "Rango de edad",
+      "audienceAgeHint": "Selecciona todo lo que aplique",
+      "audienceGender": "Género",
+      "audienceGenderHint": "Selecciona todo lo que aplique",
+      "audienceLocation": "Ubicación",
+      "audienceLocationHint": "¿Dónde se encuentra tu audiencia?",
+      "audienceInterests": "Intereses",
+      "audienceInterestsHint": "¿Qué temas, hobbies o pasiones tiene tu audiencia?",
+      "audienceInterestsPlaceholder": "p. ej. fitness, viajes, finanzas personales…",
+      "audienceProblems": "Problemas y frustraciones",
+      "audienceProblemsHint": "¿Con qué dificultades o frustraciones se enfrenta tu audiencia?",
+      "audienceProblemsPlaceholder": "p. ej. falta de tiempo, saturación de información…",
+      "voice": "Tu estilo de contenido",
+      "voiceHint": "¿Cómo describirías tu forma de comunicarte? Elige todo lo que te represente.",
       "contentTypes": "Tipos de contenido que te representan",
-      "values": "Temas recurrentes / valores principales",
-      "valuesPlaceholder": "p. ej. sostenibilidad, crecimiento personal, minimalismo…",
+      "contentTypesHint": "¿Qué formatos usas o quieres crear?",
+      "values": "Temas recurrentes",
+      "valuesHint": "¿A qué temas vuelves una y otra vez en tu contenido?",
       "weeklyHours": "¿Cuántas horas por semana?",
       "teamBudget": "¿Equipo / presupuesto?",
       "platforms": "Plataformas",
@@ -574,6 +589,213 @@
     "delete": "Eliminar",
     "save": "Guardar",
     "prev": "Anterior",
-    "next": "Siguiente"
+    "next": "Siguiente",
+    "optional": "opcional"
+  },
+
+  "howItWorksPage": {
+    "title": "Cómo funciona",
+    "subtitle": "Una guía detallada de cada funcionalidad de Grow — desde conectar tus plataformas hasta leer tus analíticas.",
+    "tip": "Consejo:",
+    "connect": {
+      "title": "Conecta tus plataformas",
+      "subtitle": "Conectar tus cuentas sociales es el primer paso. Desbloquea analíticas reales y hace tu estrategia mucho más precisa.",
+      "step1": { "title": "Ve a Configuración", "desc": "Haz clic en tu nombre de cuenta en la esquina superior derecha y selecciona Configuración. Allí encontrarás la sección de integraciones." },
+      "step2": { "title": "Elige una plataforma", "desc": "Selecciona Instagram, TikTok o YouTube y haz clic en Conectar. Serás redirigido a la página de autorización de la plataforma." },
+      "step3": { "title": "Autoriza el acceso", "desc": "Inicia sesión con tu cuenta y concede los permisos necesarios. Grow solo lee tu contenido público y analíticas — nunca publica en tu nombre." },
+      "step4": { "title": "Sincroniza tus datos", "desc": "Tras conectarte, haz clic en Sincronizar ahora para obtener tus publicaciones y métricas más recientes. Puedes sincronizar de nuevo en cualquier momento para actualizar los datos." },
+      "tip": "Puedes conectar las tres plataformas a la vez. El Dashboard te permite cambiar entre ellas para comparar el rendimiento.",
+      "cta": "Ir a Configuración"
+    },
+    "strategy": {
+      "title": "Genera tu estrategia",
+      "subtitle": "Tu estrategia la construye la IA usando el perfil que completaste durante el onboarding. Cuanto más detallado sea tu perfil, más personalizado será el resultado.",
+      "step1": { "title": "Abre la pestaña Estrategia", "desc": "Haz clic en Estrategia en la barra de navegación. Si aún no has generado ninguna, la página estará vacía con un botón Generar." },
+      "step2": { "title": "Elige un período", "desc": "Selecciona 1, 3 o 6 meses como preset, o elige un rango de fechas personalizado. El período define hasta qué punto en el futuro planificará tu estrategia." },
+      "step3": { "title": "Gestiona los solapamientos", "desc": "Si ya tienes una estrategia para un período que se solapa, Grow te avisará y te preguntará si quieres sobrescribirla. Siempre puedes conservar la existente." },
+      "step4": { "title": "Lee tu estrategia", "desc": "Tu estrategia incluye un resumen, una declaración de posicionamiento, objetivos principales, pilares de contenido con formatos, dirección específica por plataforma, acciones de crecimiento y un plan de enfoque para 30 días." },
+      "step5": { "title": "Regenera cuando lo necesites", "desc": "Los objetivos cambian. Regenera tu estrategia en cualquier momento — para un nuevo período o para actualizar tu dirección. Cada generación usa tus datos de onboarding más recientes." },
+      "tip": "Para los mejores resultados, asegúrate de que tu perfil de onboarding esté detallado y actualizado. La calidad de la estrategia está directamente ligada a la calidad de tu perfil.",
+      "cta": "Ir a Estrategia"
+    },
+    "calendar": {
+      "title": "Planifica contenido en el Calendario",
+      "subtitle": "El Calendario es tu capa de ejecución. Aquí es donde tu estrategia se convierte en publicaciones reales, programadas en fechas concretas.",
+      "step1": { "title": "Cambia de vista", "desc": "Usa el botón Mes/Semana en la parte superior para cambiar entre vistas. La vista mensual te da una perspectiva general; la semanal muestra más detalles." },
+      "step2": { "title": "Añade una publicación manualmente", "desc": "Haz clic en cualquier día del calendario o usa el botón Añadir. Rellena el título, plataforma, estado (idea, programado, publicado), pilar de contenido y fecha." },
+      "step3": { "title": "Genera contenido con IA", "desc": "Haz clic en Generar con IA para crear automáticamente un conjunto de ideas de contenido basadas en tu estrategia. Elige el período, confirma cualquier solapamiento y el calendario se llena con publicaciones planificadas." },
+      "step4": { "title": "Gestiona tus ideas", "desc": "Usa la sección Ideas bajo el calendario para almacenar conceptos de publicaciones no programadas. Busca y filtra por plataforma para encontrar rápidamente lo que necesitas." },
+      "step5": { "title": "Actualiza el estado de las publicaciones", "desc": "Haz clic en cualquier elemento para editarlo. Actualiza el estado a Publicado una vez que lo publiques — esto mantiene tu calendario preciso y ayuda a hacer seguimiento de la ejecución." },
+      "tip": "Genera primero tu estrategia y luego usa Generar con IA en el Calendario. La IA leerá tu estrategia para crear contenido que encaje con tus pilares y enfoque por plataforma.",
+      "cta": "Ir al Calendario"
+    },
+    "dashboard": {
+      "title": "Haz seguimiento del rendimiento en el Dashboard",
+      "subtitle": "El Dashboard te da una vista en tiempo real del rendimiento de tu contenido — para cualquier plataforma conectada.",
+      "step1": { "title": "Selecciona una plataforma", "desc": "Usa el desplegable en la parte superior derecha para cambiar entre Instagram, TikTok y YouTube. Cada plataforma muestra sus propias métricas." },
+      "step2": { "title": "Lee tus analíticas", "desc": "Las tarjetas de analítica muestran visualizaciones totales, visualizaciones medias por publicación, tasa de interacción y total de me gusta o comentarios — basado en tus últimas 25 publicaciones." },
+      "step3": { "title": "Ve tu contenido destacado", "desc": "El widget de Contenido con Mejor Rendimiento muestra tus 4 mejores publicaciones con visualizaciones, me gusta y comentarios. Haz clic en cualquier publicación para abrirla directamente en la plataforma." },
+      "step4": { "title": "Revisa las próximas publicaciones", "desc": "El widget de Próximas Publicaciones extrae los próximos elementos programados de tu Calendario para que siempre sepas qué viene a continuación." },
+      "step5": { "title": "Sincroniza para actualizar", "desc": "Los datos no se actualizan en tiempo real. Haz clic en Sincronizar ahora en la tarjeta de conexión de plataforma para obtener las publicaciones y métricas más recientes de esa plataforma." },
+      "tip": "Conecta al menos una plataforma antes de visitar el Dashboard. Sin una cuenta conectada, las tarjetas de analítica y el widget de contenido destacado estarán vacíos.",
+      "cta": "Ir al Dashboard"
+    }
+  },
+
+  "tutorial": {
+    "title": "Bienvenido a Grow 👋",
+    "subtitle": "Aquí tienes un resumen rápido de todo lo que puedes hacer.",
+    "cta": "¡Entendido, vamos!",
+    "step0": {
+      "title": "¡Bienvenido a Grow!",
+      "desc": "Grow es tu plataforma todo-en-uno de estrategia de contenido. Te ayuda a planificar, crear y hacer seguimiento de tu contenido en Instagram, TikTok y YouTube — impulsado por IA que entiende tus objetivos y tu audiencia.\n\nEsta breve guía te mostrará las 4 cosas principales que puedes hacer. Solo tomará un minuto."
+    },
+    "step1": {
+      "title": "Conecta tus plataformas",
+      "desc": "Empieza yendo a Configuración y conectando tus cuentas sociales. Grow es compatible con Instagram, TikTok y YouTube.\n\nUna vez conectado, Grow puede obtener tus analíticas reales — visualizaciones, me gusta, comentarios y tu contenido con mejor rendimiento — directamente en tu Dashboard. Puedes conectar varias plataformas y cambiar entre ellas en cualquier momento."
+    },
+    "step2": {
+      "title": "Genera tu estrategia de contenido",
+      "desc": "Ve a la pestaña Estrategia y haz clic en Generar. Eliges un período — 1, 3 o 6 meses, o un rango personalizado — y la IA construye una estrategia de contenido completa basada en tu perfil de onboarding.\n\nTu estrategia incluye pilares de contenido, formatos recomendados, un enfoque específico por plataforma, acciones de crecimiento y un plan de enfoque para 30 días. Puedes regenerarla cuando cambien tus objetivos."
+    },
+    "step3": {
+      "title": "Planifica tu contenido en el Calendario",
+      "desc": "El Calendario es donde tus ideas se convierten en un horario. Puedes añadir publicaciones manualmente, configurar plataforma, estado y fecha — o usar el botón Generar con IA para rellenar automáticamente tu calendario con ideas de contenido extraídas de tu estrategia.\n\nCambia entre la vista mensual y semanal, filtra por plataforma y busca entre todas tus ideas. Todo queda organizado en un solo lugar."
+    },
+    "step4": {
+      "title": "Haz seguimiento de tu rendimiento",
+      "desc": "Una vez conectadas tus plataformas, tu Dashboard se convierte en tu centro de analíticas. Selecciona una plataforma en el desplegable superior derecho para ver métricas clave: visualizaciones, me gusta, comentarios e interacción.\n\nEl widget de Contenido Destacado muestra tus publicaciones con mejor rendimiento, y el widget de Calendario Próximo te da un vistazo rápido de lo que está programado. Todo se actualiza automáticamente cuando sincronizas tus cuentas."
+    }
+  },
+
+  "featuresPage": {
+    "badge": "Todo lo que Grow puede hacer",
+    "heroTitle": "Cada función, explicada",
+    "heroSubtitle": "Grow es un sistema de estrategia y contenido para creadores y negocios. Aquí tienes una mirada detallada de cada función y lo que realmente hace.",
+    "heroCta": "Empieza gratis",
+    "heroCtaSecondary": "Iniciar sesión",
+    "ctaLabel": "¿Listo para empezar?",
+    "ctaTitle": "Construye tu estrategia y empieza a planificar contenido hoy",
+    "ctaSubtitle": "Solo toma unos minutos completar el onboarding y generar tu primera estrategia. No se requiere tarjeta de crédito.",
+    "ctaButton": "Crea tu cuenta",
+    "strategy": {
+      "label": "Estrategia con IA",
+      "title": "Una estrategia de contenido completa construida en torno a tu perfil",
+      "subtitle": "Grow no te da una estrategia genérica. Genera una basada en tus objetivos, audiencia, desafíos, plataformas y estilo de contenido — todo recopilado durante el onboarding.",
+      "b1": "Declaración de posicionamiento — cómo presentarte claramente en línea",
+      "b2": "Objetivos principales — 3–5 metas específicas alineadas con tu período",
+      "b3": "Pilares de contenido — temas recurrentes con formatos recomendados por pilar",
+      "b4": "Estrategia de plataforma — una dirección específica para cada plataforma que usas",
+      "b5": "Acciones de crecimiento — pasos concretos para expandir tu alcance",
+      "b6": "Plan de enfoque de 30 días — una lista de acciones inmediatas para empezar",
+      "note": "Puedes generar estrategias para 1, 3 o 6 meses, o un rango de fechas personalizado. Regénérala cuando tus objetivos evolucionen."
+    },
+    "analytics": {
+      "label": "Analíticas",
+      "title": "Datos reales de plataforma en un solo lugar",
+      "subtitle": "Conecta Instagram, TikTok y YouTube para importar tus datos reales de rendimiento en Grow. Sin más cambios entre apps para entender qué funciona.",
+      "b1": "Total y promedio de visualizaciones por publicación",
+      "b2": "Tasa de interacción e interacción total en publicaciones",
+      "b3": "Total de me gusta y comentarios",
+      "b4": "Top 4 publicaciones con mejor rendimiento con enlaces directos",
+      "b5": "Desglose por plataforma — cambia entre cuentas con un clic",
+      "b6": "Sincronización manual — actualiza datos cuando necesites los últimos números",
+      "note": "Las analíticas se basan en tus últimas 25 publicaciones por plataforma. Cuanto más sincronices, más preciso se mantiene tu dashboard."
+    },
+    "calendar": {
+      "label": "Calendario de Contenido",
+      "title": "Planifica y programa tu contenido, manualmente o con IA",
+      "subtitle": "El Calendario es donde la estrategia se convierte en ejecución. Puedes planificar publicaciones a mano o dejar que la IA genere un conjunto completo de ideas de contenido directamente desde tu estrategia.",
+      "b1": "Vistas mensual y semanal — elige el diseño que se adapta a tu flujo de trabajo",
+      "b2": "Añade publicaciones manualmente — establece título, plataforma, fecha, estado y pilar",
+      "b3": "Contenido generado con IA — rellena el calendario desde tu estrategia activa con un clic",
+      "b4": "Banco de ideas — almacena conceptos sin programar hasta que estés listo",
+      "b5": "Búsqueda y filtros — encuentra cualquier idea al instante por palabra clave o plataforma",
+      "b6": "Seguimiento de estado — marca publicaciones como Idea, Programado o Publicado",
+      "note": "El contenido del calendario generado con IA proviene directamente de los pilares de tu estrategia — no de temas aleatorios."
+    },
+    "onboarding": {
+      "label": "Onboarding",
+      "title": "Diseñado para creadores y negocios — dos perfiles separados",
+      "subtitle": "Grow se adapta a tu tipo de perfil. Ya seas un creador de contenido que hace crecer su audiencia o un propietario de negocio generando leads, el onboarding recopila exactamente lo que necesita cada perfil.",
+      "b1": "Perfil creador — objetivos, desafíos, audiencia, estilo de contenido, voz, plataformas y hábitos de publicación",
+      "b2": "Perfil de negocio — industria, productos, objetivos sociales, KPIs, cliente ideal y presupuesto",
+      "b3": "Constructor de audiencia estructurado — rango de edad, género, ubicación, intereses y puntos de dolor",
+      "b4": "Selector de estilo de contenido — elige entre 10 estilos de comunicación que te describen",
+      "b5": "Biblioteca de temas — 15 temas recurrentes para anclar la dirección de tu contenido",
+      "b6": "Configuración de plataforma — elige tus plataformas y establece una principal para una estrategia enfocada",
+      "note": "Tus datos de onboarding se usan cada vez que generas una estrategia o contenido de calendario. Un perfil detallado significa un mejor resultado."
+    },
+    "integrations": {
+      "label": "Integraciones",
+      "title": "Conecta Instagram, TikTok y YouTube",
+      "subtitle": "Grow se conecta a tus plataformas sociales a través de APIs oficiales. La autorización es segura, de solo lectura y tarda menos de un minuto por plataforma.",
+      "b1": "Instagram — conecta tu cuenta de empresa o creador a través de Meta",
+      "b2": "TikTok — autoriza el acceso a tu contenido y estadísticas de TikTok",
+      "b3": "YouTube — conecta tu canal a través de Google OAuth",
+      "b4": "Acceso de solo lectura — Grow nunca publica, edita ni elimina contenido en tu nombre",
+      "b5": "Multi-plataforma — las tres se pueden conectar simultáneamente",
+      "b6": "Sincronización manual — tú decides cuándo actualizar tus datos",
+      "note": "Puedes usar Grow sin conectar ninguna plataforma — la estrategia y el calendario funcionan de forma independiente. Pero las analíticas y el contenido destacado requieren al menos una conexión."
+    }
+  },
+
+  "plansPage": {
+    "badge": "Precios simples y transparentes",
+    "heroTitle": "Elige el plan que encaja con donde estás ahora",
+    "heroSubtitle": "Empieza con estructura y planificación, o ve más lejos con datos de plataforma e IA ilimitada. Cambia de plan cuando quieras.",
+    "perMonth": "/ mes",
+    "included": "Qué incluye",
+    "notIncluded": "No incluye",
+    "compareTitle": "Comparación de funciones",
+    "compareSubtitle": "Una vista comparativa de lo que incluye cada plan.",
+    "compareFeature": "Función",
+    "ctaLabel": "Empieza hoy",
+    "ctaTitle": "7 días de Pro gratis, luego elige tu plan",
+    "ctaSubtitle": "Crea tu cuenta y obtén acceso completo a Pro durante una semana. Sin tarjeta de crédito. Actualiza, quédate en Starter o cancela — tú decides.",
+    "ctaButton": "Crea tu cuenta",
+    "trial": {
+      "title": "Empieza con 7 días de Pro — gratis",
+      "subtitle": "Cada cuenta nueva obtiene acceso completo a Pro durante 7 días. Sin tarjeta de crédito. Después del período de prueba, pasas a Starter automáticamente.",
+      "cta": "Iniciar prueba gratis"
+    },
+    "starter": {
+      "label": "Starter",
+      "positioning": "Estructura tu contenido",
+      "cta": "Empezar",
+      "f1": "1 estrategia de IA al mes",
+      "f2": "Calendario de contenido — manual + IA básica",
+      "f3": "Panel de inspiración — enlaces e imágenes",
+      "f4": "Onboarding para creadores y negocios",
+      "f5": "Organización de contenido",
+      "l1": "Sin estadísticas de redes sociales",
+      "l2": "Sin análisis de contenido destacado",
+      "l3": "Sin regeneración de IA avanzada",
+      "l4": "Máx. ~30 elementos del calendario generados con IA / mes"
+    },
+    "pro": {
+      "label": "Pro",
+      "badge": "Más completo",
+      "positioning": "Crece usando datos",
+      "cta": "Iniciar prueba gratis",
+      "f1": "Generación ilimitada de estrategias con IA",
+      "f2": "Estadísticas de redes sociales — Instagram, TikTok, YouTube",
+      "f3": "Análisis de contenido con mejor rendimiento",
+      "f4": "Generación avanzada del calendario con IA",
+      "f5": "Regenerar estrategia con períodos personalizados",
+      "f6": "Flujo de trabajo completo — de la estrategia a la ejecución",
+      "fairUsage": "Se aplica uso justo. Sin límites estrictos durante el acceso anticipado — comunicaremos claramente antes de cualquier cambio."
+    },
+    "compare": {
+      "strategy": "Generación de estrategia con IA",
+      "calendar": "Calendario de contenido",
+      "inspo": "Panel de inspiración",
+      "onboarding": "Onboarding creador y negocio",
+      "insights": "Estadísticas de redes sociales",
+      "topContent": "Análisis de contenido destacado",
+      "advancedAI": "Generación avanzada de calendario con IA",
+      "customPeriods": "Períodos de estrategia personalizados",
+      "unlimited": "Estrategias de IA ilimitadas"
+    }
   }
 }

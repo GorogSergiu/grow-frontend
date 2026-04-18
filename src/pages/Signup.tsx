@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { supabase } from "@/lib/supabase";
+import { getPasswordRules, isPasswordValid, passwordsMatch } from "@/lib/validation";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +14,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { PasswordRule } from "@/features/auth/components/PasswordRule";
 
 export default function Signup() {
   const { t } = useTranslation();
@@ -24,25 +26,19 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const passwordRules = {
-    minLength: password.length >= 8,
-    uppercase: /[A-Z]/.test(password),
-    lowercase: /[a-z]/.test(password),
-    number: /[0-9]/.test(password),
-  };
-
-  const passwordsMatch = password === confirmPassword;
+  const passwordRules = getPasswordRules(password);
+  const doPasswordsMatch = passwordsMatch(password, confirmPassword);
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
 
-    if (!Object.values(passwordRules).every(Boolean)) {
+    if (!isPasswordValid(passwordRules)) {
       setError(t("auth.password_invalid"));
       return;
     }
 
-    if (!passwordsMatch) {
+    if (!doPasswordsMatch) {
       setError(t("auth.password_not_match_error"));
       return;
     }
@@ -167,10 +163,10 @@ export default function Signup() {
               {confirmPassword ? (
                 <div
                   className={`text-xs ${
-                    passwordsMatch ? "text-green-600" : "text-destructive"
+                    doPasswordsMatch ? "text-green-600" : "text-destructive"
                   }`}
                 >
-                  {passwordsMatch
+                  {doPasswordsMatch
                     ? t("auth.passwords_match")
                     : t("auth.passwords_not_match")}
                 </div>
@@ -200,19 +196,6 @@ export default function Signup() {
           </form>
         </CardContent>
       </Card>
-    </div>
-  );
-}
-
-function PasswordRule({ ok, text }: { ok: boolean; text: string }) {
-  return (
-    <div
-      className={`flex items-center gap-2 ${
-        ok ? "text-green-600" : "text-muted-foreground"
-      }`}
-    >
-      <span>{ok ? "✓" : "•"}</span>
-      <span>{text}</span>
     </div>
   );
 }
