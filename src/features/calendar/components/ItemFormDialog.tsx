@@ -4,13 +4,22 @@ import { supabase } from "@/lib/supabase";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import type { CalendarItem, ItemStatus, InspoItem } from "@/types/calendar.types";
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+} from "@/components/ui/sheet";
+import { toLocalIso } from "@/lib/dates";
+import type {
+  CalendarItem,
+  ItemStatus,
+  InspoItem,
+} from "@/types/calendar.types";
 import type { Platform } from "@/types/platform.types";
 
 type Props = {
@@ -33,22 +42,35 @@ export function ItemFormDialog({
   const { t } = useTranslation();
 
   return (
-    <Dialog
+    <Sheet
       open={open}
       onOpenChange={(v) => {
         onOpenChange(v);
       }}
     >
-      <DialogContent className="surface-solid border-0">
-        <DialogHeader>
-          <DialogTitle>
+      <SheetContent
+        side="right"
+        className="w-full overflow-y-auto sm:max-w-lg"
+      >
+        <SheetHeader>
+          <SheetTitle className="text-lg">
             {editing?.title
               ? t("dashboard.calendar.edit", { defaultValue: "Edit item" })
               : t("dashboard.calendar.create", {
-                  defaultValue: "Create item",
+                  defaultValue: "New content",
                 })}
-          </DialogTitle>
-        </DialogHeader>
+          </SheetTitle>
+          <SheetDescription>
+            {editing?.title
+              ? t("dashboard.calendar.editDesc", {
+                  defaultValue: "Update your content details below.",
+                })
+              : t("dashboard.calendar.createDesc", {
+                  defaultValue:
+                    "Fill in the details for your new content idea.",
+                })}
+          </SheetDescription>
+        </SheetHeader>
 
         {editing ? (
           <CalendarItemForm
@@ -59,9 +81,28 @@ export function ItemFormDialog({
             onSave={(next) => onSave(next)}
           />
         ) : null}
-      </DialogContent>
-    </Dialog>
+      </SheetContent>
+    </Sheet>
   );
+}
+
+const PLATFORMS: { value: Platform; label: string; color: string }[] = [
+  { value: "instagram", label: "Instagram", color: "bg-pink-500/10 text-pink-600 border-pink-500/20" },
+  { value: "tiktok", label: "TikTok", color: "bg-cyan-500/10 text-cyan-600 border-cyan-500/20" },
+  { value: "youtube", label: "YouTube", color: "bg-red-500/10 text-red-600 border-red-500/20" },
+];
+
+const STATUSES: { value: ItemStatus; color: string }[] = [
+  { value: "idea", color: "bg-amber-500/10 text-amber-600 border-amber-500/20" },
+  { value: "scheduled", color: "bg-blue-500/10 text-blue-600 border-blue-500/20" },
+  { value: "posted", color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/20" },
+];
+
+function localDatetimeValue(iso: string | null): string {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  return toLocalIso(d);
 }
 
 function CalendarItemForm({
@@ -82,10 +123,8 @@ function CalendarItemForm({
   const [uploadingImage, setUploadingImage] = useState(false);
   const { t } = useTranslation();
 
-  const inspoLinks = (draft.inspo ?? []).filter((item) => item.type === "link");
-  const inspoImages = (draft.inspo ?? []).filter(
-    (item) => item.type === "image",
-  );
+  const inspoLinks = (draft.inspo ?? []).filter((i) => i.type === "link");
+  const inspoImages = (draft.inspo ?? []).filter((i) => i.type === "image");
 
   function addInspoLink() {
     const value = inspoLink.trim();
@@ -102,14 +141,13 @@ function CalendarItemForm({
       ...d,
       inspo: [...(d.inspo ?? []), nextItem],
     }));
-
     setInspoLink("");
   }
 
   function removeInspo(id: string) {
     setDraft((d) => ({
       ...d,
-      inspo: (d.inspo ?? []).filter((item) => item.id !== id),
+      inspo: (d.inspo ?? []).filter((i) => i.id !== id),
     }));
   }
 
@@ -123,13 +161,9 @@ function CalendarItemForm({
 
       const { error: uploadError } = await supabase.storage
         .from("calendar-inspo")
-        .upload(filePath, file, {
-          upsert: false,
-        });
+        .upload(filePath, file, { upsert: false });
 
-      if (uploadError) {
-        throw new Error(uploadError.message);
-      }
+      if (uploadError) throw new Error(uploadError.message);
 
       const { data } = supabase.storage
         .from("calendar-inspo")
@@ -154,65 +188,78 @@ function CalendarItemForm({
   }
 
   return (
-    <div className="space-y-4 overflow-x-hidden">
-      <div className="space-y-2">
-        <div className="text-xs text-muted-foreground">
+    <div className="flex flex-1 flex-col gap-6 px-4 pb-4">
+      {/* Title */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
           {t("dashboard.calendar.form.title")}
-        </div>
+        </label>
         <Input
           value={draft.title}
-          onChange={(e) => setDraft((d) => ({ ...d, title: e.target.value }))}
+          onChange={(e) =>
+            setDraft((d) => ({ ...d, title: e.target.value }))
+          }
           placeholder={t("dashboard.calendar.form.titlePlaceholder")}
+          className="text-base font-medium"
         />
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground">
-            {t("dashboard.calendar.form.platform")}
-          </div>
-          <select
-            className="h-10 w-full rounded-xl border border-border bg-background/60 px-3 text-sm"
-            value={draft.platform}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setDraft((d) => ({ ...d, platform: e.target.value as Platform }))
-            }
-          >
-            <option value="instagram">
-              {t("dashboard.platforms.instagram")}
-            </option>
-            <option value="tiktok">{t("dashboard.platforms.tiktok")}</option>
-            <option value="youtube">{t("dashboard.platforms.youtube")}</option>
-          </select>
-        </div>
-
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground">
-            {t("dashboard.calendar.form.status")}
-          </div>
-          <select
-            className="h-10 w-full rounded-xl border border-border bg-background/60 px-3 text-sm"
-            value={draft.status}
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
-              setDraft((d) => ({ ...d, status: e.target.value as ItemStatus }))
-            }
-          >
-            <option value="idea">{t("dashboard.calendar.status.idea")}</option>
-            <option value="scheduled">
-              {t("dashboard.calendar.status.scheduled")}
-            </option>
-            <option value="posted">
-              {t("dashboard.calendar.status.posted")}
-            </option>
-          </select>
+      {/* Platform pills */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
+          {t("dashboard.calendar.form.platform")}
+        </label>
+        <div className="flex gap-2">
+          {PLATFORMS.map((p) => (
+            <button
+              key={p.value}
+              onClick={() =>
+                setDraft((d) => ({ ...d, platform: p.value }))
+              }
+              className={[
+                "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all",
+                draft.platform === p.value
+                  ? p.color
+                  : "border-border bg-background/60 text-muted-foreground hover:bg-accent",
+              ].join(" ")}
+            >
+              {p.label}
+            </button>
+          ))}
         </div>
       </div>
 
+      {/* Status pills */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
+          {t("dashboard.calendar.form.status")}
+        </label>
+        <div className="flex gap-2">
+          {STATUSES.map((s) => (
+            <button
+              key={s.value}
+              onClick={() =>
+                setDraft((d) => ({ ...d, status: s.value }))
+              }
+              className={[
+                "rounded-full border px-3.5 py-1.5 text-sm font-medium transition-all",
+                draft.status === s.value
+                  ? s.color
+                  : "border-border bg-background/60 text-muted-foreground hover:bg-accent",
+              ].join(" ")}
+            >
+              {t(`dashboard.calendar.status.${s.value}`)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Pillar + Date */}
       <div className="grid grid-cols-2 gap-3">
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground">
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium text-muted-foreground">
             {t("dashboard.calendar.form.pillar")}
-          </div>
+          </label>
           <Input
             value={draft.pillar ?? ""}
             onChange={(e) =>
@@ -222,167 +269,217 @@ function CalendarItemForm({
           />
         </div>
 
-        <div className="space-y-2">
-          <div className="text-xs text-muted-foreground">
+        <div className="space-y-1.5">
+          <label className="text-xs font-medium text-muted-foreground">
             {t("dashboard.calendar.form.scheduledDate")}
-          </div>
+          </label>
           <Input
             type="datetime-local"
-            value={
-              draft.scheduledAt
-                ? new Date(draft.scheduledAt).toISOString().slice(0, 16)
-                : ""
-            }
+            value={localDatetimeValue(draft.scheduledAt)}
             onChange={(e) => {
               const v = e.target.value;
               setDraft((d) => ({
                 ...d,
-                scheduledAt: v ? new Date(v).toISOString() : null,
+                scheduledAt: v || null,
               }));
             }}
           />
         </div>
       </div>
 
-      <div className="space-y-4">
-        <div className="text-lg font-semibold">Inspo</div>
+      {/* Hook */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
+          Hook
+        </label>
+        <Input
+          value={draft.hook ?? ""}
+          onChange={(e) =>
+            setDraft((d) => ({ ...d, hook: e.target.value }))
+          }
+          placeholder={t("dashboard.calendar.form.hookPlaceholder", {
+            defaultValue: "What grabs the viewer's attention?",
+          })}
+        />
+      </div>
 
-        <div className="space-y-3">
-          <div className="text-sm text-muted-foreground">Add your links</div>
+      {/* Description */}
+      <div className="space-y-1.5">
+        <label className="text-xs font-medium text-muted-foreground">
+          {t("dashboard.calendar.form.description", {
+            defaultValue: "Description",
+          })}
+        </label>
+        <Textarea
+          value={draft.description ?? ""}
+          onChange={(e) =>
+            setDraft((d) => ({ ...d, description: e.target.value }))
+          }
+          placeholder={t("dashboard.calendar.form.descriptionPlaceholder", {
+            defaultValue: "Notes, script outline, key points…",
+          })}
+          rows={3}
+          className="resize-none text-sm"
+        />
+      </div>
+
+      {/* Inspo section */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-semibold">Inspo</span>
+          <Badge variant="secondary" className="rounded-full text-[10px]">
+            {(draft.inspo ?? []).length}
+          </Badge>
+        </div>
+
+        {/* Links */}
+        <div className="space-y-2">
+          <label className="text-xs font-medium text-muted-foreground">
+            {t("dashboard.calendar.form.inspoLinks", {
+              defaultValue: "Links",
+            })}
+          </label>
 
           <div className="flex gap-2">
             <Input
               value={inspoLink}
               onChange={(e) => setInspoLink(e.target.value)}
-              placeholder="Paste a TikTok, Instagram, Pinterest or any inspo link"
+              placeholder="Paste a TikTok, Instagram, or any inspo link"
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  addInspoLink();
+                }
+              }}
             />
             <Button
               type="button"
-              variant="ghost"
-              className="rounded-full"
+              variant="outline"
+              className="shrink-0 rounded-full"
               onClick={addInspoLink}
               disabled={!inspoLink.trim()}
             >
-              Add
+              +
             </Button>
           </div>
 
-          {inspoLinks.length > 0 ? (
-            <div className="space-y-2">
+          {inspoLinks.length > 0 && (
+            <div className="space-y-1.5">
               {inspoLinks.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between gap-3 overflow-hidden rounded-2xl border border-border/60 bg-background/40 p-3"
+                  className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/40 px-3 py-2"
                 >
-                  <div className="min-w-0 flex-1 overflow-hidden">
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block min-w-0 truncate text-sm text-muted-foreground underline"
-                      title={item.url}
-                    >
-                      {item.url}
-                    </a>
-                  </div>
-
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    className="shrink-0 rounded-full text-destructive"
-                    onClick={() => removeInspo(item.id)}
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="min-w-0 flex-1 truncate text-xs text-muted-foreground underline"
+                    title={item.url}
                   >
-                    Remove
-                  </Button>
+                    {item.url}
+                  </a>
+                  <button
+                    onClick={() => removeInspo(item.id)}
+                    className="shrink-0 text-xs text-muted-foreground hover:text-destructive"
+                  >
+                    ✕
+                  </button>
                 </div>
               ))}
             </div>
-          ) : null}
+          )}
         </div>
 
-        <div className="space-y-3">
-          <div className="text-sm text-muted-foreground">Add your images</div>
+        {/* Images */}
+        <div className="space-y-2">
+          <label className="text-xs font-medium text-muted-foreground">
+            {t("dashboard.calendar.form.inspoImages", {
+              defaultValue: "Images",
+            })}
+          </label>
 
-          <Input
-            type="file"
-            accept="image/*"
-            onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (!file) return;
+          <label className="flex cursor-pointer items-center justify-center rounded-xl border border-dashed border-border/60 bg-background/20 px-4 py-5 text-xs text-muted-foreground transition-colors hover:bg-accent/30">
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={async (e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                await uploadInspoImage(file);
+                e.currentTarget.value = "";
+              }}
+              disabled={uploadingImage}
+            />
+            {uploadingImage
+              ? t("common.loading", { defaultValue: "Uploading…" })
+              : t("dashboard.calendar.form.dropImage", {
+                  defaultValue: "Click to upload an image",
+                })}
+          </label>
 
-              await uploadInspoImage(file);
-              e.currentTarget.value = "";
-            }}
-            disabled={uploadingImage}
-          />
-
-          {uploadingImage ? (
-            <div className="text-xs text-muted-foreground">Uploading…</div>
-          ) : null}
-
-          {inspoImages.length > 0 ? (
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {inspoImages.length > 0 && (
+            <div className="grid grid-cols-3 gap-2">
               {inspoImages.map((item) => (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden rounded-2xl border border-border/60 bg-background/40"
+                  className="group relative overflow-hidden rounded-xl border border-border/60"
                 >
                   <a href={item.url} target="_blank" rel="noreferrer">
                     <img
                       src={item.url}
                       alt="Inspo"
-                      className="aspect-square w-full object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+                      className="aspect-square w-full object-cover"
                     />
                   </a>
-
-                  <div className="absolute inset-x-0 bottom-0 flex justify-end bg-gradient-to-t from-black/60 to-transparent p-2">
-                    <Button
-                      type="button"
-                      size="sm"
-                      variant="ghost"
-                      className="rounded-full bg-black/40 text-white hover:bg-black/60 hover:text-white"
-                      onClick={() => removeInspo(item.id)}
-                    >
-                      Remove
-                    </Button>
-                  </div>
+                  <button
+                    className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-black/60 text-[10px] text-white opacity-0 transition-opacity group-hover:opacity-100"
+                    onClick={() => removeInspo(item.id)}
+                  >
+                    ✕
+                  </button>
                 </div>
               ))}
             </div>
-          ) : null}
+          )}
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-2 pt-2">
+      {/* Footer actions */}
+      <div className="mt-auto flex items-center gap-2 border-t border-border/60 pt-4">
+        <Button
+          variant="ghost"
+          className="rounded-full text-destructive hover:bg-destructive/10 hover:text-destructive"
+          onClick={onDelete}
+          disabled={saving}
+          size="sm"
+        >
+          {t("common.delete")}
+        </Button>
+
+        <div className="flex-1" />
+
         <Button
           variant="ghost"
           className="rounded-full"
           onClick={onCancel}
           disabled={saving}
+          size="sm"
         >
           {t("common.cancel")}
         </Button>
 
-        <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            className="rounded-full text-destructive"
-            onClick={onDelete}
-            disabled={saving}
-          >
-            {t("common.delete")}
-          </Button>
-
-          <Button
-            className="rounded-full"
-            onClick={() => onSave(draft)}
-            disabled={saving}
-          >
-            {saving
-              ? t("common.loading", { defaultValue: "Loading…" })
-              : t("common.save")}
-          </Button>
-        </div>
+        <Button
+          className="rounded-full"
+          onClick={() => onSave(draft)}
+          disabled={saving}
+          size="sm"
+        >
+          {saving
+            ? t("common.loading", { defaultValue: "Saving…" })
+            : t("common.save")}
+        </Button>
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ export function PublicNavbar() {
             asChild
             className="bg-brand-warm text-brand-warm-foreground hover:opacity-90 rounded-full"
           >
-            <Link to="/signup">{t("nav.start")}</Link>
+            <Link to="/select-plan">{t("nav.start")}</Link>
           </Button>
 
           <Separator orientation="vertical" className="mx-1 h-6!" />

@@ -119,11 +119,39 @@ export async function deleteCalendarItem(
   }
 }
 
-export async function generateCalendarStrategy(
+export async function generateQuickIdea(
+  token: string,
+  platform: string | null,
+  prompt: string,
+  scheduledDate: string | null = null,
+): Promise<CalendarItem> {
+  const res = await fetch(`${API_URL}/api/calendar/generate-idea`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      platform,
+      prompt: prompt || undefined,
+      scheduledDate: scheduledDate || undefined,
+    }),
+  });
+
+  const body = await res.json();
+
+  if (!res.ok) {
+    throw new Error(body.error ?? "Failed to generate idea");
+  }
+
+  return body.item as CalendarItem;
+}
+
+export async function generateCalendarContent(
   token: string,
   payload: StrategyGeneratePayload,
 ): Promise<void> {
-  const res = await fetch(`${API_URL}/api/strategy/generate`, {
+  const res = await fetch(`${API_URL}/api/content/generate`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -135,6 +163,6 @@ export async function generateCalendarStrategy(
   const body: { ok?: boolean; error?: string } = await res.json();
 
   if (!res.ok) {
-    throw new Error(body.error ?? "Failed to generate strategy");
+    throw new Error(body.error ?? "Failed to generate content");
   }
 }

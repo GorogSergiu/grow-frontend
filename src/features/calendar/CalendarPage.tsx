@@ -1,9 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 import { useCalendarItems } from "@/features/calendar/hooks/use-calendar-items";
@@ -12,11 +11,15 @@ import { CalendarGrid } from "@/features/calendar/components/CalendarGrid";
 import { WeekView } from "@/features/calendar/components/WeekView";
 import { CalendarFilters } from "@/features/calendar/components/CalendarFilters";
 import { ItemFormDialog } from "@/features/calendar/components/ItemFormDialog";
+import { QuickIdeaPopover } from "@/features/calendar/components/QuickIdeaPopover";
+import { IdeasDrawer } from "@/features/calendar/components/IdeasDrawer";
 import { GeneratePeriodDialog } from "@/features/strategy/components/GeneratePeriodDialog";
 import { OverlapWarningDialog } from "@/features/strategy/components/OverlapWarningDialog";
 
 import { checkStrategyOverlap } from "@/api/strategy.api";
+import { fetchLatestStrategy } from "@/api/strategy.api";
 import { useAuthFetch } from "@/hooks/use-auth-fetch";
+import { useSubscription } from "@/contexts/SubscriptionContext";
 import {
   startOfMonth,
   endOfMonth,
@@ -24,8 +27,10 @@ import {
   addDays,
   isoDateOnly,
   fmtMonthTitle,
+  fmtWeekTitle,
   fmtWeekdayShort,
   toIsoDateOnly,
+  toLocalIso,
 } from "@/lib/dates";
 
 import type { CalendarItem } from "@/types/calendar.types";
@@ -39,6 +44,7 @@ import type { DateRange } from "react-day-picker";
 
 export default function CalendarPage() {
   const { t } = useTranslation();
+  const { isPro } = useSubscription();
 
   const {
     viewMode,
@@ -50,6 +56,8 @@ export default function CalendarPage() {
     cursorDate,
     prevMonth,
     nextMonth,
+    prevWeek,
+    nextWeek,
   } = useCalendarNavigation();
 
   const {
@@ -58,17 +66,35 @@ export default function CalendarPage() {
     saving,
     generating,
     error,
+    loadItems,
     saveItem,
     removeItem,
-    generateStrategyAndRefresh,
+    generateContentAndRefresh,
   } = useCalendarItems(platform);
 
   const { getAccessToken } = useAuthFetch();
 
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<CalendarItem | null>(null);
+  const [ideasOpen, setIdeasOpen] = useState(false);
 
-  // Generate strategy dialog state
+  // Check if strategy exists
+  const [hasStrategy, setHasStrategy] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const token = await getAccessToken();
+      if (!token) return;
+      try {
+        const res = await fetchLatestStrategy(token);
+        setHasStrategy(!!res.strategy?.strategy_json);
+      } catch {
+        setHasStrategy(false);
+      }
+    })();
+  }, []);
+
+  // Generate content dialog state
   const [generateDialogOpen, setGenerateDialogOpen] = useState(false);
   const [periodType, setPeriodType] = useState<StrategyPeriodType>("preset");
   const [preset, setPreset] = useState<StrategyPeriodPreset>("3_months");
@@ -122,7 +148,7 @@ export default function CalendarPage() {
       }
 
       setGenerateDialogOpen(false);
-      await generateStrategyAndRefresh(payload);
+      await generateContentAndRefresh(payload);
     } catch (e: unknown) {
       setOverlapError(
         e instanceof Error ? e.message : "Failed to check overlap",
@@ -134,7 +160,7 @@ export default function CalendarPage() {
     if (!pendingPayload) return;
     setOverlapDialogOpen(false);
     setGenerateDialogOpen(false);
-    await generateStrategyAndRefresh(pendingPayload);
+    await generateContentAndRefresh(pendingPayload);
     setPendingPayload(null);
   }
 
@@ -216,7 +242,15 @@ export default function CalendarPage() {
     return map;
   }, [scheduled]);
 
-  function openCreate(day?: Date) {
+  function openCreate(day?: Date, hour?: number) {
+    let scheduledAt: string | null = null;
+
+    if (day) {
+      const d = new Date(day);
+      d.setHours(hour ?? 10, 0, 0, 0);
+      scheduledAt = toLocalIso(d);
+    }
+
     const base: CalendarItem = {
       id: crypto.randomUUID(),
       title: "",
@@ -225,7 +259,7 @@ export default function CalendarPage() {
       hook: null,
       description: null,
       status: day ? "scheduled" : "idea",
-      scheduledAt: day ? new Date(day).toISOString() : null,
+      scheduledAt,
       inspo: [],
     };
 
@@ -272,6 +306,7 @@ export default function CalendarPage() {
           viewMode={viewMode}
           onViewModeChange={setViewMode}
           generating={generating}
+          hasStrategy={hasStrategy}
           onGenerate={() => setGenerateDialogOpen(true)}
         />
       </div>
@@ -286,14 +321,16 @@ export default function CalendarPage() {
         <Card className="border-0 surface-solid">
           <CardHeader className="flex flex-row items-center justify-between">
             <CardTitle className="text-base">
-              {fmtMonthTitle(cursorDate)}
+              {viewMode === "month"
+                ? fmtMonthTitle(cursorDate)
+                : fmtWeekTitle(cursorDate)}
             </CardTitle>
 
             <div className="flex flex-wrap items-center gap-2">
               <Button
                 className="rounded-full"
                 variant="ghost"
-                onClick={prevMonth}
+                onClick={viewMode === "month" ? prevMonth : prevWeek}
               >
                 {t("common.prev", { defaultValue: "Prev" })}
               </Button>
@@ -301,7 +338,7 @@ export default function CalendarPage() {
               <Button
                 className="rounded-full"
                 variant="ghost"
-                onClick={nextMonth}
+                onClick={viewMode === "month" ? nextMonth : nextWeek}
               >
                 {t("common.next", { defaultValue: "Next" })}
               </Button>
@@ -313,12 +350,28 @@ export default function CalendarPage() {
                 {t("dashboard.calendar.schedule", { defaultValue: "Schedule" })}
               </Button>
 
+              {isPro && (
+                <QuickIdeaPopover
+                  platform={platform}
+                  onGenerated={loadItems}
+                />
+              )}
+
               <Button
-                className="rounded-full"
-                variant="ghost"
-                onClick={() => openCreate(new Date())}
+                variant="outline"
+                className="rounded-full gap-1.5"
+                onClick={() => setIdeasOpen(true)}
               >
-                {t("dashboard.calendar.add", { defaultValue: "Add" })}
+                <span>💡</span>
+                {t("dashboard.calendar.ideas", { defaultValue: "Ideas" })}
+                {ideas.length > 0 && (
+                  <Badge
+                    variant="secondary"
+                    className="ml-0.5 rounded-full px-1.5 text-[10px] tabular-nums"
+                  >
+                    {ideas.length}
+                  </Badge>
+                )}
               </Button>
             </div>
           </CardHeader>
@@ -337,131 +390,24 @@ export default function CalendarPage() {
                 onItemClick={openEdit}
               />
             ) : (
-              <WeekView />
+              <WeekView
+                cursorDate={cursorDate}
+                itemsByDay={itemsByDay}
+                onDayClick={openCreate}
+                onItemClick={openEdit}
+              />
             )}
           </CardContent>
         </Card>
-
-        <div className="space-y-4">
-          <Card className="border-0 surface-solid">
-            <CardHeader>
-              <CardTitle className="text-base">
-                {t("dashboard.calendar.items", { defaultValue: "Items" })}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3">
-              <Input
-                placeholder={t("dashboard.calendar.search", {
-                  defaultValue: "Search ideas…",
-                })}
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-
-              <div className="grid grid-cols-2 gap-2">
-                <Button
-                  className="rounded-full"
-                  variant="ghost"
-                  onClick={() => openCreate()}
-                >
-                  {t("dashboard.calendar.addIdea", {
-                    defaultValue: "Add idea",
-                  })}
-                </Button>
-                <Button
-                  className="rounded-full"
-                  variant="ghost"
-                  onClick={() => openCreate(new Date())}
-                >
-                  {t("dashboard.calendar.schedule", {
-                    defaultValue: "Schedule",
-                  })}
-                </Button>
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-xs text-muted-foreground">
-                  {t("dashboard.calendar.scheduled", {
-                    defaultValue: "Scheduled",
-                  })}
-                </div>
-
-                {scheduled.length === 0 ? (
-                  <div className="rounded-2xl border border-border/60 bg-background/40 p-4 text-sm text-muted-foreground">
-                    {t("dashboard.calendar.emptyScheduled", {
-                      defaultValue: "Nothing scheduled yet.",
-                    })}
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    {scheduled.slice(0, 6).map((it) => (
-                      <button
-                        key={it.id}
-                        onClick={() => openEdit(it)}
-                        className="w-full rounded-2xl border border-border/60 bg-background/40 p-4 text-left hover:bg-background/60"
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0">
-                            <div className="truncate font-medium">
-                              {it.title}
-                            </div>
-                            <div className="mt-1 text-xs text-muted-foreground">
-                              {it.scheduledAt
-                                ? new Date(it.scheduledAt).toLocaleString()
-                                : ""}
-                            </div>
-                          </div>
-                          <Badge variant="secondary" className="rounded-full">
-                            {it.platform}
-                          </Badge>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <div className="space-y-2 pt-2">
-                <div className="text-xs text-muted-foreground">
-                  {t("dashboard.calendar.ideas", { defaultValue: "Ideas" })}
-                </div>
-
-                {ideas.length === 0 ? (
-                  <div className="rounded-2xl border border-border/60 bg-background/40 p-4 text-sm text-muted-foreground">
-                    {t("dashboard.calendar.emptyIdeas", {
-                      defaultValue: "No ideas yet.",
-                    })}
-                  </div>
-                ) : (
-                  <div className="space-y-2">
-                    {ideas.slice(0, 8).map((it) => (
-                      <button
-                        key={it.id}
-                        onClick={() => openEdit(it)}
-                        className="w-full rounded-2xl border border-border/60 bg-background/40 p-4 text-left hover:bg-background/60"
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="min-w-0">
-                            <div className="truncate font-medium">
-                              {it.title}
-                            </div>
-                            <div className="mt-1 text-xs text-muted-foreground">
-                              {it.pillar ?? t("dashboard.topContent.untitled")}
-                            </div>
-                          </div>
-                          <Badge variant="secondary" className="rounded-full">
-                            {it.platform}
-                          </Badge>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </div>
       </div>
+
+      <IdeasDrawer
+        open={ideasOpen}
+        onOpenChange={setIdeasOpen}
+        ideas={ideas}
+        onIdeaClick={openEdit}
+        onAddIdea={() => openCreate()}
+      />
 
       <ItemFormDialog
         open={open}
@@ -483,7 +429,11 @@ export default function CalendarPage() {
         customRange={customRange}
         canContinue={canContinueGenerate}
         generating={generating}
-        onPeriodTypeChange={(type: StrategyPeriodType, newPreset?: StrategyPeriodPreset) => {
+        isPro={isPro}
+        onPeriodTypeChange={(
+          type: StrategyPeriodType,
+          newPreset?: StrategyPeriodPreset,
+        ) => {
           setPeriodType(type);
           if (newPreset) setPreset(newPreset);
         }}

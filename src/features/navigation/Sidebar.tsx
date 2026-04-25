@@ -35,6 +35,15 @@ export function Sidebar() {
           </NavLink>
 
           <NavLink
+            to="/dashboard/analytics"
+            className={({ isActive }) =>
+              [base, isActive ? active : inactive].join(" ")
+            }
+          >
+            {t("app.nav.analytics")}
+          </NavLink>
+
+          <NavLink
             to="/dashboard/strategy"
             className={({ isActive }) =>
               [base, isActive ? active : inactive].join(" ")

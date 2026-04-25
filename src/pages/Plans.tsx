@@ -17,38 +17,38 @@ export default function PlansPage() {
   const heroInView = useInView(heroRef, { once: true });
 
   const starterIncludes: string[] = [
-    t("plansPage.starter.f1", { defaultValue: "1 AI strategy per month" }),
-    t("plansPage.starter.f2", { defaultValue: "Content calendar — manual + basic AI" }),
-    t("plansPage.starter.f3", { defaultValue: "Inspo board — links and images" }),
-    t("plansPage.starter.f4", { defaultValue: "Creator and business onboarding" }),
-    t("plansPage.starter.f5", { defaultValue: "Content organization" }),
+    t("plansPage.starter.f1", { defaultValue: "AI strategy generation" }),
+    t("plansPage.starter.f2", { defaultValue: "Content calendar — manual planning" }),
+    t("plansPage.starter.f3", { defaultValue: "AI content generation — 1 or 3 months" }),
+    t("plansPage.starter.f4", { defaultValue: "Social media insights — Instagram, TikTok, YouTube" }),
+    t("plansPage.starter.f5", { defaultValue: "Inspo board — links and images" }),
   ];
 
   const starterLimits: string[] = [
-    t("plansPage.starter.l1", { defaultValue: "No social media insights" }),
-    t("plansPage.starter.l2", { defaultValue: "No top content analysis" }),
-    t("plansPage.starter.l3", { defaultValue: "No advanced AI regeneration" }),
-    t("plansPage.starter.l4", { defaultValue: "Max ~30 AI-generated calendar items / month" }),
+    t("plansPage.starter.l1", { defaultValue: "No Quick Idea AI generation" }),
+    t("plansPage.starter.l2", { defaultValue: "No custom date ranges for content" }),
+    t("plansPage.starter.l3", { defaultValue: "No AI video performance analysis" }),
+    t("plansPage.starter.l4", { defaultValue: "No unlimited strategy regeneration" }),
   ];
 
   const proIncludes: string[] = [
     t("plansPage.pro.f1", { defaultValue: "Unlimited AI strategy generation" }),
-    t("plansPage.pro.f2", { defaultValue: "Social media insights — Instagram, TikTok, YouTube" }),
-    t("plansPage.pro.f3", { defaultValue: "Top performing content analysis" }),
-    t("plansPage.pro.f4", { defaultValue: "Advanced AI calendar generation" }),
-    t("plansPage.pro.f5", { defaultValue: "Regenerate strategy with custom periods" }),
+    t("plansPage.pro.f2", { defaultValue: "AI content generation — all periods + custom ranges" }),
+    t("plansPage.pro.f3", { defaultValue: "Quick Idea — AI-generated content ideas" }),
+    t("plansPage.pro.f4", { defaultValue: "AI video performance analysis" }),
+    t("plansPage.pro.f5", { defaultValue: "Social media insights — Instagram, TikTok, YouTube" }),
     t("plansPage.pro.f6", { defaultValue: "Full workflow — strategy to execution" }),
   ];
 
   const comparison: PlanFeature[] = [
     { label: t("plansPage.compare.strategy", { defaultValue: "AI strategy generation" }), starter: true, pro: true },
     { label: t("plansPage.compare.calendar", { defaultValue: "Content calendar" }), starter: true, pro: true },
+    { label: t("plansPage.compare.insights", { defaultValue: "Social media insights" }), starter: true, pro: true },
     { label: t("plansPage.compare.inspo", { defaultValue: "Inspo board" }), starter: true, pro: true },
-    { label: t("plansPage.compare.onboarding", { defaultValue: "Creator & business onboarding" }), starter: true, pro: true },
-    { label: t("plansPage.compare.insights", { defaultValue: "Social media insights" }), starter: false, pro: true },
-    { label: t("plansPage.compare.topContent", { defaultValue: "Top content analysis" }), starter: false, pro: true },
-    { label: t("plansPage.compare.advancedAI", { defaultValue: "Advanced AI calendar generation" }), starter: false, pro: true },
-    { label: t("plansPage.compare.customPeriods", { defaultValue: "Custom strategy periods" }), starter: false, pro: true },
+    { label: t("plansPage.compare.contentGen", { defaultValue: "AI content generation" }), starter: true, pro: true },
+    { label: t("plansPage.compare.customPeriods", { defaultValue: "Custom content period ranges" }), starter: false, pro: true },
+    { label: t("plansPage.compare.quickIdea", { defaultValue: "Quick Idea AI generation" }), starter: false, pro: true },
+    { label: t("plansPage.compare.videoAnalysis", { defaultValue: "AI video performance analysis" }), starter: false, pro: true },
     { label: t("plansPage.compare.unlimited", { defaultValue: "Unlimited AI strategies" }), starter: false, pro: true },
   ];
 
@@ -144,7 +144,7 @@ export default function PlansPage() {
             asChild
             className="group shrink-0 rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
           >
-            <Link to="/signup" className="flex items-center gap-2">
+            <Link to="/select-plan" className="flex items-center gap-2">
               {t("plansPage.trial.cta", { defaultValue: "Start free trial" })}
               <ArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
@@ -225,7 +225,7 @@ export default function PlansPage() {
 
             <div className="mt-auto pt-8">
               <Button variant="outline" className="w-full rounded-full" asChild>
-                <Link to="/signup">
+                <Link to="/select-plan">
                   {t("plansPage.starter.cta", { defaultValue: "Get started" })}
                 </Link>
               </Button>
@@ -314,7 +314,7 @@ export default function PlansPage() {
                 className="group w-full rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
                 asChild
               >
-                <Link to="/signup" className="flex items-center justify-center gap-2">
+                <Link to="/select-plan" className="flex items-center justify-center gap-2">
                   {t("plansPage.pro.cta", { defaultValue: "Start free trial" })}
                   <ArrowRight width={15} height={15} className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
@@ -496,7 +496,7 @@ export default function PlansPage() {
               asChild
               className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
             >
-              <Link to="/signup" className="flex items-center gap-2">
+              <Link to="/select-plan" className="flex items-center gap-2">
                 {t("plansPage.ctaButton", { defaultValue: "Create your account" })}
                 <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
               </Link>

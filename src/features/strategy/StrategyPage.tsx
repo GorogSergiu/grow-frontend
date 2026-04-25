@@ -1,13 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import Loader from "@/components/Loader";
 
 import { useStrategy } from "@/features/strategy/hooks/use-strategy";
 import { StrategyDisplay } from "@/features/strategy/components/StrategyDisplay";
-import { GeneratePeriodDialog } from "@/features/strategy/components/GeneratePeriodDialog";
-import { OverlapWarningDialog } from "@/features/strategy/components/OverlapWarningDialog";
-import type { StrategyPeriodPreset, StrategyPeriodType } from "@/types/strategy.types";
 
 export default function StrategyPage() {
   const { t } = useTranslation();
@@ -17,20 +20,9 @@ export default function StrategyPage() {
     generating,
     error,
     strategyJson,
-    generateDialogOpen,
-    setGenerateDialogOpen,
-    periodType,
-    setPeriodType,
-    preset,
-    setPreset,
-    customRange,
-    setCustomRange,
-    overlapDialogOpen,
-    setOverlapDialogOpen,
-    overlapInfo,
-    canContinueGenerate,
-    checkOverlapBeforeGenerate,
-    confirmOverlapGenerate,
+    confirmOpen,
+    setConfirmOpen,
+    runGenerate,
   } = useStrategy();
 
   if (generating) return <Loader />;
@@ -49,11 +41,13 @@ export default function StrategyPage() {
 
         <Button
           className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
-          onClick={() => setGenerateDialogOpen(true)}
+          onClick={() => setConfirmOpen(true)}
           disabled={generating}
         >
-          {generating
-            ? t("dashboard.strategy.generating")
+          {strategyJson
+            ? t("strategy.regenerate", {
+                defaultValue: "Regenerate strategy",
+              })
             : t("dashboard.strategy.generate")}
         </Button>
       </div>
@@ -84,30 +78,44 @@ export default function StrategyPage() {
         <StrategyDisplay strategyJson={strategyJson} />
       ) : null}
 
-      <GeneratePeriodDialog
-        open={generateDialogOpen}
-        onOpenChange={setGenerateDialogOpen}
-        periodType={periodType}
-        preset={preset}
-        customRange={customRange}
-        canContinue={canContinueGenerate}
-        generating={generating}
-        onPeriodTypeChange={(type: StrategyPeriodType, newPreset?: StrategyPeriodPreset) => {
-          setPeriodType(type);
-          if (newPreset) setPreset(newPreset);
-        }}
-        onCustomRangeChange={setCustomRange}
-        onContinue={checkOverlapBeforeGenerate}
-      />
+      {/* Confirm dialog */}
+      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+        <DialogContent className="surface-solid border-0 sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>
+              {t("strategy.confirmTitle", {
+                defaultValue: "Generate your strategy?",
+              })}
+            </DialogTitle>
+          </DialogHeader>
 
-      <OverlapWarningDialog
-        open={overlapDialogOpen}
-        onOpenChange={setOverlapDialogOpen}
-        overlapStart={overlapInfo?.overlapStart ?? null}
-        overlapEnd={overlapInfo?.overlapEnd ?? null}
-        generating={generating}
-        onConfirm={confirmOverlapGenerate}
-      />
+          <p className="text-sm text-muted-foreground">
+            {strategyJson
+              ? t("strategy.confirmDescRegenerate", {
+                  defaultValue:
+                    "This will create a new strategy based on your profile and connected platforms. Your current strategy will be replaced.",
+                })
+              : t("strategy.confirmDesc", {
+                  defaultValue:
+                    "We'll analyze your profile and connected platforms to build a personalized content strategy.",
+                })}
+          </p>
+
+          <div className="flex items-center justify-end gap-2 pt-2">
+            <Button variant="ghost" onClick={() => setConfirmOpen(false)}>
+              {t("common.cancel", { defaultValue: "Cancel" })}
+            </Button>
+            <Button
+              className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+              onClick={runGenerate}
+            >
+              {t("strategy.confirmButton", {
+                defaultValue: "Yes, generate",
+              })}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

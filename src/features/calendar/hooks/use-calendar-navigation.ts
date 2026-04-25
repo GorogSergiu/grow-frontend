@@ -24,6 +24,22 @@ export function useCalendarNavigation() {
     });
   }
 
+  function prevWeek() {
+    setCursorDate((d) => {
+      const n = new Date(d);
+      n.setDate(n.getDate() - 7);
+      return n;
+    });
+  }
+
+  function nextWeek() {
+    setCursorDate((d) => {
+      const n = new Date(d);
+      n.setDate(n.getDate() + 7);
+      return n;
+    });
+  }
+
   return {
     viewMode,
     setViewMode,
@@ -34,5 +50,7 @@ export function useCalendarNavigation() {
     cursorDate,
     prevMonth,
     nextMonth,
+    prevWeek,
+    nextWeek,
   };
 }

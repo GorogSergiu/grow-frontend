@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { supabase } from "@/lib/supabase";
@@ -16,9 +16,29 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PasswordRule } from "@/features/auth/components/PasswordRule";
 
+const API_URL = import.meta.env.VITE_API_URL;
+
+async function createCheckoutSession(token: string, plan: string): Promise<string | null> {
+  const res = await fetch(`${API_URL}/api/billing/create-checkout`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ plan }),
+  });
+
+  const body = await res.json();
+  if (!res.ok) throw new Error(body.error ?? "Failed to create checkout session");
+  return body.url ?? null;
+}
+
 export default function Signup() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const plan = searchParams.get("plan") ?? "starter";
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,6 +48,20 @@ export default function Signup() {
 
   const passwordRules = getPasswordRules(password);
   const doPasswordsMatch = passwordsMatch(password, confirmPassword);
+
+  async function redirectToCheckout(accessToken: string) {
+    try {
+      const url = await createCheckoutSession(accessToken, plan);
+      if (url) {
+        window.location.href = url;
+      } else {
+        navigate("/dashboard", { replace: true });
+      }
+    } catch {
+      // If checkout fails, still go to dashboard — user can set up billing later
+      navigate("/dashboard", { replace: true });
+    }
+  }
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -45,7 +79,7 @@ export default function Signup() {
 
     setLoading(true);
 
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -53,18 +87,25 @@ export default function Signup() {
       },
     });
 
-    setLoading(false);
-
     if (error) {
+      setLoading(false);
       setError(error.message);
       return;
     }
 
-    navigate("/dashboard", { replace: true });
+    const token = data.session?.access_token;
+    if (token) {
+      await redirectToCheckout(token);
+    } else {
+      setLoading(false);
+      navigate("/dashboard", { replace: true });
+    }
   }
 
   async function signInWithGoogle() {
     setError(null);
+    // Store the selected plan so we can use it after OAuth callback
+    localStorage.setItem("selected_plan", plan);
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {

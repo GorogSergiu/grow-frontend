@@ -25,11 +25,28 @@ export async function fetchLatestStrategy(
   return body;
 }
 
-export async function generateStrategy(
+export async function generateStrategy(token: string): Promise<void> {
+  const res = await fetch(`${API_URL}/api/strategy/generate`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: "{}",
+  });
+
+  const body: { ok?: boolean; error?: string } = await res.json();
+
+  if (!res.ok) {
+    throw new Error(body.error ?? "Failed to generate strategy");
+  }
+}
+
+export async function generateContent(
   token: string,
   payload: StrategyGeneratePayload,
 ): Promise<void> {
-  const res = await fetch(`${API_URL}/api/strategy/generate`, {
+  const res = await fetch(`${API_URL}/api/content/generate`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -41,7 +58,7 @@ export async function generateStrategy(
   const body: { ok?: boolean; error?: string } = await res.json();
 
   if (!res.ok) {
-    throw new Error(body.error ?? "Failed to generate strategy");
+    throw new Error(body.error ?? "Failed to generate content");
   }
 }
 

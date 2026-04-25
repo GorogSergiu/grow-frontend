@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import { SubscriptionProvider } from "@/contexts/SubscriptionContext";
 import Loader from "@/components/Loader";
 
 export default function ProtectedRoute() {
@@ -27,5 +28,10 @@ export default function ProtectedRoute() {
       </div>
     );
   if (!isAuthed) return <Navigate to="/login" replace />;
-  return <Outlet />;
+
+  return (
+    <SubscriptionProvider>
+      <Outlet />
+    </SubscriptionProvider>
+  );
 }

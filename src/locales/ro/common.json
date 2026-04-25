@@ -7,6 +7,16 @@
     "start": "Începe acum"
   },
 
+  "footer": {
+    "tagline": "Strategie de conținut bazată pe AI pentru creatori și afaceri. Planifică mai inteligent, crește mai rapid.",
+    "navigation": "Navigare",
+    "legal": "Legal",
+    "privacy": "Politica de confidențialitate",
+    "terms": "Termeni și condiții",
+    "rights": "Toate drepturile rezervate.",
+    "status": "Toate sistemele funcționale"
+  },
+
   "hero": {
     "badge": "Strategie AI pentru creatori de conținut",
     "title_line_1": "Claritate, consistență",
@@ -116,15 +126,16 @@
     "features": {
       "strategy": "Strategie generată de AI",
       "calendar": "Planificare calendar de conținut",
+      "contentGenBasic": "Generare conținut AI — 1 sau 3 luni",
       "inspo": "Linkuri și imagini de inspirație",
       "onboarding": "Onboarding creator sau business",
-      "organization": "Organizare manuală a conținutului",
 
-      "insights": "Insight-uri social media conectate",
-      "topContent": "Conținut cu performanță maximă",
-      "dataStrategy": "Strategie bazată pe date reale",
-      "aiCalendar": "Sugestii de calendar generate de AI",
-      "workflow": "Workflow mai rapid de la insight la execuție"
+      "unlimitedStrategy": "Generare nelimitată de strategii AI",
+      "contentGenFull": "Generare conținut AI — toate perioadele + custom",
+      "quickIdea": "Quick Idea — idei de conținut generate de AI",
+      "videoAnalysis": "Analiză AI a performanței video",
+      "insights": "Analytics social media",
+      "workflow": "Workflow complet — de la strategie la execuție"
     }
   },
 
@@ -191,7 +202,8 @@
       "logout": "Deconectare",
       "account": "Cont",
       "workspace": "Spațiul tău de lucru",
-      "howItWorks": "Cum funcționează"
+      "howItWorks": "Cum funcționează",
+      "analytics": "Analiză"
     }
   },
 
@@ -218,7 +230,13 @@
         "status": "Status",
         "pillar": "Pilon de conținut",
         "pillarPlaceholder": "ex. Sfaturi & ghiduri",
-        "scheduledDate": "Data programată"
+        "scheduledDate": "Data programată",
+        "hookPlaceholder": "Ce captează atenția privitorului?",
+        "description": "Descriere",
+        "descriptionPlaceholder": "Notițe, schița scriptului, puncte cheie…",
+        "inspoLinks": "Link-uri",
+        "inspoImages": "Imagini",
+        "dropImage": "Click pentru a încărca o imagine"
       },
       "status": {
         "idea": "Idee",
@@ -250,10 +268,25 @@
       "ideas": "Idei",
       "emptyIdeas": "Nu ai idei încă.",
 
-      "create": "Creează element",
+      "create": "Conținut nou",
+      "createDesc": "Completează detaliile pentru noua ta idee de conținut.",
       "edit": "Editează element",
+      "editDesc": "Actualizează detaliile conținutului tău.",
 
-      "more": "+{{n}} în plus"
+      "more": "+{{n}} în plus",
+
+      "quickIdea": "Idee rapidă",
+      "quickIdeaTitle": "Generează o idee de video",
+      "quickIdeaDesc": "Descrie ce vrei sau lasă gol pentru o surpriză.",
+      "quickIdeaPlaceholder": "ex. \"vlog rutina de dimineață\", \"rețetă trending\", \"tutorial despre...\"",
+      "quickIdeaDate": "Programează pentru",
+      "quickIdeaNoDate": "Nicio dată selectată — va fi salvat ca idee.",
+      "generateIdea": "Generează ✨",
+
+      "ideasBoard": "Idei",
+      "ideasBoardDesc": "Backlog-ul tău de conținut. Notează idei și programează-le mai târziu.",
+      "noSearchResults": "Nicio idee nu corespunde căutării.",
+      "addFirstIdea": "Adaugă prima ta idee"
     },
 
     "strategy": {
@@ -294,7 +327,13 @@
       "empty": "Nu există conținut încă. Sincronizează YouTube pentru a popula această listă.",
       "emptyInstagram": "Nu există conținut încă. Sincronizează Instagram pentru a popula această listă.",
 
-      "untitled": "Fără titlu"
+      "untitled": "Fără titlu",
+
+      "sortBy": {
+        "views": "Vizualizări",
+        "likes": "Aprecieri",
+        "comments": "Comentarii"
+      }
     },
 
     "calendarPreview": {
@@ -552,8 +591,71 @@
       "connectTiktok": "Conectează TikTok",
       "syncTiktok": "Sincronizează TikTok",
       "tiktokConnectedHint": "TikTok este conectat. Îți poți sincroniza cele mai recente postări.",
-      "tiktokNotConnectedHint": "Conectează TikTok pentru a vedea analizele și conținutul de top."
+      "tiktokNotConnectedHint": "Conectează TikTok pentru a vedea analizele și conținutul de top.",
+      "autoSyncing": "Se sincronizează datele tale… Poate dura câteva momente."
     }
+  },
+
+  "analytics": {
+    "title": "Analiză",
+    "subtitle": "Analizează în detaliu performanța conținutului tău pe toate platformele.",
+    "totalContent": "Total conținut",
+    "totalViews": "Total vizualizări",
+    "totalLikes": "Total aprecieri",
+    "totalComments": "Total comentarii",
+    "totalEngagement": "Total interacțiuni",
+    "platformComparison": "Comparație platforme",
+    "platformBreakdown": "Detalii platformă",
+    "content": "Conținut",
+    "avgViews": "Vizualizări medii",
+    "engagementRate": "Rată de interacțiune",
+    "contentPerformance": "Performanța conținutului",
+    "all": "Toate",
+    "searchContent": "Caută conținut…",
+    "noContent": "Nu a fost găsit conținut.",
+    "showingCount": "Se afișează {{count}} elemente",
+    "untitled": "Fără titlu",
+    "topByViews": "Top după vizualizări",
+    "topByEngagement": "Top după interacțiuni",
+    "table": {
+      "content": "Conținut",
+      "platform": "Platformă",
+      "date": "Dată",
+      "views": "Vizualizări",
+      "likes": "Aprecieri",
+      "comments": "Comentarii"
+    }
+  },
+
+  "analysis": {
+    "title": "Analiză performanță",
+    "analyze": "Analizează",
+    "start": "Analizează performanța",
+    "description": "AI va analiza performanța acestui video, va identifica punctele tari și slabe, și va sugera îmbunătățiri.",
+    "youtubeNote": "Subtitrările YouTube vor fi folosite pentru o analiză mai detaliată.",
+    "noTranscriptNote": "Analiză bazată pe metadata și metrici (fără transcript disponibil).",
+    "stepTranscript": "Se preiau subtitrările…",
+    "stepAnalyzing": "AI analizează…",
+    "stepDone": "Analiză completă",
+    "stepFailed": "Analiza a eșuat",
+    "retry": "Încearcă din nou",
+    "reanalyze": "Rulează o nouă analiză",
+    "summary": "Rezumat",
+    "strengths": "Puncte tari",
+    "weaknesses": "Puncte slabe",
+    "suggestions": "Sugestii",
+    "hookScore": "Hook",
+    "retentionScore": "Retenție",
+    "engagementScore": "Engagement",
+    "scores": "Scoruri",
+    "idleTitle": "Pregătit pentru analiză",
+    "transcriptSource": "Sursa transcriptului",
+    "instagramNote": "Audio-ul va fi extras și transcris automat.",
+    "tiktokNote": "Încarcă fișierul video sau audio pentru o analiză cu transcript, sau analizează fără transcript.",
+    "stepUpload": "Încărcare",
+    "uploadFile": "Încarcă fișier audio sau video",
+    "uploadHint": "Max 50 MB • opțional",
+    "tapToChange": "apasă pentru a schimba"
   },
 
   "common": {
@@ -563,19 +665,20 @@
     "save": "Salvează",
     "prev": "Anterior",
     "next": "Următor",
-    "optional": "opțional"
+    "optional": "opțional",
+    "clear": "Șterge"
   },
 
   "howItWorksPage": {
     "title": "Cum funcționează",
-    "subtitle": "Un ghid detaliat pentru fiecare funcționalitate din Grow — de la conectarea platformelor până la citirea analizelor.",
+    "subtitle": "Un ghid detaliat pentru fiecare funcționalitate din Sporly.ai — de la conectarea platformelor până la citirea analizelor.",
     "tip": "Sfat:",
     "connect": {
       "title": "Conectează platformele tale",
       "subtitle": "Conectarea conturilor sociale este primul pas. Deblochează analize reale și face strategia mult mai precisă.",
       "step1": { "title": "Mergi la Setări", "desc": "Apasă pe numele contului tău din colțul dreapta sus și selectează Setări. Acolo vei găsi secțiunea de integrări." },
       "step2": { "title": "Alege o platformă", "desc": "Selectează Instagram, TikTok sau YouTube și apasă Conectează. Vei fi redirecționat către pagina de autorizare a platformei." },
-      "step3": { "title": "Autorizează accesul", "desc": "Autentifică-te cu contul tău și acordă permisiunile necesare. Grow citește doar conținutul tău public și analizele — nu postează niciodată în numele tău." },
+      "step3": { "title": "Autorizează accesul", "desc": "Autentifică-te cu contul tău și acordă permisiunile necesare. Sporly.ai citește doar conținutul tău public și analizele — nu postează niciodată în numele tău." },
       "step4": { "title": "Sincronizează datele", "desc": "După conectare, apasă Sincronizează acum pentru a prelua cele mai recente postări și metrici. Poți sincroniza din nou oricând pentru a reîmprospăta datele." },
       "tip": "Poți conecta toate cele trei platforme simultan. Dashboard-ul îți permite să comuți între ele pentru a compara performanța.",
       "cta": "Mergi la Setări"
@@ -585,7 +688,7 @@
       "subtitle": "Strategia ta este construită de AI folosind profilul completat în onboarding. Cu cât profilul tău este mai detaliat, cu atât rezultatul este mai personalizat.",
       "step1": { "title": "Deschide secțiunea Strategie", "desc": "Apasă pe Strategie în bara de navigare. Dacă nu ai generat niciuna încă, pagina va fi goală cu un buton Generează." },
       "step2": { "title": "Alege o perioadă", "desc": "Selectează 1, 3 sau 6 luni ca preset, sau alege un interval personalizat. Perioada definește cât de departe în viitor va planifica strategia ta." },
-      "step3": { "title": "Gestionează suprapunerile", "desc": "Dacă ai deja o strategie pentru o perioadă care se suprapune, Grow te va avertiza și va întreba dacă vrei să o suprascrii. Poți oricând să o păstrezi pe cea existentă." },
+      "step3": { "title": "Gestionează suprapunerile", "desc": "Dacă ai deja o strategie pentru o perioadă care se suprapune, Sporly.ai te va avertiza și va întreba dacă vrei să o suprascrii. Poți oricând să o păstrezi pe cea existentă." },
       "step4": { "title": "Citește-ți strategia", "desc": "Strategia ta include un rezumat, o declarație de poziționare, obiective principale, piloni de conținut cu formate, direcție specifică pentru fiecare platformă, acțiuni de creștere și un plan de focus pentru 30 de zile." },
       "step5": { "title": "Regenerează când e necesar", "desc": "Obiectivele se schimbă. Regenerează-ți strategia oricând — pentru o nouă perioadă sau pentru a-ți reîmprospăta direcția. Fiecare generare folosește cele mai recente date din profilul tău." },
       "tip": "Pentru cele mai bune rezultate, asigură-te că profilul tău de onboarding este detaliat și actualizat. Calitatea strategiei este direct legată de calitatea profilului tău.",
@@ -616,16 +719,16 @@
   },
 
   "tutorial": {
-    "title": "Bine ai venit în Grow 👋",
+    "title": "Bine ai venit în Sporly.ai 👋",
     "subtitle": "Iată o prezentare rapidă a tot ce poți face.",
     "cta": "Am înțeles, să începem!",
     "step0": {
-      "title": "Bine ai venit în Grow!",
-      "desc": "Grow este platforma ta all-in-one pentru strategie de conținut. Te ajută să planifici, să creezi și să urmărești conținut pe Instagram, TikTok și YouTube — alimentat de AI care îți înțelege obiectivele și audiența.\n\nAcest ghid scurt îți va arăta cele 4 lucruri principale pe care le poți face. Durează doar un minut."
+      "title": "Bine ai venit în Sporly.ai!",
+      "desc": "Sporly.ai este platforma ta all-in-one pentru strategie de conținut. Te ajută să planifici, să creezi și să urmărești conținut pe Instagram, TikTok și YouTube — alimentat de AI care îți înțelege obiectivele și audiența.\n\nAcest ghid scurt îți va arăta cele 4 lucruri principale pe care le poți face. Durează doar un minut."
     },
     "step1": {
       "title": "Conectează platformele tale",
-      "desc": "Începe prin a merge la Setări și a conecta conturile tale sociale. Grow suportă Instagram, TikTok și YouTube.\n\nOdată conectat, Grow poate prelua analizele tale reale — vizualizări, aprecieri, comentarii și conținutul cu cea mai bună performanță — direct în Dashboard. Poți conecta mai multe platforme și poți comuta între ele oricând."
+      "desc": "Începe prin a merge la Setări și a conecta conturile tale sociale. Sporly.ai suportă Instagram, TikTok și YouTube.\n\nOdată conectat, Sporly.ai poate prelua analizele tale reale — vizualizări, aprecieri, comentarii și conținutul cu cea mai bună performanță — direct în Dashboard. Poți conecta mai multe platforme și poți comuta între ele oricând."
     },
     "step2": {
       "title": "Generează-ți strategia de conținut",
@@ -642,9 +745,9 @@
   },
 
   "featuresPage": {
-    "badge": "Tot ce poate face Grow",
+    "badge": "Tot ce poate face Sporly.ai",
     "heroTitle": "Fiecare funcție, explicată",
-    "heroSubtitle": "Grow este un sistem de strategie și conținut pentru creatori și afaceri. Iată o privire detaliată asupra fiecărei funcții și ce face în mod concret.",
+    "heroSubtitle": "Sporly.ai este un sistem de strategie și conținut pentru creatori și afaceri. Iată o privire detaliată asupra fiecărei funcții și ce face în mod concret.",
     "heroCta": "Începe gratuit",
     "heroCtaSecondary": "Autentifică-te",
     "ctaLabel": "Gata să începi?",
@@ -654,7 +757,7 @@
     "strategy": {
       "label": "Strategie AI",
       "title": "O strategie de conținut completă, construită în jurul profilului tău",
-      "subtitle": "Grow nu îți oferă o strategie generică. Generează una bazată pe obiectivele, audiența, provocările, platformele și stilul tău de conținut — toate colectate în timpul onboardingului.",
+      "subtitle": "Sporly.ai nu îți oferă o strategie generică. Generează una bazată pe obiectivele, audiența, provocările, platformele și stilul tău de conținut — toate colectate în timpul onboardingului.",
       "b1": "Declarație de poziționare — cum să te prezinți clar online",
       "b2": "Obiective principale — 3–5 obiective specifice aliniate la perioada ta",
       "b3": "Piloni de conținut — teme recurente cu formate recomandate per pilon",
@@ -666,7 +769,7 @@
     "analytics": {
       "label": "Analize",
       "title": "Date reale de platformă într-un singur loc",
-      "subtitle": "Conectează Instagram, TikTok și YouTube pentru a importa datele tale reale de performanță în Grow. Nu mai este nevoie să comuti între aplicații pentru a înțelege ce funcționează.",
+      "subtitle": "Conectează Instagram, TikTok și YouTube pentru a importa datele tale reale de performanță în Sporly.ai. Nu mai este nevoie să comuti între aplicații pentru a înțelege ce funcționează.",
       "b1": "Total și medie de vizualizări per postare",
       "b2": "Rata de engagement și engagement total pe postări",
       "b3": "Total aprecieri și comentarii",
@@ -690,7 +793,7 @@
     "onboarding": {
       "label": "Onboarding",
       "title": "Construit pentru creatori și afaceri — două profiluri separate",
-      "subtitle": "Grow se adaptează la tipul tău de profil. Fie că ești un creator de conținut care își crește audiența sau un proprietar de afacere care generează lead-uri, onboardingul colectează exact ce are nevoie fiecare profil.",
+      "subtitle": "Sporly.ai se adaptează la tipul tău de profil. Fie că ești un creator de conținut care își crește audiența sau un proprietar de afacere care generează lead-uri, onboardingul colectează exact ce are nevoie fiecare profil.",
       "b1": "Profil creator — obiective, provocări, audiență, stil de conținut, voce, platforme și obiceiuri de postare",
       "b2": "Profil afacere — industrie, produse, obiective sociale, KPI-uri, client ideal și buget",
       "b3": "Constructor de audiență structurat — interval de vârstă, gen, locație, interese și puncte dureroase",
@@ -702,14 +805,14 @@
     "integrations": {
       "label": "Integrări",
       "title": "Conectează Instagram, TikTok și YouTube",
-      "subtitle": "Grow se conectează la platformele tale sociale prin API-uri oficiale. Autorizarea este sigură, read-only și durează mai puțin de un minut per platformă.",
+      "subtitle": "Sporly.ai se conectează la platformele tale sociale prin API-uri oficiale. Autorizarea este sigură, read-only și durează mai puțin de un minut per platformă.",
       "b1": "Instagram — conectează contul tău de business sau creator prin Meta",
       "b2": "TikTok — autorizează accesul la conținutul și statisticile tale TikTok",
       "b3": "YouTube — conectează canalul tău prin Google OAuth",
-      "b4": "Acces read-only — Grow nu postează, nu editează și nu șterge niciodată conținut în numele tău",
+      "b4": "Acces read-only — Sporly.ai nu postează, nu editează și nu șterge niciodată conținut în numele tău",
       "b5": "Multi-platformă — toate trei pot fi conectate simultan",
       "b6": "Sincronizare manuală — tu decizi când să actualizezi datele",
-      "note": "Poți folosi Grow fără a conecta nicio platformă — strategia și calendarul funcționează independent. Dar analizele și conținutul de top necesită cel puțin o conexiune."
+      "note": "Poți folosi Sporly.ai fără a conecta nicio platformă — strategia și calendarul funcționează independent. Dar analizele și conținutul de top necesită cel puțin o conexiune."
     }
   },
 
@@ -736,15 +839,16 @@
       "label": "Starter",
       "positioning": "Structurează-ți conținutul",
       "cta": "Începe",
-      "f1": "1 strategie AI pe lună",
-      "f2": "Calendar de conținut — manual + AI de bază",
-      "f3": "Panou inspo — linkuri și imagini",
-      "f4": "Onboarding creator și afacere",
-      "f5": "Organizare conținut",
-      "l1": "Fără analytics social media",
-      "l2": "Fără analiză top conținut",
-      "l3": "Fără regenerare AI avansată",
-      "l4": "Max ~30 elemente de calendar generate AI / lună"
+      "f1": "Generare strategie AI",
+      "f2": "Calendar de conținut — planificare manuală",
+      "f3": "Generare conținut AI — 1 sau 3 luni",
+      "f4": "Analytics social media — Instagram, TikTok, YouTube",
+      "f5": "Panou inspo — linkuri și imagini",
+      "f6": "Onboarding creator și afacere",
+      "l1": "Fără Quick Idea AI",
+      "l2": "Fără perioade personalizate de conținut",
+      "l3": "Fără analiză AI a performanței video",
+      "l4": "Fără regenerare nelimitată de strategii"
     },
     "pro": {
       "label": "Pro",
@@ -752,23 +856,309 @@
       "positioning": "Crești bazat pe date",
       "cta": "Începe trial gratuit",
       "f1": "Generare nelimitată de strategii AI",
-      "f2": "Analytics social media — Instagram, TikTok, YouTube",
-      "f3": "Analiză top conținut performant",
-      "f4": "Generare avansată AI de calendar",
-      "f5": "Regenerare strategie cu perioade personalizate",
+      "f2": "Generare conținut AI — toate perioadele + custom",
+      "f3": "Quick Idea — idei de conținut generate de AI",
+      "f4": "Analiză AI a performanței video",
+      "f5": "Analytics social media — Instagram, TikTok, YouTube",
       "f6": "Workflow complet — de la strategie la execuție",
       "fairUsage": "Se aplică fair usage. Fără limite stricte în perioada de early access — vom comunica clar înainte de orice schimbare."
     },
     "compare": {
       "strategy": "Generare strategie AI",
       "calendar": "Calendar de conținut",
+      "insights": "Analytics social media",
       "inspo": "Panou inspo",
       "onboarding": "Onboarding creator & afacere",
-      "insights": "Analytics social media",
-      "topContent": "Analiză top conținut",
-      "advancedAI": "Generare avansată AI calendar",
-      "customPeriods": "Perioade personalizate strategie",
+      "contentGen": "Generare conținut AI",
+      "customPeriods": "Perioade personalizate de conținut",
+      "quickIdea": "Quick Idea AI",
+      "videoAnalysis": "Analiză AI a performanței video",
       "unlimited": "Strategii AI nelimitate"
+    }
+  },
+
+  "calendar": {
+    "generateContent": "Generează conținut",
+    "generating": "Se generează…",
+    "needsStrategy": "Generează mai întâi o strategie pe pagina de Strategie"
+  },
+
+  "strategy": {
+    "regenerate": "Regenerează strategia",
+    "confirmTitle": "Generezi strategia?",
+    "confirmDesc": "Vom analiza profilul tău și platformele conectate pentru a crea o strategie personalizată de conținut.",
+    "confirmDescRegenerate": "Se va crea o strategie nouă pe baza profilului și platformelor conectate. Strategia curentă va fi înlocuită.",
+    "confirmButton": "Da, generează"
+  },
+
+  "selectPlan": {
+    "title": "Alege planul tău",
+    "subtitle": "Vei primi 7 zile de acces Pro gratuit, apoi planul selectat se activează.",
+    "select": "Selectează"
+  },
+
+  "generatePeriod": {
+    "title": "Selectează perioada de conținut",
+    "desc": "Alege cât de departe în viitor vrei să generezi conținut.",
+    "1month": "1 lună",
+    "3months": "3 luni",
+    "6months": "6 luni",
+    "custom": "Interval personalizat",
+    "selected": "Perioada selectată:",
+    "customIncomplete": "Intervalul personalizat nu este complet",
+    "selectCustom": "Selectează un interval personalizat",
+    "selectedRange": "Interval selectat:",
+    "selectBothDates": "Te rugăm să selectezi atât data de început, cât și data de sfârșit.",
+    "continue": "Continuă"
+  },
+
+  "overlap": {
+    "title": "Perioadă de conținut suprapusă",
+    "desc": "O parte din această perioadă se suprapune cu conținut generat anterior.",
+    "range": "Conținutul generat de la {{start}} până la {{end}} va fi înlocuit.",
+    "confirm": "Continuă oricum"
+  },
+
+  "welcome": {
+    "greeting": "Bine ai venit pe Sporly.ai!",
+    "greetingName": "Bine ai venit, {{name}}!",
+    "subtitle": "Completează acești pași pentru a profita la maximum de experiență.",
+    "progress": "{{done}} din {{total}} completați",
+    "step1": {
+      "title": "Conectează o platformă",
+      "desc": "Leagă Instagram, TikTok sau YouTube pentru a importa datele tale reale.",
+      "cta": "Mergi la Setări"
+    },
+    "step2": {
+      "title": "Generează-ți strategia",
+      "desc": "AI construiește o strategie de conținut personalizată din profilul tău.",
+      "cta": "Mergi la Strategie"
+    },
+    "step3": {
+      "title": "Planifică-ți conținutul",
+      "desc": "Generează conținut AI sau programează manual postări în calendar.",
+      "cta": "Mergi la Calendar"
+    }
+  },
+
+  "privacyPage": {
+    "badge": "Legal",
+    "heroTitle": "Politica de confidențialitate",
+    "heroSubtitle": "Confidențialitatea ta contează. Această politică explică ce date colectăm, cum le folosim și ce drepturi ai.",
+    "lastUpdated": "Ultima actualizare: Aprilie 2026",
+    "s1": {
+      "title": "1. Introducere",
+      "p1": "Bine ai venit pe Sporly.ai (\"noi\", \"al nostru\", \"Platforma\").",
+      "p2": "Această Politică de confidențialitate explică modul în care colectăm, folosim, stocăm și protejăm datele tale personale atunci când utilizezi aplicația noastră.",
+      "p3": "Prin utilizarea Sporly.ai, ești de acord cu colectarea și utilizarea informațiilor în conformitate cu această politică."
+    },
+    "s2": {
+      "title": "2. Datele pe care le colectăm",
+      "p1": "Colectăm următoarele tipuri de date:",
+      "h1": "Date de cont",
+      "l1": "Adresa de email",
+      "l2": "Date de autentificare (prin Supabase sau furnizori terți de autentificare)",
+      "h2": "Conținut utilizator",
+      "l3": "Idei de conținut",
+      "l4": "Link-uri și imagini adăugate pe panoul de inspirație",
+      "l5": "Elemente din calendar și strategii",
+      "h3": "Date social media (dacă sunt conectate)",
+      "l6": "Date publice și de performanță de pe Instagram, TikTok și YouTube",
+      "l7": "Metrici precum vizualizări, aprecieri, comentarii, engagement",
+      "h4": "Date de utilizare",
+      "l8": "Interacțiunea cu platforma",
+      "l9": "Funcționalități utilizate",
+      "l10": "Cereri trimise către AI"
+    },
+    "s3": {
+      "title": "3. Cum folosim datele tale",
+      "p1": "Folosim datele tale pentru a:",
+      "l1": "Furniza și opera Platforma",
+      "l2": "Genera strategii și conținut bazate pe AI",
+      "l3": "Afișa analize și statistici",
+      "l4": "Îmbunătăți serviciile și funcționalitățile noastre",
+      "l5": "Asigura securitatea și preveni abuzurile"
+    },
+    "s4": {
+      "title": "4. Procesare AI",
+      "p1": "Sporly.ai folosește inteligență artificială pentru a genera strategii și recomandări.",
+      "p2": "Aceasta înseamnă:",
+      "l1": "Datele tale (date de onboarding, conținut, context) pot fi procesate de sisteme AI",
+      "l2": "Rezultatele AI sunt generate pe baza tiparelor și datelor furnizate",
+      "p3": "Nu garantăm acuratețea, iar utilizatorii rămân responsabili pentru modul în care folosesc rezultatele generate de AI."
+    },
+    "s5": {
+      "title": "5. Servicii terțe",
+      "p1": "Folosim servicii terțe, inclusiv:",
+      "l1": "Supabase (autentificare, bază de date, stocare)",
+      "l2": "OpenAI (procesare AI)",
+      "l3": "API-uri social media (Instagram, TikTok, YouTube)",
+      "p2": "Acești furnizori pot procesa date în numele nostru. Folosim doar API-uri oficiale și respectăm politicile platformelor."
+    },
+    "s6": {
+      "title": "6. Stocarea datelor",
+      "p1": "Datele tale sunt stocate în siguranță folosind furnizori de infrastructură de încredere.",
+      "p2": "Implementăm:",
+      "l1": "Control al accesului",
+      "l2": "Autentificare sigură",
+      "l3": "Conexiuni criptate (HTTPS)",
+      "p3": "Cu toate acestea, niciun sistem nu este complet sigur."
+    },
+    "s7": {
+      "title": "7. Retenția datelor",
+      "p1": "Păstrăm datele tale:",
+      "l1": "Atât timp cât contul tău este activ",
+      "l2": "Sau atât timp cât este necesar pentru a furniza serviciile",
+      "p2": "Poți solicita ștergerea datelor tale în orice moment."
+    },
+    "s8": {
+      "title": "8. Drepturile tale (GDPR)",
+      "p1": "Dacă te afli în UE, ai dreptul de a:",
+      "l1": "Accesa datele tale",
+      "l2": "Corecta datele inexacte",
+      "l3": "Solicita ștergerea (\"dreptul de a fi uitat\")",
+      "l4": "Restricționa procesarea",
+      "l5": "Te opune procesării",
+      "l6": "Portabilitatea datelor",
+      "p2": "Pentru a-ți exercita drepturile, contactează-ne la support@sporly.ai."
+    },
+    "s9": {
+      "title": "9. Cookie-uri",
+      "p1": "Putem folosi cookie-uri sau tehnologii similare pentru a menține sesiunile și a îmbunătăți experiența utilizatorului.",
+      "p2": "Poți controla cookie-urile prin setările browserului tău."
+    },
+    "s10": {
+      "title": "10. Integrări social media",
+      "p1": "Când îți conectezi conturile:",
+      "l1": "Accesăm doar datele permise de API-urile platformelor",
+      "l2": "Nu postăm și nu acționăm în numele tău fără permisiune",
+      "p2": "Poți deconecta conturile tale în orice moment."
+    },
+    "s11": {
+      "title": "11. Confidențialitatea copiilor",
+      "p1": "Sporly.ai nu este destinat utilizatorilor sub 18 ani. Nu colectăm cu bună știință date de la minori."
+    },
+    "s12": {
+      "title": "12. Modificări ale acestei politici",
+      "p1": "Putem actualiza această Politică de confidențialitate periodic. Modificările vor fi publicate pe această pagină.",
+      "p2": "Continuarea utilizării Platformei înseamnă că accepți politica actualizată."
+    },
+    "s13": {
+      "title": "13. Contact",
+      "p1": "Dacă ai întrebări despre această Politică de confidențialitate, contactează-ne la support@sporly.ai."
+    }
+  },
+
+  "termsPage": {
+    "badge": "Legal",
+    "heroTitle": "Termeni și condiții",
+    "heroSubtitle": "Te rugăm să citești acești termeni cu atenție înainte de a utiliza Sporly.ai. Aceștia prezintă drepturile și responsabilitățile tale ca utilizator.",
+    "lastUpdated": "Ultima actualizare: Aprilie 2026",
+    "s1": {
+      "title": "1. Introducere",
+      "p1": "Bine ai venit pe Sporly.ai (\"noi\", \"al nostru\", \"Platforma\").",
+      "p2": "Acești Termeni și condiții guvernează accesul tău la și utilizarea aplicației noastre, care oferă instrumente bazate pe AI pentru strategie de conținut, analize social media și planificare de conținut.",
+      "p3": "Prin crearea unui cont sau utilizarea Platformei, ești de acord cu acești Termeni. Dacă nu ești de acord, nu trebuie să utilizezi Platforma."
+    },
+    "s2": {
+      "title": "2. Eligibilitate",
+      "p1": "Pentru a utiliza această Platformă, trebuie să:",
+      "l1": "Ai cel puțin 18 ani",
+      "l2": "Ai capacitatea juridică de a încheia un acord obligatoriu",
+      "l3": "Furnizezi informații exacte și complete la înregistrare",
+      "p2": "Ești responsabil pentru menținerea confidențialității credențialelor contului tău."
+    },
+    "s3": {
+      "title": "3. Descrierea serviciilor",
+      "p1": "Platforma oferă:",
+      "l1": "Strategii de conținut generate de AI",
+      "l2": "Instrumente de planificare a calendarului de conținut",
+      "l3": "Analize social media (prin integrări terțe)",
+      "l4": "Funcționalitate de panou de inspirație (link-uri și media încărcate)",
+      "p2": "Ne rezervăm dreptul de a modifica, suspenda sau întrerupe orice parte a serviciului în orice moment."
+    },
+    "s4": {
+      "title": "4. Disclaimer conținut generat de AI",
+      "p1": "Platforma folosește inteligență artificială pentru a genera recomandări și conținut.",
+      "p2": "Recunoști că:",
+      "l1": "Rezultatele AI sunt doar informative și consultative",
+      "l2": "Nu garantăm acuratețea, performanța sau rezultatele",
+      "l3": "Ești pe deplin responsabil pentru modul în care utilizezi conținutul generat",
+      "p3": "Nu suntem responsabili pentru niciun rezultat de afaceri, financiar sau reputațional care rezultă din sugestiile generate de AI."
+    },
+    "s5": {
+      "title": "5. Conținut utilizator",
+      "p1": "Poți încărca link-uri, imagini, idei de conținut și alte materiale (\"Conținut utilizator\").",
+      "p2": "Păstrezi proprietatea asupra conținutului tău, dar ne acorzi o licență limitată pentru a-l stoca, procesa, afișa și utiliza pentru a furniza și îmbunătăți serviciul.",
+      "p3": "Ești de acord să nu încarci conținut care:",
+      "l1": "Este ilegal, dăunător sau abuziv",
+      "l2": "Încalcă drepturile de proprietate intelectuală",
+      "l3": "Încalcă termenii terților (ex. platforme sociale)"
+    },
+    "s6": {
+      "title": "6. Integrări social media",
+      "p1": "Platforma se poate conecta la servicii terțe precum Instagram, TikTok și YouTube.",
+      "p2": "Prin conectarea conturilor tale, ne autorizezi să accesăm datele tale prin API-uri oficiale și ești de acord să respecți termenii acelor platforme.",
+      "p3": "Nu suntem responsabili pentru modificări ale API-urilor terțe, inexactități ale datelor de pe acele platforme sau întreruperi ale serviciului cauzate de acestea."
+    },
+    "s7": {
+      "title": "7. Plăți și abonament",
+      "p1": "Platforma funcționează pe bază de abonament.",
+      "l1": "Prețurile sunt afișate înainte de achiziție",
+      "l2": "Abonamentele se reînnoiesc automat dacă nu sunt anulate",
+      "l3": "Poți anula oricând din contul tău",
+      "p2": "Putem modifica prețurile cu notificare prealabilă sau putem oferi perioade de probă gratuite și planuri promoționale. Rambursările nu sunt garantate decât dacă sunt cerute de lege."
+    },
+    "s8": {
+      "title": "8. Utilizare acceptabilă",
+      "p1": "Ești de acord să NU:",
+      "l1": "Utilizezi Platforma în scopuri ilegale",
+      "l2": "Încerci să faci inginerie inversă sau să exploatezi sistemul",
+      "l3": "Abuzezi de generarea AI (ex. spam, utilizare greșită a automatizării)",
+      "l4": "Eludezi limitele de utilizare",
+      "p2": "Ne rezervăm dreptul de a suspenda sau închide conturile care încalcă aceste reguli."
+    },
+    "s9": {
+      "title": "9. Procesarea datelor",
+      "p1": "Datele tale sunt procesate în conformitate cu Politica noastră de confidențialitate. Aceasta include informații de cont, date de conținut, analize social media și date de interacțiune cu AI.",
+      "p2": "Implementăm măsuri tehnice și organizaționale rezonabile pentru a-ți proteja datele, dar niciun sistem nu este 100% sigur."
+    },
+    "s10": {
+      "title": "10. Proprietate intelectuală",
+      "p1": "Tot conținutul Platformei — inclusiv software, UI/UX, branding și sisteme AI — este deținut de Sporly.ai sau licențiatorii săi.",
+      "p2": "Nu poți copia, distribui, revinde sau modifica nicio parte a Platformei fără permisiune."
+    },
+    "s11": {
+      "title": "11. Disponibilitatea serviciului",
+      "p1": "Ne propunem să oferim acces continuu, dar nu garantăm funcționare neîntreruptă sau fără erori.",
+      "p2": "Putem efectua mentenanță, actualiza funcționalități sau restricționa temporar accesul."
+    },
+    "s12": {
+      "title": "12. Limitarea răspunderii",
+      "p1": "În măsura maximă permisă de lege, NU suntem responsabili pentru:",
+      "l1": "Pierderea de profituri",
+      "l2": "Pierderea datelor",
+      "l3": "Întreruperea activității",
+      "l4": "Decizii luate pe baza rezultatelor AI",
+      "p2": "Utilizarea Platformei este pe propria ta răspundere."
+    },
+    "s13": {
+      "title": "13. Reziliere",
+      "p1": "Putem suspenda sau închide contul tău dacă încalci acești Termeni sau utilizezi greșit Platforma.",
+      "p2": "Poți șterge contul tău în orice moment."
+    },
+    "s14": {
+      "title": "14. Modificări ale termenilor",
+      "p1": "Putem actualiza acești Termeni periodic. Modificările vor fi publicate pe această pagină.",
+      "p2": "Continuarea utilizării Platformei constituie acceptarea Termenilor actualizați."
+    },
+    "s15": {
+      "title": "15. Legea aplicabilă",
+      "p1": "Acești Termeni sunt guvernați de legile aplicabile din jurisdicția ta."
+    },
+    "s16": {
+      "title": "16. Contact",
+      "p1": "Pentru întrebări privind acești Termeni, contactează-ne la support@sporly.ai."
     }
   }
 }

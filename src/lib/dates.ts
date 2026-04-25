@@ -51,9 +51,37 @@ export function timeHHMM(iso: string): string {
   return `${hh}:${mm}`;
 }
 
+export function fmtWeekTitle(d: Date): string {
+  const start = startOfWeekMonday(d);
+  const end = addDays(start, 6);
+
+  const sameMonth =
+    start.getMonth() === end.getMonth() &&
+    start.getFullYear() === end.getFullYear();
+
+  if (sameMonth) {
+    return `${start.getDate()} – ${end.getDate()} ${end.toLocaleDateString(undefined, { month: "long", year: "numeric" })}`;
+  }
+
+  const fmt = (dt: Date) =>
+    dt.toLocaleDateString(undefined, { day: "numeric", month: "short" });
+
+  return `${fmt(start)} – ${fmt(end)}, ${end.getFullYear()}`;
+}
+
 export function toIsoDateOnly(date: Date): string {
   const year = date.getFullYear();
   const month = `${date.getMonth() + 1}`.padStart(2, "0");
   const day = `${date.getDate()}`.padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+/** Returns an ISO-like string in **local** time: `YYYY-MM-DDTHH:mm` (no Z). */
+export function toLocalIso(d: Date): string {
+  const year = d.getFullYear();
+  const month = `${d.getMonth() + 1}`.padStart(2, "0");
+  const day = `${d.getDate()}`.padStart(2, "0");
+  const hh = `${d.getHours()}`.padStart(2, "0");
+  const mm = `${d.getMinutes()}`.padStart(2, "0");
+  return `${year}-${month}-${day}T${hh}:${mm}`;
 }

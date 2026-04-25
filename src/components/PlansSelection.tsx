@@ -9,32 +9,32 @@ export default function PlansSection() {
 
   const plans = [
     {
-      name: t("plans.simple.title"),
-      description: t("plans.simple.description"),
-      cta: t("plans.simple_cta"),
+      name: t("plansPage.starter.label", { defaultValue: "Starter" }),
+      positioning: t("plansPage.starter.positioning", { defaultValue: "Structure your content" }),
+      cta: t("plansPage.starter.cta", { defaultValue: "Get started" }),
       highlighted: false,
       features: [
-        t("plans.features.strategy"),
-        t("plans.features.calendar"),
-        t("plans.features.inspo"),
-        t("plans.features.onboarding"),
-        t("plans.features.organization"),
+        t("plansPage.starter.f1", { defaultValue: "AI strategy generation" }),
+        t("plansPage.starter.f2", { defaultValue: "Content calendar — manual planning" }),
+        t("plansPage.starter.f3", { defaultValue: "AI content generation — 1 or 3 months" }),
+        t("plansPage.starter.f4", { defaultValue: "Social media insights — Instagram, TikTok, YouTube" }),
+        t("plansPage.starter.f5", { defaultValue: "Inspo board — links and images" }),
       ],
       price: "€15",
     },
     {
-      name: t("plans.pro.title"),
-      description: t("plans.pro.description"),
-      cta: t("plans.pro.cta"),
-      badge: t("plans.pro.badge"),
+      name: t("plansPage.pro.label", { defaultValue: "Pro" }),
+      positioning: t("plansPage.pro.positioning", { defaultValue: "Grow using data" }),
+      cta: t("plansPage.pro.cta", { defaultValue: "Start free trial" }),
+      badge: t("plansPage.pro.badge", { defaultValue: "Most complete" }),
       highlighted: true,
       features: [
-        t("plans.features.strategy"),
-        t("plans.features.insights"),
-        t("plans.features.topContent"),
-        t("plans.features.dataStrategy"),
-        t("plans.features.aiCalendar"),
-        t("plans.features.workflow"),
+        t("plansPage.pro.f1", { defaultValue: "Unlimited AI strategy generation" }),
+        t("plansPage.pro.f2", { defaultValue: "AI content generation — all periods + custom ranges" }),
+        t("plansPage.pro.f3", { defaultValue: "Quick Idea — AI-generated content ideas" }),
+        t("plansPage.pro.f4", { defaultValue: "AI video performance analysis" }),
+        t("plansPage.pro.f5", { defaultValue: "Social media insights — Instagram, TikTok, YouTube" }),
+        t("plansPage.pro.f6", { defaultValue: "Full workflow — strategy to execution" }),
       ],
       price: "€39",
     },
@@ -100,14 +100,17 @@ export default function PlansSection() {
                 </motion.div>
               )}
 
-              <div className="text-2xl font-bold">{plan.name}</div>
+              <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+                {plan.name}
+              </p>
               <div className="mt-3 flex items-end gap-1.5">
                 <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
-                <span className="mb-1 text-sm text-muted-foreground">/ {t("plansPage.perMonth", { defaultValue: "month" })}</span>
+                <span className="mb-1 text-sm text-muted-foreground">
+                  {t("plansPage.perMonth", { defaultValue: "/ month" })}
+                </span>
               </div>
-
-              <p className="mt-4 text-sm leading-6 text-muted-foreground">
-                {plan.description}
+              <p className="mt-2 text-sm font-medium text-muted-foreground">
+                {plan.positioning}
               </p>
 
               <div className="mt-6 space-y-3">
@@ -138,7 +141,7 @@ export default function PlansSection() {
                 variant={plan.highlighted ? "default" : "outline"}
                 asChild
               >
-                <Link to="/signup" className="flex items-center justify-center gap-2">
+                <Link to="/select-plan" className="flex items-center justify-center gap-2">
                   {plan.cta}
                   {plan.highlighted && <ArrowRight width={15} height={15} />}
                 </Link>

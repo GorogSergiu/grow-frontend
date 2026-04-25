@@ -20,6 +20,7 @@ type Props = {
   customRange: DateRange | undefined;
   canContinue: boolean;
   generating: boolean;
+  isPro: boolean;
   onPeriodTypeChange: (type: StrategyPeriodType, preset?: StrategyPeriodPreset) => void;
   onCustomRangeChange: (range: DateRange | undefined) => void;
   onContinue: () => void;
@@ -33,6 +34,7 @@ export function GeneratePeriodDialog({
   customRange,
   canContinue,
   generating,
+  isPro,
   onPeriodTypeChange,
   onCustomRangeChange,
   onContinue,
@@ -43,13 +45,15 @@ export function GeneratePeriodDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="surface-solid border-0 sm:max-w-xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Select strategy period</DialogTitle>
+          <DialogTitle>
+            {t("generatePeriod.title", { defaultValue: "Select content period" })}
+          </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-6">
           <div className="space-y-3">
             <p className="text-sm text-muted-foreground">
-              Choose how long you want your strategy to be.
+              {t("generatePeriod.desc", { defaultValue: "Choose how far ahead you want to generate content." })}
             </p>
 
             <RadioGroup
@@ -66,23 +70,35 @@ export function GeneratePeriodDialog({
               <div className="space-y-3">
                 <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
                   <RadioGroupItem value="1_month" id="period-1m" />
-                  <Label htmlFor="period-1m">1 month</Label>
+                  <Label htmlFor="period-1m">
+                    {t("generatePeriod.1month", { defaultValue: "1 month" })}
+                  </Label>
                 </div>
 
                 <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
                   <RadioGroupItem value="3_months" id="period-3m" />
-                  <Label htmlFor="period-3m">3 months</Label>
+                  <Label htmlFor="period-3m">
+                    {t("generatePeriod.3months", { defaultValue: "3 months" })}
+                  </Label>
                 </div>
 
-                <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
-                  <RadioGroupItem value="6_months" id="period-6m" />
-                  <Label htmlFor="period-6m">6 months</Label>
-                </div>
+                {isPro && (
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="6_months" id="period-6m" />
+                    <Label htmlFor="period-6m">
+                      {t("generatePeriod.6months", { defaultValue: "6 months" })}
+                    </Label>
+                  </div>
+                )}
 
-                <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
-                  <RadioGroupItem value="custom" id="period-custom" />
-                  <Label htmlFor="period-custom">Custom range</Label>
-                </div>
+                {isPro && (
+                  <div className="flex items-center gap-3 rounded-2xl border border-border bg-background/60 p-4">
+                    <RadioGroupItem value="custom" id="period-custom" />
+                    <Label htmlFor="period-custom">
+                      {t("generatePeriod.custom", { defaultValue: "Custom range" })}
+                    </Label>
+                  </div>
+                )}
               </div>
             </RadioGroup>
           </div>
@@ -90,22 +106,22 @@ export function GeneratePeriodDialog({
           <div className="rounded-2xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">
             {periodType === "preset" ? (
               <>
-                Selected period:{" "}
+                {t("generatePeriod.selected", { defaultValue: "Selected period:" })}{" "}
                 <span className="font-medium text-foreground">
                   {preset === "1_month"
-                    ? "1 month"
+                    ? t("generatePeriod.1month", { defaultValue: "1 month" })
                     : preset === "3_months"
-                      ? "3 months"
-                      : "6 months"}
+                      ? t("generatePeriod.3months", { defaultValue: "3 months" })
+                      : t("generatePeriod.6months", { defaultValue: "6 months" })}
                 </span>
               </>
             ) : (
               <>
-                Selected period:{" "}
+                {t("generatePeriod.selected", { defaultValue: "Selected period:" })}{" "}
                 <span className="font-medium text-foreground">
                   {customRange?.from && customRange?.to
                     ? `${customRange.from.toLocaleDateString()} - ${customRange.to.toLocaleDateString()}`
-                    : "Custom range not complete"}
+                    : t("generatePeriod.customIncomplete", { defaultValue: "Custom range not complete" })}
                 </span>
               </>
             )}
@@ -113,7 +129,9 @@ export function GeneratePeriodDialog({
 
           {periodType === "custom" ? (
             <div className="space-y-3">
-              <div className="text-sm font-medium">Select a custom range</div>
+              <div className="text-sm font-medium">
+                {t("generatePeriod.selectCustom", { defaultValue: "Select a custom range" })}
+              </div>
 
               <div className="rounded-2xl border border-border bg-background/40 p-4">
                 <Calendar
@@ -127,12 +145,13 @@ export function GeneratePeriodDialog({
 
               {customRange?.from && customRange?.to ? (
                 <div className="text-sm text-muted-foreground">
-                  Selected range: {customRange.from.toLocaleDateString()} -{" "}
+                  {t("generatePeriod.selectedRange", { defaultValue: "Selected range:" })}{" "}
+                  {customRange.from.toLocaleDateString()} -{" "}
                   {customRange.to.toLocaleDateString()}
                 </div>
               ) : (
                 <div className="text-sm text-muted-foreground">
-                  Please select both a start and end date.
+                  {t("generatePeriod.selectBothDates", { defaultValue: "Please select both a start and end date." })}
                 </div>
               )}
             </div>
@@ -143,7 +162,7 @@ export function GeneratePeriodDialog({
               variant="ghost"
               onClick={() => onOpenChange(false)}
             >
-              Cancel
+              {t("common.cancel", { defaultValue: "Cancel" })}
             </Button>
 
             <Button
@@ -151,7 +170,9 @@ export function GeneratePeriodDialog({
               disabled={!canContinue || generating}
               onClick={onContinue}
             >
-              {generating ? "Generating…" : "Continue"}
+              {generating
+                ? t("calendar.generating", { defaultValue: "Generating…" })
+                : t("generatePeriod.continue", { defaultValue: "Continue" })}
             </Button>
           </div>
         </div>

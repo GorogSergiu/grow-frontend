@@ -19,7 +19,13 @@ import { Button } from "@/components/ui/button";
 import PlansSection from "@/components/PlansSelection";
 import FAQSection from "@/components/FAQSection";
 
-function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+function AnimatedCounter({
+  target,
+  suffix = "",
+}: {
+  target: number;
+  suffix?: string;
+}) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -41,7 +47,12 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
     return () => clearInterval(timer);
   }, [isInView, target]);
 
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {count.toLocaleString()}
+      {suffix}
+    </span>
+  );
 }
 
 function SectionReveal({ children }: { children: React.ReactNode }) {
@@ -142,7 +153,8 @@ export default function Landing() {
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.06]"
           style={{
-            backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
+            backgroundImage:
+              "radial-gradient(circle, currentColor 1px, transparent 1px)",
             backgroundSize: "32px 32px",
           }}
         />
@@ -175,7 +187,11 @@ export default function Landing() {
                 className="inline-block"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               >
                 {t("hero.title_line_1")}
               </motion.span>
@@ -184,7 +200,11 @@ export default function Landing() {
                 className="inline-block bg-gradient-to-r from-brand-warm via-brand-warm to-brand-sky bg-clip-text text-transparent"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.45,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               >
                 {t("hero.title_line_2")}
               </motion.span>
@@ -212,9 +232,13 @@ export default function Landing() {
                 asChild
                 className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
               >
-                <Link to="/signup" className="flex items-center gap-2">
+                <Link to="/select-plan" className="flex items-center gap-2">
                   {t("hero.cta_primary")}
-                  <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight
+                    width={16}
+                    height={16}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
                 </Link>
               </Button>
 
@@ -274,7 +298,9 @@ export default function Landing() {
               <div className="flex items-center justify-between rounded-2xl border border-border bg-background px-4 py-3">
                 <div className="flex items-center gap-3">
                   <div className="h-2.5 w-2.5 rounded-full bg-brand-warm" />
-                  <span className="text-xs font-semibold tracking-wide">Sporly.ai</span>
+                  <span className="text-xs font-semibold tracking-wide">
+                    Sporly.ai
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="h-2 w-12 rounded-full bg-muted" />
@@ -286,9 +312,31 @@ export default function Landing() {
               {/* Stats row */}
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {[
-                  { icon: Eye, value: 24800, label: t("hero.preview.stats.views", { defaultValue: "Views" }), color: "text-brand-sky" },
-                  { icon: ThumbsUp, value: 3420, label: t("hero.preview.stats.likes", { defaultValue: "Likes" }), color: "text-brand-warm" },
-                  { icon: GraphUp, value: 12, label: t("hero.preview.stats.engagement", { defaultValue: "Eng. %" }), suffix: "%", color: "text-green-500" },
+                  {
+                    icon: Eye,
+                    value: 24800,
+                    label: t("hero.preview.stats.views", {
+                      defaultValue: "Views",
+                    }),
+                    color: "text-brand-sky",
+                  },
+                  {
+                    icon: ThumbsUp,
+                    value: 3420,
+                    label: t("hero.preview.stats.likes", {
+                      defaultValue: "Likes",
+                    }),
+                    color: "text-brand-warm",
+                  },
+                  {
+                    icon: GraphUp,
+                    value: 12,
+                    label: t("hero.preview.stats.engagement", {
+                      defaultValue: "Eng. %",
+                    }),
+                    suffix: "%",
+                    color: "text-green-500",
+                  },
                 ].map((stat, i) => {
                   const StatIcon = stat.icon;
                   return (
@@ -300,11 +348,20 @@ export default function Landing() {
                       className="rounded-xl border border-border bg-background p-3"
                     >
                       <div className="flex items-center gap-1.5">
-                        <StatIcon width={13} height={13} className={stat.color} />
-                        <span className="text-[10px] text-muted-foreground">{stat.label}</span>
+                        <StatIcon
+                          width={13}
+                          height={13}
+                          className={stat.color}
+                        />
+                        <span className="text-[10px] text-muted-foreground">
+                          {stat.label}
+                        </span>
                       </div>
                       <div className="mt-1 text-lg font-bold tracking-tight">
-                        <AnimatedCounter target={stat.value} suffix={stat.suffix} />
+                        <AnimatedCounter
+                          target={stat.value}
+                          suffix={stat.suffix}
+                        />
                       </div>
                     </motion.div>
                   );
@@ -321,9 +378,15 @@ export default function Landing() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-warm/10">
-                      <Spark width={14} height={14} className="text-brand-warm" />
+                      <Spark
+                        width={14}
+                        height={14}
+                        className="text-brand-warm"
+                      />
                     </div>
-                    <span className="text-xs font-semibold">{t("hero.preview.cards.strategy.title")}</span>
+                    <span className="text-xs font-semibold">
+                      {t("hero.preview.cards.strategy.title")}
+                    </span>
                   </div>
                   <span className="rounded-full bg-green-500/10 px-2 py-0.5 text-[10px] font-medium text-green-600 dark:text-green-400">
                     {t("hero.preview.active", { defaultValue: "Active" })}
@@ -343,8 +406,19 @@ export default function Landing() {
                         className={`h-1.5 rounded-full ${bar.color}`}
                         initial={{ width: 0 }}
                         animate={heroInView ? { width: "100%" } : {}}
-                        transition={{ duration: 0.8, delay: 1.5 + i * 0.15, ease: "easeOut" }}
-                        style={{ maxWidth: bar.w === "w-[85%]" ? "85%" : bar.w === "w-[65%]" ? "65%" : "45%" }}
+                        transition={{
+                          duration: 0.8,
+                          delay: 1.5 + i * 0.15,
+                          ease: "easeOut",
+                        }}
+                        style={{
+                          maxWidth:
+                            bar.w === "w-[85%]"
+                              ? "85%"
+                              : bar.w === "w-[65%]"
+                                ? "65%"
+                                : "45%",
+                        }}
                       />
                     </div>
                   ))}
@@ -360,9 +434,15 @@ export default function Landing() {
               >
                 <div className="flex items-center gap-2">
                   <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-sky/10">
-                    <Calendar width={14} height={14} className="text-brand-sky" />
+                    <Calendar
+                      width={14}
+                      height={14}
+                      className="text-brand-sky"
+                    />
                   </div>
-                  <span className="text-xs font-semibold">{t("hero.preview.cards.calendar.title")}</span>
+                  <span className="text-xs font-semibold">
+                    {t("hero.preview.cards.calendar.title")}
+                  </span>
                 </div>
 
                 <div className="mt-3 grid grid-cols-7 gap-1">
@@ -438,7 +518,9 @@ export default function Landing() {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="group rounded-[28px] border border-border bg-card/80 backdrop-blur p-6 transition-all duration-300 hover:border-border/80 hover:shadow-lg hover:shadow-black/[0.03] dark:hover:shadow-black/20 hover:-translate-y-1"
                 >
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 ${accents[i]}`}>
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-2xl transition-transform duration-300 group-hover:scale-110 ${accents[i]}`}
+                  >
                     <Icon width={22} height={22} />
                   </div>
 
@@ -470,7 +552,9 @@ export default function Landing() {
           >
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur px-3 py-1 text-xs">
               <CheckCircle width={12} height={12} className="text-brand-sky" />
-              <span className="text-muted-foreground">{t("nav.how", { defaultValue: "How it works" })}</span>
+              <span className="text-muted-foreground">
+                {t("nav.how", { defaultValue: "How it works" })}
+              </span>
             </div>
             <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
               {t("howItWorks.title")}
@@ -521,7 +605,9 @@ export default function Landing() {
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 backdrop-blur px-3 py-1 text-xs">
                 <GraphUp width={12} height={12} className="text-brand-sky" />
-                <span className="text-muted-foreground">{t("benefits.heading")}</span>
+                <span className="text-muted-foreground">
+                  {t("benefits.heading")}
+                </span>
               </div>
               <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
                 {t("benefits.title")}
@@ -625,9 +711,13 @@ export default function Landing() {
                 asChild
                 className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
               >
-                <Link to="/signup" className="flex items-center gap-2">
+                <Link to="/select-plan" className="flex items-center gap-2">
                   {t("cta.primary")}
-                  <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight
+                    width={16}
+                    height={16}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
                 </Link>
               </Button>
 

@@ -17,10 +17,10 @@ const steps = [
   {
     icon: "👋",
     titleKey: "tutorial.step0.title",
-    titleDefault: "Welcome to Grow!",
+    titleDefault: "Welcome to Sporly.ai!",
     descKey: "tutorial.step0.desc",
     descDefault:
-      "Grow is your all-in-one content strategy platform. It helps you plan, create, and track content across Instagram, TikTok, and YouTube — powered by AI that understands your goals and audience.\n\nThis short guide will walk you through the 4 main things you can do. It only takes a minute.",
+      "Sporly.ai is your all-in-one content strategy platform. It helps you plan, create, and track content across Instagram, TikTok, and YouTube — powered by AI that understands your goals and audience.\n\nThis short guide will walk you through the 4 main things you can do. It only takes a minute.",
   },
   {
     icon: "🔗",
@@ -28,7 +28,7 @@ const steps = [
     titleDefault: "Connect your platforms",
     descKey: "tutorial.step1.desc",
     descDefault:
-      "Start by heading to Settings and connecting your social accounts. Grow supports Instagram, TikTok, and YouTube.\n\nOnce connected, Grow can pull your real analytics — views, likes, comments, and your top-performing content — directly into your Dashboard. You can connect multiple platforms and switch between them at any time.",
+      "Start by heading to Settings and connecting your social accounts. Sporly.ai supports Instagram, TikTok, and YouTube.\n\nOnce connected, Sporly.ai can pull your real analytics — views, likes, comments, and your top-performing content — directly into your Dashboard. You can connect multiple platforms and switch between them at any time.",
   },
   {
     icon: "🧠",

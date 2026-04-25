@@ -7,6 +7,16 @@
     "start": "Empieza ahora"
   },
 
+  "footer": {
+    "tagline": "Estrategia de contenido impulsada por IA para creadores y negocios. Planifica mejor, crece más rápido.",
+    "navigation": "Navegación",
+    "legal": "Legal",
+    "privacy": "Política de privacidad",
+    "terms": "Términos del servicio",
+    "rights": "Todos los derechos reservados.",
+    "status": "Todos los sistemas operativos"
+  },
+
   "hero": {
     "badge": "Estrategia con IA para creadores de contenido",
     "title_line_1": "Claridad, consistencia",
@@ -143,15 +153,16 @@
     "features": {
       "strategy": "Estrategia generada con IA",
       "calendar": "Planificación de calendario de contenido",
+      "contentGenBasic": "Generación de contenido con IA — 1 o 3 meses",
       "inspo": "Enlaces e imágenes de inspiración",
       "onboarding": "Onboarding para creadores o negocios",
-      "organization": "Organización manual del contenido",
 
-      "insights": "Insights de redes sociales conectadas",
-      "topContent": "Contenido con mejor rendimiento",
-      "dataStrategy": "Estrategia basada en datos reales",
-      "aiCalendar": "Sugerencias de calendario generadas con IA",
-      "workflow": "Flujo de trabajo más rápido de insight a ejecución"
+      "unlimitedStrategy": "Generación ilimitada de estrategias con IA",
+      "contentGenFull": "Generación de contenido con IA — todos los períodos + custom",
+      "quickIdea": "Quick Idea — ideas de contenido generadas con IA",
+      "videoAnalysis": "Análisis de rendimiento de video con IA",
+      "insights": "Estadísticas de redes sociales",
+      "workflow": "Flujo de trabajo completo — de estrategia a ejecución"
     }
   },
 
@@ -218,7 +229,8 @@
       "logout": "Cerrar sesión",
       "account": "Cuenta",
       "workspace": "Tu espacio de trabajo",
-      "howItWorks": "Cómo funciona"
+      "howItWorks": "Cómo funciona",
+      "analytics": "Analíticas"
     }
   },
 
@@ -245,7 +257,13 @@
         "status": "Estado",
         "pillar": "Pilar de contenido",
         "pillarPlaceholder": "p. ej. Consejos y guías",
-        "scheduledDate": "Fecha programada"
+        "scheduledDate": "Fecha programada",
+        "hookPlaceholder": "¿Qué capta la atención del espectador?",
+        "description": "Descripción",
+        "descriptionPlaceholder": "Notas, esquema del guion, puntos clave…",
+        "inspoLinks": "Enlaces",
+        "inspoImages": "Imágenes",
+        "dropImage": "Haz clic para subir una imagen"
       },
       "status": {
         "idea": "Idea",
@@ -277,10 +295,25 @@
       "ideas": "Ideas",
       "emptyIdeas": "Aún no hay ideas.",
 
-      "create": "Crear elemento",
+      "create": "Contenido nuevo",
+      "createDesc": "Completa los detalles de tu nueva idea de contenido.",
       "edit": "Editar elemento",
+      "editDesc": "Actualiza los detalles de tu contenido.",
 
-      "more": "+{{n}} más"
+      "more": "+{{n}} más",
+
+      "quickIdea": "Idea rápida",
+      "quickIdeaTitle": "Genera una idea de video",
+      "quickIdeaDesc": "Describe lo que quieres o déjalo vacío para una sorpresa.",
+      "quickIdeaPlaceholder": "p. ej. \"vlog de rutina matutina\", \"receta trending\", \"tutorial sobre...\"",
+      "quickIdeaDate": "Programar para",
+      "quickIdeaNoDate": "Sin fecha seleccionada — se guardará como idea.",
+      "generateIdea": "Generar ✨",
+
+      "ideasBoard": "Ideas",
+      "ideasBoardDesc": "Tu backlog de contenido. Anota ideas y prográmalas después.",
+      "noSearchResults": "Ninguna idea coincide con tu búsqueda.",
+      "addFirstIdea": "Añade tu primera idea"
     },
 
     "strategy": {
@@ -321,7 +354,13 @@
       "empty": "Aún no hay contenido. Sincroniza YouTube para completar esta lista.",
       "emptyInstagram": "Aún no hay contenido. Sincroniza Instagram para completar esta lista.",
 
-      "untitled": "Sin título"
+      "untitled": "Sin título",
+
+      "sortBy": {
+        "views": "Vistas",
+        "likes": "Me gusta",
+        "comments": "Comentarios"
+      }
     },
 
     "calendarPreview": {
@@ -579,8 +618,71 @@
       "connectTiktok": "Conectar TikTok",
       "syncTiktok": "Sincronizar TikTok",
       "tiktokConnectedHint": "TikTok está conectado. Puedes sincronizar tus publicaciones más recientes.",
-      "tiktokNotConnectedHint": "Conecta TikTok para ver analíticas y contenido destacado."
+      "tiktokNotConnectedHint": "Conecta TikTok para ver analíticas y contenido destacado.",
+      "autoSyncing": "Sincronizando tus datos… Esto puede tardar un momento."
     }
+  },
+
+  "analytics": {
+    "title": "Analíticas",
+    "subtitle": "Analiza en detalle el rendimiento de tu contenido en todas las plataformas.",
+    "totalContent": "Total contenido",
+    "totalViews": "Total vistas",
+    "totalLikes": "Total me gusta",
+    "totalComments": "Total comentarios",
+    "totalEngagement": "Total interacciones",
+    "platformComparison": "Comparación de plataformas",
+    "platformBreakdown": "Desglose de plataforma",
+    "content": "Contenido",
+    "avgViews": "Vistas promedio",
+    "engagementRate": "Tasa de interacción",
+    "contentPerformance": "Rendimiento del contenido",
+    "all": "Todo",
+    "searchContent": "Buscar contenido…",
+    "noContent": "No se encontró contenido.",
+    "showingCount": "Mostrando {{count}} elementos",
+    "untitled": "Sin título",
+    "topByViews": "Top por vistas",
+    "topByEngagement": "Top por interacciones",
+    "table": {
+      "content": "Contenido",
+      "platform": "Plataforma",
+      "date": "Fecha",
+      "views": "Vistas",
+      "likes": "Me gusta",
+      "comments": "Comentarios"
+    }
+  },
+
+  "analysis": {
+    "title": "Análisis de rendimiento",
+    "analyze": "Analizar",
+    "start": "Analizar rendimiento",
+    "description": "La IA analizará el rendimiento de este video, identificará fortalezas y debilidades, y sugerirá mejoras.",
+    "youtubeNote": "Se usarán los subtítulos de YouTube para un análisis más profundo.",
+    "noTranscriptNote": "Análisis basado en metadatos y métricas (sin transcripción disponible).",
+    "stepTranscript": "Obteniendo transcripción…",
+    "stepAnalyzing": "La IA está analizando…",
+    "stepDone": "Análisis completo",
+    "stepFailed": "El análisis falló",
+    "retry": "Intentar de nuevo",
+    "reanalyze": "Ejecutar nuevo análisis",
+    "summary": "Resumen",
+    "strengths": "Fortalezas",
+    "weaknesses": "Debilidades",
+    "suggestions": "Sugerencias",
+    "hookScore": "Hook",
+    "retentionScore": "Retención",
+    "engagementScore": "Engagement",
+    "scores": "Puntuaciones",
+    "idleTitle": "Listo para analizar",
+    "transcriptSource": "Fuente de transcripción",
+    "instagramNote": "El audio se extraerá y transcribirá automáticamente.",
+    "tiktokNote": "Sube el archivo de video o audio para un análisis con transcripción, o analiza sin transcripción.",
+    "stepUpload": "Subida",
+    "uploadFile": "Subir archivo de audio o video",
+    "uploadHint": "Máx 50 MB • opcional",
+    "tapToChange": "toca para cambiar"
   },
 
   "common": {
@@ -590,19 +692,20 @@
     "save": "Guardar",
     "prev": "Anterior",
     "next": "Siguiente",
-    "optional": "opcional"
+    "optional": "opcional",
+    "clear": "Borrar"
   },
 
   "howItWorksPage": {
     "title": "Cómo funciona",
-    "subtitle": "Una guía detallada de cada funcionalidad de Grow — desde conectar tus plataformas hasta leer tus analíticas.",
+    "subtitle": "Una guía detallada de cada funcionalidad de Sporly.ai — desde conectar tus plataformas hasta leer tus analíticas.",
     "tip": "Consejo:",
     "connect": {
       "title": "Conecta tus plataformas",
       "subtitle": "Conectar tus cuentas sociales es el primer paso. Desbloquea analíticas reales y hace tu estrategia mucho más precisa.",
       "step1": { "title": "Ve a Configuración", "desc": "Haz clic en tu nombre de cuenta en la esquina superior derecha y selecciona Configuración. Allí encontrarás la sección de integraciones." },
       "step2": { "title": "Elige una plataforma", "desc": "Selecciona Instagram, TikTok o YouTube y haz clic en Conectar. Serás redirigido a la página de autorización de la plataforma." },
-      "step3": { "title": "Autoriza el acceso", "desc": "Inicia sesión con tu cuenta y concede los permisos necesarios. Grow solo lee tu contenido público y analíticas — nunca publica en tu nombre." },
+      "step3": { "title": "Autoriza el acceso", "desc": "Inicia sesión con tu cuenta y concede los permisos necesarios. Sporly.ai solo lee tu contenido público y analíticas — nunca publica en tu nombre." },
       "step4": { "title": "Sincroniza tus datos", "desc": "Tras conectarte, haz clic en Sincronizar ahora para obtener tus publicaciones y métricas más recientes. Puedes sincronizar de nuevo en cualquier momento para actualizar los datos." },
       "tip": "Puedes conectar las tres plataformas a la vez. El Dashboard te permite cambiar entre ellas para comparar el rendimiento.",
       "cta": "Ir a Configuración"
@@ -612,7 +715,7 @@
       "subtitle": "Tu estrategia la construye la IA usando el perfil que completaste durante el onboarding. Cuanto más detallado sea tu perfil, más personalizado será el resultado.",
       "step1": { "title": "Abre la pestaña Estrategia", "desc": "Haz clic en Estrategia en la barra de navegación. Si aún no has generado ninguna, la página estará vacía con un botón Generar." },
       "step2": { "title": "Elige un período", "desc": "Selecciona 1, 3 o 6 meses como preset, o elige un rango de fechas personalizado. El período define hasta qué punto en el futuro planificará tu estrategia." },
-      "step3": { "title": "Gestiona los solapamientos", "desc": "Si ya tienes una estrategia para un período que se solapa, Grow te avisará y te preguntará si quieres sobrescribirla. Siempre puedes conservar la existente." },
+      "step3": { "title": "Gestiona los solapamientos", "desc": "Si ya tienes una estrategia para un período que se solapa, Sporly.ai te avisará y te preguntará si quieres sobrescribirla. Siempre puedes conservar la existente." },
       "step4": { "title": "Lee tu estrategia", "desc": "Tu estrategia incluye un resumen, una declaración de posicionamiento, objetivos principales, pilares de contenido con formatos, dirección específica por plataforma, acciones de crecimiento y un plan de enfoque para 30 días." },
       "step5": { "title": "Regenera cuando lo necesites", "desc": "Los objetivos cambian. Regenera tu estrategia en cualquier momento — para un nuevo período o para actualizar tu dirección. Cada generación usa tus datos de onboarding más recientes." },
       "tip": "Para los mejores resultados, asegúrate de que tu perfil de onboarding esté detallado y actualizado. La calidad de la estrategia está directamente ligada a la calidad de tu perfil.",
@@ -643,16 +746,16 @@
   },
 
   "tutorial": {
-    "title": "Bienvenido a Grow 👋",
+    "title": "Bienvenido a Sporly.ai 👋",
     "subtitle": "Aquí tienes un resumen rápido de todo lo que puedes hacer.",
     "cta": "¡Entendido, vamos!",
     "step0": {
-      "title": "¡Bienvenido a Grow!",
-      "desc": "Grow es tu plataforma todo-en-uno de estrategia de contenido. Te ayuda a planificar, crear y hacer seguimiento de tu contenido en Instagram, TikTok y YouTube — impulsado por IA que entiende tus objetivos y tu audiencia.\n\nEsta breve guía te mostrará las 4 cosas principales que puedes hacer. Solo tomará un minuto."
+      "title": "¡Bienvenido a Sporly.ai!",
+      "desc": "Sporly.ai es tu plataforma todo-en-uno de estrategia de contenido. Te ayuda a planificar, crear y hacer seguimiento de tu contenido en Instagram, TikTok y YouTube — impulsado por IA que entiende tus objetivos y tu audiencia.\n\nEsta breve guía te mostrará las 4 cosas principales que puedes hacer. Solo tomará un minuto."
     },
     "step1": {
       "title": "Conecta tus plataformas",
-      "desc": "Empieza yendo a Configuración y conectando tus cuentas sociales. Grow es compatible con Instagram, TikTok y YouTube.\n\nUna vez conectado, Grow puede obtener tus analíticas reales — visualizaciones, me gusta, comentarios y tu contenido con mejor rendimiento — directamente en tu Dashboard. Puedes conectar varias plataformas y cambiar entre ellas en cualquier momento."
+      "desc": "Empieza yendo a Configuración y conectando tus cuentas sociales. Sporly.ai es compatible con Instagram, TikTok y YouTube.\n\nUna vez conectado, Sporly.ai puede obtener tus analíticas reales — visualizaciones, me gusta, comentarios y tu contenido con mejor rendimiento — directamente en tu Dashboard. Puedes conectar varias plataformas y cambiar entre ellas en cualquier momento."
     },
     "step2": {
       "title": "Genera tu estrategia de contenido",
@@ -669,9 +772,9 @@
   },
 
   "featuresPage": {
-    "badge": "Todo lo que Grow puede hacer",
+    "badge": "Todo lo que Sporly.ai puede hacer",
     "heroTitle": "Cada función, explicada",
-    "heroSubtitle": "Grow es un sistema de estrategia y contenido para creadores y negocios. Aquí tienes una mirada detallada de cada función y lo que realmente hace.",
+    "heroSubtitle": "Sporly.ai es un sistema de estrategia y contenido para creadores y negocios. Aquí tienes una mirada detallada de cada función y lo que realmente hace.",
     "heroCta": "Empieza gratis",
     "heroCtaSecondary": "Iniciar sesión",
     "ctaLabel": "¿Listo para empezar?",
@@ -681,7 +784,7 @@
     "strategy": {
       "label": "Estrategia con IA",
       "title": "Una estrategia de contenido completa construida en torno a tu perfil",
-      "subtitle": "Grow no te da una estrategia genérica. Genera una basada en tus objetivos, audiencia, desafíos, plataformas y estilo de contenido — todo recopilado durante el onboarding.",
+      "subtitle": "Sporly.ai no te da una estrategia genérica. Genera una basada en tus objetivos, audiencia, desafíos, plataformas y estilo de contenido — todo recopilado durante el onboarding.",
       "b1": "Declaración de posicionamiento — cómo presentarte claramente en línea",
       "b2": "Objetivos principales — 3–5 metas específicas alineadas con tu período",
       "b3": "Pilares de contenido — temas recurrentes con formatos recomendados por pilar",
@@ -693,7 +796,7 @@
     "analytics": {
       "label": "Analíticas",
       "title": "Datos reales de plataforma en un solo lugar",
-      "subtitle": "Conecta Instagram, TikTok y YouTube para importar tus datos reales de rendimiento en Grow. Sin más cambios entre apps para entender qué funciona.",
+      "subtitle": "Conecta Instagram, TikTok y YouTube para importar tus datos reales de rendimiento en Sporly.ai. Sin más cambios entre apps para entender qué funciona.",
       "b1": "Total y promedio de visualizaciones por publicación",
       "b2": "Tasa de interacción e interacción total en publicaciones",
       "b3": "Total de me gusta y comentarios",
@@ -717,7 +820,7 @@
     "onboarding": {
       "label": "Onboarding",
       "title": "Diseñado para creadores y negocios — dos perfiles separados",
-      "subtitle": "Grow se adapta a tu tipo de perfil. Ya seas un creador de contenido que hace crecer su audiencia o un propietario de negocio generando leads, el onboarding recopila exactamente lo que necesita cada perfil.",
+      "subtitle": "Sporly.ai se adapta a tu tipo de perfil. Ya seas un creador de contenido que hace crecer su audiencia o un propietario de negocio generando leads, el onboarding recopila exactamente lo que necesita cada perfil.",
       "b1": "Perfil creador — objetivos, desafíos, audiencia, estilo de contenido, voz, plataformas y hábitos de publicación",
       "b2": "Perfil de negocio — industria, productos, objetivos sociales, KPIs, cliente ideal y presupuesto",
       "b3": "Constructor de audiencia estructurado — rango de edad, género, ubicación, intereses y puntos de dolor",
@@ -729,14 +832,14 @@
     "integrations": {
       "label": "Integraciones",
       "title": "Conecta Instagram, TikTok y YouTube",
-      "subtitle": "Grow se conecta a tus plataformas sociales a través de APIs oficiales. La autorización es segura, de solo lectura y tarda menos de un minuto por plataforma.",
+      "subtitle": "Sporly.ai se conecta a tus plataformas sociales a través de APIs oficiales. La autorización es segura, de solo lectura y tarda menos de un minuto por plataforma.",
       "b1": "Instagram — conecta tu cuenta de empresa o creador a través de Meta",
       "b2": "TikTok — autoriza el acceso a tu contenido y estadísticas de TikTok",
       "b3": "YouTube — conecta tu canal a través de Google OAuth",
-      "b4": "Acceso de solo lectura — Grow nunca publica, edita ni elimina contenido en tu nombre",
+      "b4": "Acceso de solo lectura — Sporly.ai nunca publica, edita ni elimina contenido en tu nombre",
       "b5": "Multi-plataforma — las tres se pueden conectar simultáneamente",
       "b6": "Sincronización manual — tú decides cuándo actualizar tus datos",
-      "note": "Puedes usar Grow sin conectar ninguna plataforma — la estrategia y el calendario funcionan de forma independiente. Pero las analíticas y el contenido destacado requieren al menos una conexión."
+      "note": "Puedes usar Sporly.ai sin conectar ninguna plataforma — la estrategia y el calendario funcionan de forma independiente. Pero las analíticas y el contenido destacado requieren al menos una conexión."
     }
   },
 
@@ -763,15 +866,16 @@
       "label": "Starter",
       "positioning": "Estructura tu contenido",
       "cta": "Empezar",
-      "f1": "1 estrategia de IA al mes",
-      "f2": "Calendario de contenido — manual + IA básica",
-      "f3": "Panel de inspiración — enlaces e imágenes",
-      "f4": "Onboarding para creadores y negocios",
-      "f5": "Organización de contenido",
-      "l1": "Sin estadísticas de redes sociales",
-      "l2": "Sin análisis de contenido destacado",
-      "l3": "Sin regeneración de IA avanzada",
-      "l4": "Máx. ~30 elementos del calendario generados con IA / mes"
+      "f1": "Generación de estrategia con IA",
+      "f2": "Calendario de contenido — planificación manual",
+      "f3": "Generación de contenido con IA — 1 o 3 meses",
+      "f4": "Estadísticas de redes sociales — Instagram, TikTok, YouTube",
+      "f5": "Panel de inspiración — enlaces e imágenes",
+      "f6": "Onboarding para creadores y negocios",
+      "l1": "Sin Quick Idea AI",
+      "l2": "Sin rangos de fechas personalizados para contenido",
+      "l3": "Sin análisis de rendimiento de video con IA",
+      "l4": "Sin regeneración ilimitada de estrategias"
     },
     "pro": {
       "label": "Pro",
@@ -779,23 +883,309 @@
       "positioning": "Crece usando datos",
       "cta": "Iniciar prueba gratis",
       "f1": "Generación ilimitada de estrategias con IA",
-      "f2": "Estadísticas de redes sociales — Instagram, TikTok, YouTube",
-      "f3": "Análisis de contenido con mejor rendimiento",
-      "f4": "Generación avanzada del calendario con IA",
-      "f5": "Regenerar estrategia con períodos personalizados",
+      "f2": "Generación de contenido con IA — todos los períodos + rangos personalizados",
+      "f3": "Quick Idea — ideas de contenido generadas con IA",
+      "f4": "Análisis de rendimiento de video con IA",
+      "f5": "Estadísticas de redes sociales — Instagram, TikTok, YouTube",
       "f6": "Flujo de trabajo completo — de la estrategia a la ejecución",
       "fairUsage": "Se aplica uso justo. Sin límites estrictos durante el acceso anticipado — comunicaremos claramente antes de cualquier cambio."
     },
     "compare": {
       "strategy": "Generación de estrategia con IA",
       "calendar": "Calendario de contenido",
+      "insights": "Estadísticas de redes sociales",
       "inspo": "Panel de inspiración",
       "onboarding": "Onboarding creador y negocio",
-      "insights": "Estadísticas de redes sociales",
-      "topContent": "Análisis de contenido destacado",
-      "advancedAI": "Generación avanzada de calendario con IA",
-      "customPeriods": "Períodos de estrategia personalizados",
+      "contentGen": "Generación de contenido con IA",
+      "customPeriods": "Rangos de fechas personalizados para contenido",
+      "quickIdea": "Quick Idea AI",
+      "videoAnalysis": "Análisis de rendimiento de video con IA",
       "unlimited": "Estrategias de IA ilimitadas"
+    }
+  },
+
+  "calendar": {
+    "generateContent": "Generar contenido",
+    "generating": "Generando…",
+    "needsStrategy": "Primero genera una estrategia en la página de Estrategia"
+  },
+
+  "strategy": {
+    "regenerate": "Regenerar estrategia",
+    "confirmTitle": "¿Generar tu estrategia?",
+    "confirmDesc": "Analizaremos tu perfil y plataformas conectadas para crear una estrategia de contenido personalizada.",
+    "confirmDescRegenerate": "Se creará una nueva estrategia basada en tu perfil y plataformas conectadas. Tu estrategia actual será reemplazada.",
+    "confirmButton": "Sí, generar"
+  },
+
+  "selectPlan": {
+    "title": "Elige tu plan",
+    "subtitle": "Obtendrás 7 días de acceso Pro gratis, luego se activa el plan seleccionado.",
+    "select": "Seleccionar"
+  },
+
+  "generatePeriod": {
+    "title": "Seleccionar período de contenido",
+    "desc": "Elige con cuánta anticipación quieres generar contenido.",
+    "1month": "1 mes",
+    "3months": "3 meses",
+    "6months": "6 meses",
+    "custom": "Rango personalizado",
+    "selected": "Período seleccionado:",
+    "customIncomplete": "Rango personalizado incompleto",
+    "selectCustom": "Selecciona un rango personalizado",
+    "selectedRange": "Rango seleccionado:",
+    "selectBothDates": "Por favor selecciona tanto la fecha de inicio como la de fin.",
+    "continue": "Continuar"
+  },
+
+  "overlap": {
+    "title": "Período de contenido superpuesto",
+    "desc": "Parte de este período se superpone con contenido que ya fue generado.",
+    "range": "El contenido generado desde {{start}} hasta {{end}} será reemplazado.",
+    "confirm": "Continuar de todos modos"
+  },
+
+  "welcome": {
+    "greeting": "¡Bienvenido a Sporly.ai!",
+    "greetingName": "¡Bienvenido, {{name}}!",
+    "subtitle": "Completa estos pasos para aprovechar al máximo tu experiencia.",
+    "progress": "{{done}} de {{total}} completados",
+    "step1": {
+      "title": "Conecta una plataforma",
+      "desc": "Vincula Instagram, TikTok o YouTube para obtener tus datos reales.",
+      "cta": "Ir a Ajustes"
+    },
+    "step2": {
+      "title": "Genera tu estrategia",
+      "desc": "La IA crea una estrategia de contenido personalizada a partir de tu perfil.",
+      "cta": "Ir a Estrategia"
+    },
+    "step3": {
+      "title": "Planifica tu contenido",
+      "desc": "Genera contenido con IA o programa publicaciones manualmente en el calendario.",
+      "cta": "Ir a Calendario"
+    }
+  },
+
+  "privacyPage": {
+    "badge": "Legal",
+    "heroTitle": "Política de privacidad",
+    "heroSubtitle": "Tu privacidad importa. Esta política explica qué datos recopilamos, cómo los usamos y qué derechos tienes.",
+    "lastUpdated": "Última actualización: Abril 2026",
+    "s1": {
+      "title": "1. Introducción",
+      "p1": "Bienvenido a Sporly.ai (\"nosotros\", \"nuestro\", \"la Plataforma\").",
+      "p2": "Esta Política de privacidad explica cómo recopilamos, usamos, almacenamos y protegemos tus datos personales cuando utilizas nuestra aplicación.",
+      "p3": "Al usar Sporly.ai, aceptas la recopilación y uso de información de acuerdo con esta política."
+    },
+    "s2": {
+      "title": "2. Datos que recopilamos",
+      "p1": "Recopilamos los siguientes tipos de datos:",
+      "h1": "Datos de cuenta",
+      "l1": "Dirección de correo electrónico",
+      "l2": "Datos de autenticación (a través de Supabase o proveedores de inicio de sesión de terceros)",
+      "h2": "Contenido del usuario",
+      "l3": "Ideas de contenido",
+      "l4": "Enlaces e imágenes añadidos a tu tablero de inspiración",
+      "l5": "Elementos del calendario y estrategias",
+      "h3": "Datos de redes sociales (si están conectadas)",
+      "l6": "Datos públicos y de rendimiento de Instagram, TikTok y YouTube",
+      "l7": "Métricas como visualizaciones, me gusta, comentarios, engagement",
+      "h4": "Datos de uso",
+      "l8": "Interacción con la plataforma",
+      "l9": "Funciones utilizadas",
+      "l10": "Solicitudes enviadas a la IA"
+    },
+    "s3": {
+      "title": "3. Cómo usamos tus datos",
+      "p1": "Usamos tus datos para:",
+      "l1": "Proporcionar y operar la Plataforma",
+      "l2": "Generar estrategias y contenido basados en IA",
+      "l3": "Mostrar análisis y estadísticas",
+      "l4": "Mejorar nuestros servicios y funciones",
+      "l5": "Garantizar la seguridad y prevenir abusos"
+    },
+    "s4": {
+      "title": "4. Procesamiento de IA",
+      "p1": "Sporly.ai utiliza inteligencia artificial para generar estrategias y recomendaciones.",
+      "p2": "Esto significa:",
+      "l1": "Tus datos (datos de onboarding, contenido, contexto) pueden ser procesados por sistemas de IA",
+      "l2": "Los resultados de IA se generan en base a patrones y datos proporcionados",
+      "p3": "No garantizamos la precisión, y los usuarios siguen siendo responsables de cómo utilizan los resultados generados por IA."
+    },
+    "s5": {
+      "title": "5. Servicios de terceros",
+      "p1": "Utilizamos servicios de terceros, incluyendo:",
+      "l1": "Supabase (autenticación, base de datos, almacenamiento)",
+      "l2": "OpenAI (procesamiento de IA)",
+      "l3": "APIs de redes sociales (Instagram, TikTok, YouTube)",
+      "p2": "Estos proveedores pueden procesar datos en nuestro nombre. Solo utilizamos APIs oficiales y seguimos las políticas de las plataformas."
+    },
+    "s6": {
+      "title": "6. Almacenamiento de datos",
+      "p1": "Tus datos se almacenan de forma segura utilizando proveedores de infraestructura de confianza.",
+      "p2": "Implementamos:",
+      "l1": "Control de acceso",
+      "l2": "Autenticación segura",
+      "l3": "Conexiones cifradas (HTTPS)",
+      "p3": "Sin embargo, ningún sistema es completamente seguro."
+    },
+    "s7": {
+      "title": "7. Retención de datos",
+      "p1": "Conservamos tus datos:",
+      "l1": "Mientras tu cuenta esté activa",
+      "l2": "O mientras sea necesario para proporcionar los servicios",
+      "p2": "Puedes solicitar la eliminación de tus datos en cualquier momento."
+    },
+    "s8": {
+      "title": "8. Tus derechos (RGPD)",
+      "p1": "Si te encuentras en la UE, tienes derecho a:",
+      "l1": "Acceder a tus datos",
+      "l2": "Corregir datos inexactos",
+      "l3": "Solicitar la eliminación (\"derecho al olvido\")",
+      "l4": "Restringir el procesamiento",
+      "l5": "Oponerte al procesamiento",
+      "l6": "Portabilidad de datos",
+      "p2": "Para ejercer tus derechos, contáctanos en support@sporly.ai."
+    },
+    "s9": {
+      "title": "9. Cookies",
+      "p1": "Podemos usar cookies o tecnologías similares para mantener sesiones y mejorar la experiencia del usuario.",
+      "p2": "Puedes controlar las cookies a través de la configuración de tu navegador."
+    },
+    "s10": {
+      "title": "10. Integraciones de redes sociales",
+      "p1": "Cuando conectas tus cuentas:",
+      "l1": "Solo accedemos a los datos permitidos por las APIs de las plataformas",
+      "l2": "No publicamos ni actuamos en tu nombre sin permiso",
+      "p2": "Puedes desconectar tus cuentas en cualquier momento."
+    },
+    "s11": {
+      "title": "11. Privacidad de menores",
+      "p1": "Sporly.ai no está destinado a usuarios menores de 18 años. No recopilamos conscientemente datos de menores."
+    },
+    "s12": {
+      "title": "12. Cambios en esta política",
+      "p1": "Podemos actualizar esta Política de privacidad periódicamente. Los cambios se publicarán en esta página.",
+      "p2": "El uso continuado de la Plataforma significa que aceptas la política actualizada."
+    },
+    "s13": {
+      "title": "13. Contacto",
+      "p1": "Si tienes alguna pregunta sobre esta Política de privacidad, contáctanos en support@sporly.ai."
+    }
+  },
+
+  "termsPage": {
+    "badge": "Legal",
+    "heroTitle": "Términos y condiciones",
+    "heroSubtitle": "Por favor, lee estos términos detenidamente antes de usar Sporly.ai. Describen tus derechos y responsabilidades como usuario.",
+    "lastUpdated": "Última actualización: Abril 2026",
+    "s1": {
+      "title": "1. Introducción",
+      "p1": "Bienvenido a Sporly.ai (\"nosotros\", \"nuestro\", \"la Plataforma\").",
+      "p2": "Estos Términos y condiciones regulan tu acceso y uso de nuestra aplicación, que proporciona herramientas basadas en IA para estrategia de contenido, análisis de redes sociales y planificación de contenido.",
+      "p3": "Al crear una cuenta o usar la Plataforma, aceptas estos Términos. Si no estás de acuerdo, no debes usar la Plataforma."
+    },
+    "s2": {
+      "title": "2. Elegibilidad",
+      "p1": "Para usar esta Plataforma, debes:",
+      "l1": "Tener al menos 18 años",
+      "l2": "Tener la capacidad legal para celebrar un acuerdo vinculante",
+      "l3": "Proporcionar información precisa y completa durante el registro",
+      "p2": "Eres responsable de mantener la confidencialidad de las credenciales de tu cuenta."
+    },
+    "s3": {
+      "title": "3. Descripción de los servicios",
+      "p1": "La Plataforma proporciona:",
+      "l1": "Estrategias de contenido generadas por IA",
+      "l2": "Herramientas de planificación de calendario de contenido",
+      "l3": "Análisis de redes sociales (a través de integraciones de terceros)",
+      "l4": "Funcionalidad de tablero de inspiración (enlaces y medios subidos)",
+      "p2": "Nos reservamos el derecho de modificar, suspender o descontinuar cualquier parte del servicio en cualquier momento."
+    },
+    "s4": {
+      "title": "4. Descargo de responsabilidad sobre contenido generado por IA",
+      "p1": "La Plataforma utiliza inteligencia artificial para generar recomendaciones y contenido.",
+      "p2": "Reconoces que:",
+      "l1": "Los resultados de IA son solo informativos y consultivos",
+      "l2": "No garantizamos precisión, rendimiento o resultados",
+      "l3": "Eres totalmente responsable de cómo usas el contenido generado",
+      "p3": "No somos responsables de ningún resultado comercial, financiero o reputacional derivado de las sugerencias generadas por IA."
+    },
+    "s5": {
+      "title": "5. Contenido del usuario",
+      "p1": "Puedes subir enlaces, imágenes, ideas de contenido y otros materiales (\"Contenido del usuario\").",
+      "p2": "Conservas la propiedad de tu contenido, pero nos otorgas una licencia limitada para almacenarlo, procesarlo, mostrarlo y usarlo para proporcionar y mejorar el servicio.",
+      "p3": "Aceptas no subir contenido que:",
+      "l1": "Sea ilegal, dañino o abusivo",
+      "l2": "Infrinja derechos de propiedad intelectual",
+      "l3": "Viole los términos de terceros (ej. plataformas sociales)"
+    },
+    "s6": {
+      "title": "6. Integraciones de redes sociales",
+      "p1": "La Plataforma puede conectarse a servicios de terceros como Instagram, TikTok y YouTube.",
+      "p2": "Al conectar tus cuentas, nos autorizas a acceder a tus datos a través de APIs oficiales y aceptas cumplir con los términos de esas plataformas.",
+      "p3": "No somos responsables de cambios en las APIs de terceros, inexactitudes de datos de esas plataformas o interrupciones del servicio causadas por ellas."
+    },
+    "s7": {
+      "title": "7. Pagos y suscripción",
+      "p1": "La Plataforma funciona por suscripción.",
+      "l1": "Los precios se muestran antes de la compra",
+      "l2": "Las suscripciones se renuevan automáticamente a menos que se cancelen",
+      "l3": "Puedes cancelar en cualquier momento desde tu cuenta",
+      "p2": "Podemos cambiar los precios con aviso previo u ofrecer pruebas gratuitas y planes promocionales. Los reembolsos no están garantizados a menos que la ley lo requiera."
+    },
+    "s8": {
+      "title": "8. Uso aceptable",
+      "p1": "Aceptas NO:",
+      "l1": "Usar la Plataforma para fines ilegales",
+      "l2": "Intentar realizar ingeniería inversa o explotar el sistema",
+      "l3": "Abusar de la generación de IA (ej. spam, mal uso de automatización)",
+      "l4": "Eludir los límites de uso",
+      "p2": "Nos reservamos el derecho de suspender o cerrar cuentas que violen estas reglas."
+    },
+    "s9": {
+      "title": "9. Procesamiento de datos",
+      "p1": "Tus datos se procesan de acuerdo con nuestra Política de privacidad. Esto incluye información de cuenta, datos de contenido, análisis de redes sociales y datos de interacción con IA.",
+      "p2": "Implementamos medidas técnicas y organizativas razonables para proteger tus datos, pero ningún sistema es 100% seguro."
+    },
+    "s10": {
+      "title": "10. Propiedad intelectual",
+      "p1": "Todo el contenido de la Plataforma — incluyendo software, UI/UX, branding y sistemas de IA — es propiedad de Sporly.ai o sus licenciantes.",
+      "p2": "No puedes copiar, distribuir, revender o modificar ninguna parte de la Plataforma sin permiso."
+    },
+    "s11": {
+      "title": "11. Disponibilidad del servicio",
+      "p1": "Nos esforzamos por proporcionar acceso continuo pero no garantizamos un funcionamiento ininterrumpido o sin errores.",
+      "p2": "Podemos realizar mantenimiento, actualizar funciones o restringir temporalmente el acceso."
+    },
+    "s12": {
+      "title": "12. Limitación de responsabilidad",
+      "p1": "En la máxima medida permitida por la ley, NO somos responsables de:",
+      "l1": "Pérdida de beneficios",
+      "l2": "Pérdida de datos",
+      "l3": "Interrupción del negocio",
+      "l4": "Decisiones tomadas basándose en resultados de IA",
+      "p2": "El uso de la Plataforma es bajo tu propio riesgo."
+    },
+    "s13": {
+      "title": "13. Terminación",
+      "p1": "Podemos suspender o cerrar tu cuenta si violas estos Términos o haces un mal uso de la Plataforma.",
+      "p2": "Puedes eliminar tu cuenta en cualquier momento."
+    },
+    "s14": {
+      "title": "14. Cambios en los términos",
+      "p1": "Podemos actualizar estos Términos periódicamente. Los cambios se publicarán en esta página.",
+      "p2": "El uso continuado de la Plataforma constituye la aceptación de los Términos actualizados."
+    },
+    "s15": {
+      "title": "15. Ley aplicable",
+      "p1": "Estos Términos se rigen por las leyes aplicables de tu jurisdicción."
+    },
+    "s16": {
+      "title": "16. Contacto",
+      "p1": "Para preguntas sobre estos Términos, contáctanos en support@sporly.ai."
     }
   }
 }

@@ -47,7 +47,7 @@ export default function HowItWorksPage() {
           title: t("howItWorksPage.connect.step3.title", { defaultValue: "Authorize access" }),
           desc: t("howItWorksPage.connect.step3.desc", {
             defaultValue:
-              "Log in with your account and grant the required permissions. Grow only reads your public content and analytics — it never posts on your behalf.",
+              "Log in with your account and grant the required permissions. Sporly.ai only reads your public content and analytics — it never posts on your behalf.",
           }),
         },
         {
@@ -91,7 +91,7 @@ export default function HowItWorksPage() {
           title: t("howItWorksPage.strategy.step3.title", { defaultValue: "Handle overlaps" }),
           desc: t("howItWorksPage.strategy.step3.desc", {
             defaultValue:
-              "If you already have a strategy for a period that overlaps, Grow will warn you and ask if you want to overwrite it. You can always keep the existing one.",
+              "If you already have a strategy for a period that overlaps, Sporly.ai will warn you and ask if you want to overwrite it. You can always keep the existing one.",
           }),
         },
         {
@@ -229,7 +229,7 @@ export default function HowItWorksPage() {
         <p className="text-sm text-muted-foreground max-w-2xl">
           {t("howItWorksPage.subtitle", {
             defaultValue:
-              "A detailed guide to every feature in Grow — from connecting your platforms to reading your analytics.",
+              "A detailed guide to every feature in Sporly.ai — from connecting your platforms to reading your analytics.",
           })}
         </p>
       </div>

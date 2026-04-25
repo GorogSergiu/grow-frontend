@@ -4,7 +4,7 @@ import {
   fetchCalendarItems,
   saveCalendarItem,
   deleteCalendarItem,
-  generateCalendarStrategy,
+  generateCalendarContent,
 } from "@/api/calendar.api";
 import type { CalendarItem } from "@/types/calendar.types";
 import type { Platform } from "@/types/platform.types";
@@ -40,7 +40,7 @@ export function useCalendarItems(platform: Platform | "all") {
     }
   };
 
-  const generateStrategyAndRefresh = async (
+  const generateContentAndRefresh = async (
     payload: StrategyGeneratePayload,
   ) => {
     setGenerating(true);
@@ -50,13 +50,13 @@ export function useCalendarItems(platform: Platform | "all") {
       const token = await getAccessToken();
       if (!token) return;
 
-      await generateCalendarStrategy(token, payload);
+      await generateCalendarContent(token, payload);
       await loadItems();
     } catch (e: unknown) {
       if (e instanceof Error) {
         setError(e.message);
       } else {
-        setError("Failed to generate strategy");
+        setError("Failed to generate content");
       }
     } finally {
       setGenerating(false);
@@ -124,6 +124,6 @@ export function useCalendarItems(platform: Platform | "all") {
     loadItems,
     saveItem,
     removeItem,
-    generateStrategyAndRefresh,
+    generateContentAndRefresh,
   };
 }

@@ -7,6 +7,7 @@ import { TopContentWidget } from "@/features/dashboard/components/TopContentWidg
 import UpcomingCalendarWidget from "@/features/dashboard/components/UpcomingCalendarWidget";
 import { AnalyticsCards } from "@/features/dashboard/components/AnalyticsCards";
 import { PlatformConnectionCard } from "@/features/platform/components/PlatformConnectionCard";
+import { WelcomeSection } from "@/features/dashboard/components/WelcomeSection";
 import { WelcomeTutorialDialog } from "@/features/dashboard/components/WelcomeTutorialDialog";
 import { fetchPlatformStatus } from "@/api/integrations.api";
 import { supabase } from "@/lib/supabase";
@@ -36,7 +37,7 @@ export default function DashboardOverview() {
         .eq("id", session.user.id)
         .single();
 
-      if (data && data.tutorial_seen === false) {
+      if (!data || !data.tutorial_seen) {
         setShowTutorial(true);
       }
     }
@@ -47,14 +48,26 @@ export default function DashboardOverview() {
   async function dismissTutorial() {
     setShowTutorial(false);
 
-    const token = await getAccessToken();
-    if (!token) return;
+    try {
+      const token = await getAccessToken();
+      if (!token) {
+        console.error("[tutorial] no access token");
+        return;
+      }
 
-    const API_URL = import.meta.env.VITE_API_URL;
-    await fetch(`${API_URL}/api/profile/tutorial-seen`, {
-      method: "PATCH",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+      const API_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_URL}/api/profile/tutorial-seen`, {
+        method: "PATCH",
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        console.error("[tutorial] PATCH failed:", res.status, body);
+      }
+    } catch (err) {
+      console.error("[tutorial] dismiss error:", err);
+    }
   }
 
   const loadStatus = async () => {
@@ -83,6 +96,8 @@ export default function DashboardOverview() {
   return (
     <div className="space-y-6">
       <WelcomeTutorialDialog open={showTutorial} onDismiss={dismissTutorial} />
+      <WelcomeSection />
+
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">
           {t("dashboard.overview.title")}

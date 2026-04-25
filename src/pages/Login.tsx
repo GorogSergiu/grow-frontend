@@ -120,7 +120,7 @@ export default function Login() {
 
             <p className="text-center text-sm text-muted-foreground">
               {t("auth.no_account")}{" "}
-              <Link to="/signup" className="text-brand-sky hover:underline">
+              <Link to="/select-plan" className="text-brand-sky hover:underline">
                 {t("auth.go_signup")}
               </Link>
             </p>

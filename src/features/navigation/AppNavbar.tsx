@@ -65,6 +65,15 @@ export function AppNavbar() {
             </NavLink>
 
             <NavLink
+              to="/dashboard/analytics"
+              className={({ isActive }) =>
+                [linkBase, isActive ? linkActive : ""].join(" ")
+              }
+            >
+              {t("app.nav.analytics")}
+            </NavLink>
+
+            <NavLink
               to="/dashboard/strategy"
               className={({ isActive }) =>
                 [linkBase, isActive ? linkActive : ""].join(" ")

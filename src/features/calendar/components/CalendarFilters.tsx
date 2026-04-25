@@ -1,5 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import type { ViewMode } from "@/types/calendar.types";
 import type { Platform } from "@/types/platform.types";
 
@@ -9,6 +14,7 @@ type Props = {
   viewMode: ViewMode;
   onViewModeChange: (v: ViewMode) => void;
   generating: boolean;
+  hasStrategy: boolean;
   onGenerate: () => void;
 };
 
@@ -18,6 +24,7 @@ export function CalendarFilters({
   viewMode,
   onViewModeChange,
   generating,
+  hasStrategy,
   onGenerate,
 }: Props) {
   const { t } = useTranslation();
@@ -60,15 +67,39 @@ export function CalendarFilters({
         </button>
       </div>
 
-      <Button
-        className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
-        onClick={onGenerate}
-        disabled={generating}
-      >
-        {generating
-          ? t("dashboard.strategy.generating")
-          : t("dashboard.calendar.generateAi")}
-      </Button>
+      {hasStrategy ? (
+        <Button
+          className="rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90"
+          onClick={onGenerate}
+          disabled={generating}
+        >
+          {generating
+            ? t("calendar.generating", { defaultValue: "Generating…" })
+            : t("calendar.generateContent", {
+                defaultValue: "Generate content",
+              })}
+        </Button>
+      ) : (
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <span>
+              <Button
+                className="rounded-full"
+                disabled
+              >
+                {t("calendar.generateContent", {
+                  defaultValue: "Generate content",
+                })}
+              </Button>
+            </span>
+          </TooltipTrigger>
+          <TooltipContent>
+            {t("calendar.needsStrategy", {
+              defaultValue: "Generate a strategy first on the Strategy page",
+            })}
+          </TooltipContent>
+        </Tooltip>
+      )}
     </div>
   );
 }

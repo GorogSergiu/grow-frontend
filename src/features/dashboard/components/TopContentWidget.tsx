@@ -5,8 +5,15 @@ import { useAuthFetch } from "@/hooks/use-auth-fetch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 import { fetchTopContent } from "@/api/analytics.api";
-import type { TopContentItem } from "@/api/analytics.api";
+import type { TopContentItem, TopContentSortBy } from "@/api/analytics.api";
 import type { Platform } from "@/types/platform.types";
 
 function fmt(n?: number | null) {
@@ -17,6 +24,12 @@ function fmt(n?: number | null) {
   return `${Math.round(n)}`;
 }
 
+const SORT_OPTIONS: { value: TopContentSortBy; icon: string }[] = [
+  { value: "views", icon: "▶" },
+  { value: "likes", icon: "♡" },
+  { value: "comments", icon: "💬" },
+];
+
 export function TopContentWidget({
   platform,
 }: {
@@ -26,6 +39,7 @@ export function TopContentWidget({
   const { getAccessToken } = useAuthFetch();
   const [loading, setLoading] = useState(true);
   const [items, setItems] = useState<TopContentItem[]>([]);
+  const [sortBy, setSortBy] = useState<TopContentSortBy>("views");
 
   useEffect(() => {
     let mounted = true;
@@ -36,7 +50,7 @@ export function TopContentWidget({
         const token = await getAccessToken();
         if (!token) return;
 
-        const data = await fetchTopContent(token, platform);
+        const data = await fetchTopContent(token, platform, 4, sortBy);
         if (mounted) setItems(data);
       } finally {
         if (mounted) setLoading(false);
@@ -47,14 +61,37 @@ export function TopContentWidget({
     return () => {
       mounted = false;
     };
-  }, [platform]);
+  }, [platform, sortBy]);
 
   const empty = useMemo(() => !loading && items.length === 0, [loading, items]);
 
+  const currentSort = SORT_OPTIONS.find((o) => o.value === sortBy)!;
+
   return (
     <Card className="border-0 surface-solid">
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0">
         <CardTitle>{t("dashboard.topContent.title")}</CardTitle>
+
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" size="sm" className="h-8 gap-1.5 rounded-full text-xs">
+              <span>{currentSort.icon}</span>
+              {t(`dashboard.topContent.sortBy.${sortBy}`, { defaultValue: sortBy })}
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {SORT_OPTIONS.map((option) => (
+              <DropdownMenuItem
+                key={option.value}
+                onClick={() => setSortBy(option.value)}
+                className={sortBy === option.value ? "font-medium" : ""}
+              >
+                <span className="mr-2">{option.icon}</span>
+                {t(`dashboard.topContent.sortBy.${option.value}`, { defaultValue: option.value })}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </CardHeader>
 
       <CardContent className="space-y-4">
@@ -90,9 +127,15 @@ export function TopContentWidget({
                   </div>
 
                   <div className="mt-1 flex items-center gap-4 text-sm text-muted-foreground">
-                    <span>▶ {fmt(it.views)}</span>
-                    <span>♡ {fmt(it.likes)}</span>
-                    <span>💬 {fmt(it.comments)}</span>
+                    <span className={sortBy === "views" ? "font-medium text-foreground" : ""}>
+                      ▶ {fmt(it.views)}
+                    </span>
+                    <span className={sortBy === "likes" ? "font-medium text-foreground" : ""}>
+                      ♡ {fmt(it.likes)}
+                    </span>
+                    <span className={sortBy === "comments" ? "font-medium text-foreground" : ""}>
+                      💬 {fmt(it.comments)}
+                    </span>
                   </div>
                 </div>
 

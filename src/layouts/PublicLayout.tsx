@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { PublicNavbar } from "@/features/navigation/PublicNavbar";
+import { PublicFooter } from "@/features/navigation/PublicFooter";
 
 export default function PublicLayout() {
   return (
@@ -12,6 +13,8 @@ export default function PublicLayout() {
       <main className="mx-auto max-w-6xl px-4">
         <Outlet />
       </main>
+
+      <PublicFooter />
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function FeaturesPage() {
       title: t("featuresPage.strategy.title", { defaultValue: "A full content strategy built around your profile" }),
       subtitle: t("featuresPage.strategy.subtitle", {
         defaultValue:
-          "Grow doesn't give you a generic strategy. It generates one based on your specific goals, audience, challenges, platforms, and content style — all collected during onboarding.",
+          "Sporly.ai doesn't give you a generic strategy. It generates one based on your specific goals, audience, challenges, platforms, and content style — all collected during onboarding.",
       }),
       bullets: [
         t("featuresPage.strategy.b1", { defaultValue: "Positioning statement — how to present yourself clearly online" }),
@@ -61,7 +61,7 @@ export default function FeaturesPage() {
       title: t("featuresPage.analytics.title", { defaultValue: "Real platform data in one place" }),
       subtitle: t("featuresPage.analytics.subtitle", {
         defaultValue:
-          "Connect Instagram, TikTok, and YouTube to pull your actual performance data into Grow. No more switching between platform apps to understand what's working.",
+          "Connect Instagram, TikTok, and YouTube to pull your actual performance data into Sporly.ai. No more switching between platform apps to understand what's working.",
       }),
       bullets: [
         t("featuresPage.analytics.b1", { defaultValue: "Total and average views per post" }),
@@ -107,7 +107,7 @@ export default function FeaturesPage() {
       title: t("featuresPage.onboarding.title", { defaultValue: "Built for creators and businesses — two separate profiles" }),
       subtitle: t("featuresPage.onboarding.subtitle", {
         defaultValue:
-          "Grow adapts to your profile type. Whether you're a content creator growing an audience or a business owner generating leads, the onboarding collects exactly what each profile needs.",
+          "Sporly.ai adapts to your profile type. Whether you're a content creator growing an audience or a business owner generating leads, the onboarding collects exactly what each profile needs.",
       }),
       bullets: [
         t("featuresPage.onboarding.b1", { defaultValue: "Creator profile — goals, challenges, audience, content style, voice, platforms, and posting habits" }),
@@ -130,19 +130,19 @@ export default function FeaturesPage() {
       title: t("featuresPage.integrations.title", { defaultValue: "Connect Instagram, TikTok, and YouTube" }),
       subtitle: t("featuresPage.integrations.subtitle", {
         defaultValue:
-          "Grow connects to your social platforms via official APIs. Authorization is secure, read-only, and takes less than a minute per platform.",
+          "Sporly.ai connects to your social platforms via official APIs. Authorization is secure, read-only, and takes less than a minute per platform.",
       }),
       bullets: [
         t("featuresPage.integrations.b1", { defaultValue: "Instagram — connect your business or creator account via Meta" }),
         t("featuresPage.integrations.b2", { defaultValue: "TikTok — authorize access to your TikTok content and stats" }),
         t("featuresPage.integrations.b3", { defaultValue: "YouTube — connect your channel via Google OAuth" }),
-        t("featuresPage.integrations.b4", { defaultValue: "Read-only access — Grow never posts, edits, or deletes content on your behalf" }),
+        t("featuresPage.integrations.b4", { defaultValue: "Read-only access — Sporly.ai never posts, edits, or deletes content on your behalf" }),
         t("featuresPage.integrations.b5", { defaultValue: "Multi-platform — all three can be connected simultaneously" }),
         t("featuresPage.integrations.b6", { defaultValue: "Manual sync — you decide when to refresh your data" }),
       ],
       note: t("featuresPage.integrations.note", {
         defaultValue:
-          "You can use Grow without connecting any platforms — strategy and calendar work independently. But analytics and top content require at least one connection.",
+          "You can use Sporly.ai without connecting any platforms — strategy and calendar work independently. But analytics and top content require at least one connection.",
       }),
     },
   ];
@@ -176,7 +176,7 @@ export default function FeaturesPage() {
             <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-sky" />
           </span>
           <span className="text-muted-foreground">
-            {t("featuresPage.badge", { defaultValue: "Everything Grow can do" })}
+            {t("featuresPage.badge", { defaultValue: "Everything Sporly.ai can do" })}
           </span>
         </motion.div>
 
@@ -200,7 +200,7 @@ export default function FeaturesPage() {
         >
           {t("featuresPage.heroSubtitle", {
             defaultValue:
-              "Grow is a strategy and content system for creators and businesses. Here's a detailed look at each feature and what it actually does.",
+              "Sporly.ai is a strategy and content system for creators and businesses. Here's a detailed look at each feature and what it actually does.",
           })}
         </motion.p>
 
@@ -215,7 +215,7 @@ export default function FeaturesPage() {
             asChild
             className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
           >
-            <Link to="/signup" className="flex items-center gap-2">
+            <Link to="/select-plan" className="flex items-center gap-2">
               {t("featuresPage.heroCta", { defaultValue: "Get started for free" })}
               <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
             </Link>
@@ -419,7 +419,7 @@ export default function FeaturesPage() {
               asChild
               className="group rounded-full bg-brand-warm text-brand-warm-foreground hover:opacity-90 shadow-lg shadow-brand-warm/20 transition-shadow hover:shadow-xl hover:shadow-brand-warm/30"
             >
-              <Link to="/signup" className="flex items-center gap-2">
+              <Link to="/select-plan" className="flex items-center gap-2">
                 {t("featuresPage.ctaButton", { defaultValue: "Create your account" })}
                 <ArrowRight width={16} height={16} className="transition-transform group-hover:translate-x-0.5" />
               </Link>

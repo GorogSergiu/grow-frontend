@@ -7,6 +7,16 @@
     "start": "Start now"
   },
 
+  "footer": {
+    "tagline": "AI-powered content strategy for creators and businesses. Plan smarter, grow faster.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "rights": "All rights reserved.",
+    "status": "All systems operational"
+  },
+
   "hero": {
     "badge": "AI strategy for content creators",
     "title_line_1": "Clarity, consistency",
@@ -143,15 +153,16 @@
     "features": {
       "strategy": "AI-generated strategy",
       "calendar": "Content calendar planning",
+      "contentGenBasic": "AI content generation — 1 or 3 months",
       "inspo": "Inspo links and images for posts",
       "onboarding": "Creator or business onboarding",
-      "organization": "Manual content organization",
 
-      "insights": "Connected social media insights",
-      "topContent": "Top-performing content overview",
-      "dataStrategy": "Strategy based on real platform data",
-      "aiCalendar": "AI-generated calendar suggestions",
-      "workflow": "Faster workflow from insight to execution"
+      "unlimitedStrategy": "Unlimited AI strategy generation",
+      "contentGenFull": "AI content generation — all periods + custom",
+      "quickIdea": "Quick Idea — AI-generated content ideas",
+      "videoAnalysis": "AI video performance analysis",
+      "insights": "Social media insights",
+      "workflow": "Full workflow — strategy to execution"
     }
   },
 
@@ -218,7 +229,8 @@
       "logout": "Logout",
       "account": "Account",
       "workspace": "Your workspace",
-      "howItWorks": "How it works"
+      "howItWorks": "How it works",
+      "analytics": "Analytics"
     }
   },
 
@@ -245,7 +257,13 @@
         "status": "Status",
         "pillar": "Content pillar",
         "pillarPlaceholder": "e.g. Tips & How-Tos",
-        "scheduledDate": "Scheduled date"
+        "scheduledDate": "Scheduled date",
+        "hookPlaceholder": "What grabs the viewer's attention?",
+        "description": "Description",
+        "descriptionPlaceholder": "Notes, script outline, key points…",
+        "inspoLinks": "Links",
+        "inspoImages": "Images",
+        "dropImage": "Click to upload an image"
       },
       "status": {
         "idea": "Idea",
@@ -277,10 +295,25 @@
       "ideas": "Ideas",
       "emptyIdeas": "No ideas yet.",
 
-      "create": "Create item",
+      "create": "New content",
+      "createDesc": "Fill in the details for your new content idea.",
       "edit": "Edit item",
+      "editDesc": "Update your content details below.",
 
-      "more": "+{{n}} more"
+      "more": "+{{n}} more",
+
+      "quickIdea": "Quick Idea",
+      "quickIdeaTitle": "Generate a video idea",
+      "quickIdeaDesc": "Describe what you want or leave empty for a surprise.",
+      "quickIdeaPlaceholder": "e.g. \"morning routine vlog\", \"trending recipe\", \"tutorial about...\"",
+      "quickIdeaDate": "Schedule for",
+      "quickIdeaNoDate": "No date selected — will be saved as an idea.",
+      "generateIdea": "Generate ✨",
+
+      "ideasBoard": "Ideas",
+      "ideasBoardDesc": "Your content backlog. Jot down ideas and schedule them later.",
+      "noSearchResults": "No ideas match your search.",
+      "addFirstIdea": "Add your first idea"
     },
 
     "strategy": {
@@ -321,7 +354,13 @@
       "empty": "No content yet. Sync YouTube to populate this list.",
       "emptyInstagram": "No content yet. Sync Instagram to populate this list.",
 
-      "untitled": "Untitled"
+      "untitled": "Untitled",
+
+      "sortBy": {
+        "views": "Views",
+        "likes": "Likes",
+        "comments": "Comments"
+      }
     },
 
     "calendarPreview": {
@@ -579,8 +618,71 @@
       "connectTiktok": "Connect TikTok",
       "syncTiktok": "Sync TikTok",
       "tiktokConnectedHint": "TikTok is connected. You can sync your latest posts.",
-      "tiktokNotConnectedHint": "Connect TikTok to populate analytics and top content."
+      "tiktokNotConnectedHint": "Connect TikTok to populate analytics and top content.",
+      "autoSyncing": "Syncing your data… This may take a moment."
     }
+  },
+
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Deep dive into your content performance across all platforms.",
+    "totalContent": "Total content",
+    "totalViews": "Total views",
+    "totalLikes": "Total likes",
+    "totalComments": "Total comments",
+    "totalEngagement": "Total engagement",
+    "platformComparison": "Platform comparison",
+    "platformBreakdown": "Platform breakdown",
+    "content": "Content",
+    "avgViews": "Avg views",
+    "engagementRate": "Engagement rate",
+    "contentPerformance": "Content performance",
+    "all": "All",
+    "searchContent": "Search content…",
+    "noContent": "No content found.",
+    "showingCount": "Showing {{count}} items",
+    "untitled": "Untitled",
+    "topByViews": "Top by views",
+    "topByEngagement": "Top by engagement",
+    "table": {
+      "content": "Content",
+      "platform": "Platform",
+      "date": "Date",
+      "views": "Views",
+      "likes": "Likes",
+      "comments": "Comments"
+    }
+  },
+
+  "analysis": {
+    "title": "Performance Analysis",
+    "analyze": "Analyze",
+    "start": "Analyze performance",
+    "description": "AI will analyze this video's performance, identify strengths and weaknesses, and suggest improvements.",
+    "youtubeNote": "YouTube captions will be used for deeper analysis.",
+    "noTranscriptNote": "Analysis based on metadata and metrics (no transcript available).",
+    "stepTranscript": "Fetching transcript…",
+    "stepAnalyzing": "AI is analyzing…",
+    "stepDone": "Analysis complete",
+    "stepFailed": "Analysis failed",
+    "retry": "Try again",
+    "reanalyze": "Run new analysis",
+    "summary": "Summary",
+    "strengths": "Strengths",
+    "weaknesses": "Weaknesses",
+    "suggestions": "Suggestions",
+    "hookScore": "Hook",
+    "retentionScore": "Retention",
+    "engagementScore": "Engagement",
+    "scores": "Scores",
+    "idleTitle": "Ready to analyze",
+    "transcriptSource": "Transcript source",
+    "instagramNote": "Audio will be automatically extracted and transcribed.",
+    "tiktokNote": "Upload the video or audio file for transcript-based analysis, or analyze without transcript.",
+    "stepUpload": "Upload",
+    "uploadFile": "Upload audio or video file",
+    "uploadHint": "Max 50 MB • optional",
+    "tapToChange": "tap to change"
   },
 
   "common": {
@@ -590,19 +692,20 @@
     "save": "Save",
     "prev": "Prev",
     "next": "Next",
-    "optional": "optional"
+    "optional": "optional",
+    "clear": "Clear"
   },
 
   "howItWorksPage": {
     "title": "How it works",
-    "subtitle": "A detailed guide to every feature in Grow — from connecting your platforms to reading your analytics.",
+    "subtitle": "A detailed guide to every feature in Sporly.ai — from connecting your platforms to reading your analytics.",
     "tip": "Tip:",
     "connect": {
       "title": "Connect your platforms",
       "subtitle": "Connecting your social accounts is the first step. It unlocks real analytics and makes your strategy much more accurate.",
       "step1": { "title": "Go to Settings", "desc": "Click on your account name in the top-right corner and select Settings. You'll find the integrations section there." },
       "step2": { "title": "Choose a platform", "desc": "Select Instagram, TikTok, or YouTube and click Connect. You'll be redirected to the platform's authorization page." },
-      "step3": { "title": "Authorize access", "desc": "Log in with your account and grant the required permissions. Grow only reads your public content and analytics — it never posts on your behalf." },
+      "step3": { "title": "Authorize access", "desc": "Log in with your account and grant the required permissions. Sporly.ai only reads your public content and analytics — it never posts on your behalf." },
       "step4": { "title": "Sync your data", "desc": "After connecting, click Sync Now to pull in your latest posts and metrics. You can sync again at any time to refresh the data." },
       "tip": "You can connect all three platforms at once. The Dashboard lets you switch between them to compare performance.",
       "cta": "Go to Settings"
@@ -612,7 +715,7 @@
       "subtitle": "Your strategy is built by AI using the profile you filled in during onboarding. The more detailed your profile, the more tailored the output.",
       "step1": { "title": "Open the Strategy tab", "desc": "Click on Strategy in the navigation bar. If you haven't generated one yet, the page will be empty with a Generate button." },
       "step2": { "title": "Choose a period", "desc": "Select 1, 3, or 6 months as a preset, or pick a custom date range. The period defines how far ahead your strategy will plan." },
-      "step3": { "title": "Handle overlaps", "desc": "If you already have a strategy for a period that overlaps, Grow will warn you and ask if you want to overwrite it. You can always keep the existing one." },
+      "step3": { "title": "Handle overlaps", "desc": "If you already have a strategy for a period that overlaps, Sporly.ai will warn you and ask if you want to overwrite it. You can always keep the existing one." },
       "step4": { "title": "Read your strategy", "desc": "Your strategy includes a summary, positioning statement, core objectives, content pillars with formats, platform-specific direction, growth moves, and a 30-day focus plan." },
       "step5": { "title": "Regenerate when needed", "desc": "Goals change. Regenerate your strategy at any time — for a new period or to refresh your direction. Each generation uses your latest onboarding data." },
       "tip": "For the best results, make sure your onboarding profile is detailed and up to date. Strategy quality is directly tied to the quality of your profile.",
@@ -643,16 +746,16 @@
   },
 
   "tutorial": {
-    "title": "Welcome to Grow 👋",
+    "title": "Welcome to Sporly.ai 👋",
     "subtitle": "Here's a quick overview of everything you can do.",
     "cta": "Got it, let's go!",
     "step0": {
-      "title": "Welcome to Grow!",
-      "desc": "Grow is your all-in-one content strategy platform. It helps you plan, create, and track content across Instagram, TikTok, and YouTube — powered by AI that understands your goals and audience.\n\nThis short guide will walk you through the 4 main things you can do. It only takes a minute."
+      "title": "Welcome to Sporly.ai!",
+      "desc": "Sporly.ai is your all-in-one content strategy platform. It helps you plan, create, and track content across Instagram, TikTok, and YouTube — powered by AI that understands your goals and audience.\n\nThis short guide will walk you through the 4 main things you can do. It only takes a minute."
     },
     "step1": {
       "title": "Connect your platforms",
-      "desc": "Start by heading to Settings and connecting your social accounts. Grow supports Instagram, TikTok, and YouTube.\n\nOnce connected, Grow can pull your real analytics — views, likes, comments, and your top-performing content — directly into your Dashboard. You can connect multiple platforms and switch between them at any time."
+      "desc": "Start by heading to Settings and connecting your social accounts. Sporly.ai supports Instagram, TikTok, and YouTube.\n\nOnce connected, Sporly.ai can pull your real analytics — views, likes, comments, and your top-performing content — directly into your Dashboard. You can connect multiple platforms and switch between them at any time."
     },
     "step2": {
       "title": "Generate your content strategy",
@@ -669,9 +772,9 @@
   },
 
   "featuresPage": {
-    "badge": "Everything Grow can do",
+    "badge": "Everything Sporly.ai can do",
     "heroTitle": "Every feature, explained",
-    "heroSubtitle": "Grow is a strategy and content system for creators and businesses. Here's a detailed look at each feature and what it actually does.",
+    "heroSubtitle": "Sporly.ai is a strategy and content system for creators and businesses. Here's a detailed look at each feature and what it actually does.",
     "heroCta": "Get started for free",
     "heroCtaSecondary": "Sign in",
     "ctaLabel": "Ready to start?",
@@ -681,7 +784,7 @@
     "strategy": {
       "label": "AI Strategy",
       "title": "A full content strategy built around your profile",
-      "subtitle": "Grow doesn't give you a generic strategy. It generates one based on your specific goals, audience, challenges, platforms, and content style — all collected during onboarding.",
+      "subtitle": "Sporly.ai doesn't give you a generic strategy. It generates one based on your specific goals, audience, challenges, platforms, and content style — all collected during onboarding.",
       "b1": "Positioning statement — how to present yourself clearly online",
       "b2": "Core objectives — 3–5 specific goals aligned to your period",
       "b3": "Content pillars — recurring themes with recommended formats per pillar",
@@ -693,7 +796,7 @@
     "analytics": {
       "label": "Analytics",
       "title": "Real platform data in one place",
-      "subtitle": "Connect Instagram, TikTok, and YouTube to pull your actual performance data into Grow. No more switching between platform apps to understand what's working.",
+      "subtitle": "Connect Instagram, TikTok, and YouTube to pull your actual performance data into Sporly.ai. No more switching between platform apps to understand what's working.",
       "b1": "Total and average views per post",
       "b2": "Engagement rate and total engagement across posts",
       "b3": "Total likes and comments",
@@ -717,7 +820,7 @@
     "onboarding": {
       "label": "Onboarding",
       "title": "Built for creators and businesses — two separate profiles",
-      "subtitle": "Grow adapts to your profile type. Whether you're a content creator growing an audience or a business owner generating leads, the onboarding collects exactly what each profile needs.",
+      "subtitle": "Sporly.ai adapts to your profile type. Whether you're a content creator growing an audience or a business owner generating leads, the onboarding collects exactly what each profile needs.",
       "b1": "Creator profile — goals, challenges, audience, content style, voice, platforms, and posting habits",
       "b2": "Business profile — industry, products, social goals, KPIs, ideal customer, and budget",
       "b3": "Structured audience builder — age range, gender, location, interests, and pain points",
@@ -729,14 +832,14 @@
     "integrations": {
       "label": "Integrations",
       "title": "Connect Instagram, TikTok, and YouTube",
-      "subtitle": "Grow connects to your social platforms via official APIs. Authorization is secure, read-only, and takes less than a minute per platform.",
+      "subtitle": "Sporly.ai connects to your social platforms via official APIs. Authorization is secure, read-only, and takes less than a minute per platform.",
       "b1": "Instagram — connect your business or creator account via Meta",
       "b2": "TikTok — authorize access to your TikTok content and stats",
       "b3": "YouTube — connect your channel via Google OAuth",
-      "b4": "Read-only access — Grow never posts, edits, or deletes content on your behalf",
+      "b4": "Read-only access — Sporly.ai never posts, edits, or deletes content on your behalf",
       "b5": "Multi-platform — all three can be connected simultaneously",
       "b6": "Manual sync — you decide when to refresh your data",
-      "note": "You can use Grow without connecting any platforms — strategy and calendar work independently. But analytics and top content require at least one connection."
+      "note": "You can use Sporly.ai without connecting any platforms — strategy and calendar work independently. But analytics and top content require at least one connection."
     }
   },
 
@@ -763,15 +866,16 @@
       "label": "Starter",
       "positioning": "Structure your content",
       "cta": "Get started",
-      "f1": "1 AI strategy per month",
-      "f2": "Content calendar — manual + basic AI",
-      "f3": "Inspo board — links and images",
-      "f4": "Creator and business onboarding",
-      "f5": "Content organization",
-      "l1": "No social media insights",
-      "l2": "No top content analysis",
-      "l3": "No advanced AI regeneration",
-      "l4": "Max ~30 AI-generated calendar items / month"
+      "f1": "AI strategy generation",
+      "f2": "Content calendar — manual planning",
+      "f3": "AI content generation — 1 or 3 months",
+      "f4": "Social media insights — Instagram, TikTok, YouTube",
+      "f5": "Inspo board — links and images",
+      "f6": "Creator and business onboarding",
+      "l1": "No Quick Idea AI generation",
+      "l2": "No custom date ranges for content",
+      "l3": "No AI video performance analysis",
+      "l4": "No unlimited strategy regeneration"
     },
     "pro": {
       "label": "Pro",
@@ -779,23 +883,88 @@
       "positioning": "Grow using data",
       "cta": "Start free trial",
       "f1": "Unlimited AI strategy generation",
-      "f2": "Social media insights — Instagram, TikTok, YouTube",
-      "f3": "Top performing content analysis",
-      "f4": "Advanced AI calendar generation",
-      "f5": "Regenerate strategy with custom periods",
+      "f2": "AI content generation — all periods + custom ranges",
+      "f3": "Quick Idea — AI-generated content ideas",
+      "f4": "AI video performance analysis",
+      "f5": "Social media insights — Instagram, TikTok, YouTube",
       "f6": "Full workflow — strategy to execution",
       "fairUsage": "Fair usage applies. No hard limits during early access — we'll communicate clearly before any limits change."
     },
     "compare": {
       "strategy": "AI strategy generation",
       "calendar": "Content calendar",
+      "insights": "Social media insights",
       "inspo": "Inspo board",
       "onboarding": "Creator & business onboarding",
-      "insights": "Social media insights",
-      "topContent": "Top content analysis",
-      "advancedAI": "Advanced AI calendar generation",
-      "customPeriods": "Custom strategy periods",
+      "contentGen": "AI content generation",
+      "customPeriods": "Custom content period ranges",
+      "quickIdea": "Quick Idea AI generation",
+      "videoAnalysis": "AI video performance analysis",
       "unlimited": "Unlimited AI strategies"
+    }
+  },
+
+  "calendar": {
+    "generateContent": "Generate content",
+    "generating": "Generating…",
+    "needsStrategy": "Generate a strategy first on the Strategy page"
+  },
+
+  "strategy": {
+    "regenerate": "Regenerate strategy",
+    "confirmTitle": "Generate your strategy?",
+    "confirmDesc": "We'll analyze your profile and connected platforms to build a personalized content strategy.",
+    "confirmDescRegenerate": "This will create a new strategy based on your profile and connected platforms. Your current strategy will be replaced.",
+    "confirmButton": "Yes, generate"
+  },
+
+  "selectPlan": {
+    "title": "Choose your plan",
+    "subtitle": "You'll get 7 days of Pro access free, then your selected plan starts.",
+    "select": "Select"
+  },
+
+  "generatePeriod": {
+    "title": "Select content period",
+    "desc": "Choose how far ahead you want to generate content.",
+    "1month": "1 month",
+    "3months": "3 months",
+    "6months": "6 months",
+    "custom": "Custom range",
+    "selected": "Selected period:",
+    "customIncomplete": "Custom range not complete",
+    "selectCustom": "Select a custom range",
+    "selectedRange": "Selected range:",
+    "selectBothDates": "Please select both a start and end date.",
+    "continue": "Continue"
+  },
+
+  "overlap": {
+    "title": "Overlapping content period",
+    "desc": "Part of this period overlaps with content that was already generated.",
+    "range": "The generated content from {{start}} to {{end}} will be replaced.",
+    "confirm": "Continue anyway"
+  },
+
+  "welcome": {
+    "greeting": "Welcome to Sporly.ai!",
+    "greetingName": "Welcome, {{name}}!",
+    "subtitle": "Complete these steps to get the most out of your experience.",
+    "progress": "{{done}} of {{total}} completed",
+    "step1": {
+      "title": "Connect a platform",
+      "desc": "Link Instagram, TikTok, or YouTube to pull in your real data.",
+      "cta": "Go to Settings"
+    },
+    "step2": {
+      "title": "Generate your strategy",
+      "desc": "AI builds a personalized content strategy from your profile.",
+      "cta": "Go to Strategy"
+    },
+    "step3": {
+      "title": "Plan your content",
+      "desc": "Generate AI content or manually schedule posts on the calendar.",
+      "cta": "Go to Calendar"
     }
   }
 }

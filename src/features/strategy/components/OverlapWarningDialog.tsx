@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Dialog,
   DialogContent,
@@ -23,30 +24,29 @@ export function OverlapWarningDialog({
   generating,
   onConfirm,
 }: Props) {
+  const { t } = useTranslation();
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="surface-solid border-0 sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Overlapping strategy period</DialogTitle>
+          <DialogTitle>
+            {t("overlap.title", { defaultValue: "Overlapping content period" })}
+          </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground">
-            Part of this new strategy overlaps with content that was already
-            generated.
+            {t("overlap.desc", { defaultValue: "Part of this period overlaps with content that was already generated." })}
           </p>
 
           {overlapStart && overlapEnd ? (
             <div className="rounded-2xl border border-border bg-background/40 p-4 text-sm text-muted-foreground">
-              The generated content from{" "}
-              <span className="font-medium text-foreground">
-                {overlapStart}
-              </span>{" "}
-              to{" "}
-              <span className="font-medium text-foreground">
-                {overlapEnd}
-              </span>{" "}
-              will be replaced.
+              {t("overlap.range", {
+                defaultValue: "The generated content from {{start}} to {{end}} will be replaced.",
+                start: overlapStart,
+                end: overlapEnd,
+              })}
             </div>
           ) : null}
 
@@ -56,7 +56,7 @@ export function OverlapWarningDialog({
               onClick={() => onOpenChange(false)}
               disabled={generating}
             >
-              Cancel
+              {t("common.cancel", { defaultValue: "Cancel" })}
             </Button>
 
             <Button
@@ -64,7 +64,9 @@ export function OverlapWarningDialog({
               disabled={generating}
               onClick={onConfirm}
             >
-              {generating ? "Generating…" : "Continue anyway"}
+              {generating
+                ? t("calendar.generating", { defaultValue: "Generating…" })
+                : t("overlap.confirm", { defaultValue: "Continue anyway" })}
             </Button>
           </div>
         </div>
